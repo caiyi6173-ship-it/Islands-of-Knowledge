@@ -1,0 +1,1743 @@
+/* Blue Horizon: adapted from the user's 知乎/网页/oauth/oauth.css homepage. */
+:root {
+  --paper: #f8faff;
+  --paper-light: #ffffff;
+  --ink: #202c48;
+  --muted: #697891;
+  --gold: #4568ed;
+  --line: #e2e9f4;
+  --blue: #4568ed;
+  --purple: #7383cf;
+  --green: #398cbd;
+  --display: "DengXian", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --serif: var(--display);
+  --sans:
+    "Segoe UI Variable Text", "Microsoft YaHei UI", "PingFang SC", sans-serif;
+  --shadow: 0 12px 44px -18px #31529430;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+body {
+  background: #f8faff;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection {
+  background: #dce6ff;
+  color: #214ba7;
+}
+:where(button:hover:not(:disabled)) {
+  color: var(--blue);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+.paper {
+  background: #ffffffed;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+.paper:before {
+  display: none;
+}
+.eyebrow,
+.modal-eyebrow {
+  color: #7188b4;
+  letter-spacing: 0.14em;
+  font-weight: 400;
+}
+.topbar {
+  background: #ffffffee;
+  border-bottom: 1px solid #e7edf8;
+  box-shadow: none;
+  backdrop-filter: blur(22px);
+}
+.brand {
+  gap: 12px;
+  color: var(--blue);
+}
+.brand-compass {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 14px 14px 14px 5px;
+  background: var(--blue);
+  color: #fff;
+  font: 38px/1 var(--display);
+  text-shadow: none;
+  box-shadow: 0 6px 18px #4568ed20;
+}
+.brand strong {
+  font: 650 22px/1.3 var(--display);
+  letter-spacing: 0.08em;
+}
+.brand small {
+  font-size: 7px;
+  letter-spacing: 0.13em;
+  color: #8a9bb7;
+  margin-top: 4px;
+}
+.subjects {
+  border: 1px solid #e4eafa;
+  background: #f4f7fe;
+  border-radius: 999px;
+  padding: 5px;
+  gap: 4px;
+}
+.subjects button {
+  color: #657692;
+  border-radius: 999px;
+  min-height: 34px;
+}
+.subjects button.active {
+  background: #fff;
+  color: var(--blue);
+  box-shadow: 0 2px 8px #4568ed10;
+}
+.subject-dot.physics {
+  background: #4568ed;
+}
+.subject-dot.maths {
+  background: #8291da;
+}
+.subject-dot.chemistry {
+  background: #4294bf;
+}
+.icon-button,
+.journal-button {
+  color: #617394;
+  border-color: #e2e9f4;
+}
+.journal-button {
+  border-radius: 11px;
+  background: #f4f7fe;
+}
+.journal-button b {
+  background: #e9efff;
+  color: var(--blue);
+}
+.header-divider {
+  background: #e2e9f4;
+}
+.bottom-bar {
+  background: #fff;
+  border-color: #e2e9f4;
+  color: #8191aa;
+}
+.bottom-bar > span:first-child {
+  color: #7e8eaa;
+}
+.bottom-bar > button {
+  color: #657692;
+}
+.progress-track {
+  background: #e8eefb;
+}
+.progress-fill,
+#progress-fill {
+  background: linear-gradient(90deg, #7699f6, #4568ed);
+}
+.map-stage {
+  background: linear-gradient(180deg, #f5f8ff, #e9f1ff);
+}
+.horizon-defs {
+  position: absolute;
+  pointer-events: none;
+}
+.blue-horizon-field {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+  color: #7699e8;
+  background: radial-gradient(ellipse at 24% 16%, #b7ccfa20, transparent 48%);
+}
+.blue-horizon-field > svg {
+  width: 100%;
+  height: 100%;
+  min-width: 1000px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.blue-horizon-field svg > g:first-child {
+  stroke-width: 0.9;
+  opacity: 0.13;
+}
+.blue-horizon-field svg > g:nth-child(2) {
+  opacity: 0.4;
+}
+.blue-horizon-field svg > g:last-child {
+  opacity: 0.18;
+}
+.world-art,
+.world.relations-on .world-art,
+.world.history-mode .world-art {
+}
+.world:after {
+  background: linear-gradient(180deg, #f5f8ff25, transparent 36%, #dfeaff0a);
+}
+.world.relations-on .world-art {
+  opacity: 0.76;
+}
+.island-name,
+.region-label,
+.chapter-heading,
+.map-intro,
+.discovery-note {
+  text-shadow: none;
+}
+.map-stage[data-layer="world"] .map-intro {
+  display: block;
+  left: calc(50% - 35px);
+  top: 104px;
+  width: 650px;
+  max-width: calc(100% - 400px);
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 7;
+  pointer-events: none;
+}
+.map-intro .eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+  margin-bottom: 19px;
+}
+.map-intro .eyebrow > i {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 5px #4568ed0a;
+}
+.map-intro h1 {
+  font: 500 clamp(32px, 3.4vw, 52px)/1.3 var(--display);
+  color: #202c48;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+.map-stage .map-intro h1,
+.map-stage .map-intro > p {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+}
+.map-stage .map-intro > p {
+  margin-top: 16px;
+}
+.map-intro:after {
+  display: none;
+}
+.map-intro h1 br {
+  display: none;
+}
+.map-intro h1 em {
+  color: var(--blue);
+  font-style: normal;
+}
+.map-intro > p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #697891;
+  margin-top: 16px;
+  letter-spacing: 0.02em;
+}
+.horizon-disciplines {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #627693;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  margin-top: 17px;
+}
+.horizon-disciplines > i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #b8c8e9;
+}
+.horizon-disciplines small {
+  font-size: 9px;
+  color: #8b9bb4;
+  border-left: 1px solid #ccd9f0;
+  padding-left: 12px;
+}
+.horizon-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  pointer-events: auto;
+  min-height: 52px;
+  min-width: 210px;
+  margin-top: 25px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5a7df5, #3a5ad8 55%, #3350cd);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid #ffffff26;
+  box-shadow: 0 16px 36px -18px #3350cdb0;
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s;
+}
+.horizon-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px -18px #3350cdd0;
+}
+.horizon-start > span {
+  font-size: 17px;
+}
+.perspective-switch,
+.map-view-switch,
+.paper-tool {
+  background: #ffffffed;
+  border: 1px solid #e0e8f8;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px #3d68c40b;
+}
+.perspective-switch button,
+.map-view-switch button,
+.paper-tool {
+  color: #6b7e9d;
+}
+.perspective-switch button.active,
+.map-view-switch button.active {
+  background: #edf2ff;
+  color: var(--blue);
+  border-radius: 8px;
+}
+.perspective-divider {
+  color: #c4d0e5;
+}
+.paper-tool[aria-pressed="true"] {
+  color: var(--blue);
+  border-color: #bfcef8;
+  background: #f0f4ff;
+}
+.toggle-indicator {
+  background: #d4def1;
+}
+.toggle-indicator:after {
+  background: #fff;
+}
+.fog-toggle[aria-pressed="true"] .toggle-indicator {
+  background: #4568ed;
+}
+.map-stage[data-layer="world"] .discovery-note {
+  color: #6d84aa;
+  top: 84px;
+  left: 36px;
+  font-size: 10px;
+}
+.discovery-note {
+  color: #6d84aa;
+}
+.discovery-dot {
+  background: #7fa3ed;
+  box-shadow: 0 0 0 4px #dbe7ff80;
+}
+.chapter-heading h1 {
+  font-weight: 550;
+  color: #253f6c;
+  letter-spacing: 0.08em;
+}
+.chapter-heading h1 span {
+  color: #7189b1;
+  letter-spacing: 0.06em;
+}
+.chapter-heading > span,
+.chapter-heading p {
+  color: #6d84a8;
+}
+.region-label h2 {
+  color: #6f8db8;
+  font-weight: 500;
+  text-shadow: 0 2px 5px #ffffffa0;
+}
+.region-label > span {
+  color: #7896bf;
+}
+.harbor-label {
+  color: #f7faff;
+  text-shadow: 0 2px 8px #31558b66;
+}
+.portal-emblem,
+.island-portal.uncharted .portal-emblem {
+  width: 64px;
+  height: 64px;
+  border: 2px solid #fff;
+  background: #4568ed;
+  color: #fff;
+  box-shadow:
+    0 0 0 7px #ffffff4d,
+    0 10px 26px #315dd23b;
+}
+.island-portal.uncharted .portal-emblem {
+  background: #ecf2ff;
+  color: #6c89b7;
+  box-shadow:
+    0 0 0 6px #ffffff4d,
+    0 7px 19px #3a65bc20;
+}
+.island-portal:hover .portal-emblem {
+  box-shadow:
+    0 0 0 10px #4568ed12,
+    0 12px 28px #4568ed30;
+}
+.island-portal {
+  filter: drop-shadow(0 2px 6px #4264ac10);
+}
+.portal-name,
+.island-portal.uncharted .portal-name {
+  background: #ffffffed;
+  border: 1px solid #dce6f7;
+  border-radius: 14px;
+  box-shadow: 0 8px 26px -12px #31529430;
+  padding: 10px 20px 11px;
+}
+.portal-name strong,
+.island-portal.uncharted .portal-name strong {
+  font: 550 23px/1.5 var(--display);
+  letter-spacing: 0.15em;
+  color: #2e4872;
+}
+.portal-name small,
+.portal-name > span {
+  color: #7d91b0;
+  letter-spacing: 0.08em;
+}
+.portal-name > span {
+  color: var(--blue);
+}
+.map-node .node-label,
+.map-node.experiment .node-label,
+.map-node.unknown .node-label,
+.map-node.island-landmark .node-label {
+  background: #ffffffed;
+  border-color: #cad8f1;
+  color: #405c89;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px #3a65bc12;
+}
+.map-node .node-pin {
+  border-color: #f8fbff;
+  box-shadow: 0 2px 10px #4568ed20;
+}
+.map-node.selected .node-pin {
+  box-shadow:
+    0 0 0 7px #4568ed20,
+    0 0 24px #6f9bfa66;
+}
+.map-node.visited:after {
+  background: #4568ed;
+}
+.story-map-art {
+  filter: drop-shadow(0 4px 5px #355a9b20);
+}
+.story-map-seal {
+  border-color: #b8caf2;
+  background: #f8fbff;
+  color: #4568ed;
+  font-family: var(--sans);
+}
+.story-map-person {
+  color: #7d91b0;
+}
+.map-node.level-cleared .story-map-seal {
+  background: #4568ed;
+  color: #fff;
+  border-color: #fff;
+}
+.relation-path {
+  stroke: #7a9eed;
+  filter: drop-shadow(0 1px 3px #4568ed33);
+}
+.relation-path.route-path {
+  stroke: #4568ed;
+}
+.edge-label {
+  fill: #4568ed;
+  stroke: #f6f9ffe6;
+  stroke-width: 6px;
+  letter-spacing: 0.03em;
+}
+.exploration-trail {
+  stroke: #ffffffc9;
+}
+.map-hint,
+.map-stage[data-layer="world"] .map-hint {
+  color: #7891b7;
+}
+.quest-card {
+  background: #fff;
+  border-color: #dce6f7;
+  border-radius: 17px;
+  box-shadow: 0 8px 32px -18px #31529455;
+}
+.quest-emblem {
+  border-color: #d7e3fc;
+  background: #f1f5ff;
+  color: var(--blue);
+  border-radius: 13px;
+}
+.quest-card h3 {
+  color: #2d4267;
+  font-weight: 550;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+.quest-card p {
+  color: #8291ab;
+}
+.quest-card > button {
+  background: #eef3ff;
+  color: var(--blue);
+  border-radius: 50%;
+}
+.quest-card .eyebrow {
+  color: #8296b8;
+  letter-spacing: 0.08em;
+}
+.navigation-tools .compass-reset {
+  color: #5f82bc;
+  text-shadow: none;
+}
+.zoom-controls {
+  background: #fff;
+  border-color: #dce6f7;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px #4568ed12;
+}
+.zoom-controls button,
+.zoom-controls > span {
+  color: #6f86aa;
+}
+.node-panel {
+  border-radius: 22px;
+  background: #ffffffee;
+  border-color: #e0e8f7;
+  box-shadow: 0 18px 60px -28px #31529466;
+}
+.panel-close {
+  background: #ffffffed;
+  color: #7083a2;
+  border: 1px solid #e2e9f4;
+}
+.panel-art {
+  background: #eaf1ff;
+}
+.panel-art img {
+}
+.panel-art:after {
+  background: linear-gradient(0deg, #fff, transparent 62%);
+}
+.panel-tag {
+  color: #708ac1;
+  letter-spacing: 0.1em;
+}
+.panel-content h2 {
+  font-weight: 550;
+  letter-spacing: 0.03em;
+  color: #243958;
+}
+.panel-question,
+.island-dossier .panel-question {
+  font-family: var(--display);
+  letter-spacing: 0.05em;
+  color: #6983ad;
+}
+.panel-description,
+.story-panel-description,
+.island-letter-intro,
+.panel-relations,
+.fog-legend,
+.exploration-note {
+  color: #697891;
+}
+.panel-relations > span,
+.dossier-chapters small,
+.node-region-tag {
+  color: #8c9bb2;
+  letter-spacing: 0.08em;
+}
+.primary-button,
+.event-campaign-modal .primary-button {
+  background: var(--blue);
+  color: #fff;
+  border: 1px solid var(--blue);
+  border-radius: 12px;
+  box-shadow: 0 5px 14px #4568ed18;
+  min-height: 44px;
+  font-weight: 500;
+}
+.primary-button:hover,
+.event-campaign-modal .primary-button:hover {
+  color: #fff;
+  background: #3658d9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px #4568ed2b;
+}
+.secondary-button,
+.campaign-outline-button {
+  border: 1px solid #dce6f7;
+  border-radius: 10px;
+  background: #f7faff;
+  color: #657da3;
+  box-shadow: none;
+}
+.secondary-button:hover,
+.campaign-outline-button:hover {
+  background: #eef3ff;
+  border-color: #bdcff9;
+  color: var(--blue);
+}
+.dossier-meta {
+  border-color: #e5ebf6;
+  color: #8b9ab1;
+}
+.dossier-meta b {
+  font-family: var(--display);
+  color: #4568ed;
+  font-weight: 500;
+}
+.dossier-chapters {
+  border-color: #e7edf7;
+}
+.dossier-chapters p {
+  color: #657692;
+}
+.dossier-chapters p:before {
+  color: #8ca8e0;
+}
+.exploration-note,
+.route-banner,
+.boundary-note,
+.relation-takeaway {
+  background: #f2f6ff;
+  border-color: #c5d6fc;
+  color: #657a9f;
+}
+.bottom-bar .exploration-progress {
+  color: #7185a5;
+}
+.progress-track {
+  border: 0;
+  border-radius: 999px;
+}
+.search-popover {
+  background: #fff;
+  border-radius: 18px;
+  border-color: #dce6f7;
+}
+.search-popover label {
+  border-color: #e4ebf7;
+  color: #8b9bb4;
+}
+.search-popover input {
+  color: #23314c;
+}
+.search-result:hover {
+  background: #f0f5ff;
+}
+.search-result > span,
+.search-empty {
+  color: #8091ac;
+}
+.modal-backdrop {
+  background: #45629939;
+  backdrop-filter: blur(12px);
+}
+.modal {
+  background: #fff;
+  border-color: #e1e8f5;
+  border-radius: 24px;
+  box-shadow: 0 24px 90px -30px #31529466;
+  color: #23314c;
+}
+.modal h2 {
+  font-family: var(--display);
+  font-weight: 550;
+  letter-spacing: 0.02em;
+}
+.modal-close {
+  background: #f4f7fd;
+  border: 1px solid #e4ebf7;
+  border-radius: 9px;
+  color: #6b7e9f;
+}
+.modal-subtitle,
+.reading-section p,
+.journal-list,
+.journal-stat,
+.route-card p,
+.index-node p,
+.history-story p,
+.search-result,
+.boundary-note {
+  color: #697891;
+}
+.event-campaign-modal .modal-subtitle {
+  color: #697891;
+}
+.event-campaign-modal .modal-eyebrow {
+  color: #6b84b1;
+}
+.quiz-box,
+.quiz-option,
+.route-card,
+.history-story,
+.journal-card,
+.journal-route,
+.journal-stat,
+.pill,
+.experiment-feedback {
+  border-color: #dfe7f5;
+  background: #f7faff;
+  color: #657692;
+}
+.quiz-option:hover,
+.route-card:hover,
+.pill:hover {
+  background: #edf3ff;
+  border-color: #bcd0fb;
+}
+.quiz-box h3,
+.route-card h3,
+.reading-section h3,
+.journal-list h3,
+.history-story h3 {
+  color: #344e77;
+}
+.quiz-option.correct {
+  border-color: #8abfba;
+  background: #edf8f6;
+  color: #2f7d73;
+}
+.quiz-option.wrong {
+  border-color: #e8bbc1;
+  background: #fff5f6;
+  color: #a85b6b;
+}
+.pill.active {
+  color: var(--blue);
+  border-color: #adc3fa;
+  background: #edf3ff;
+}
+.control-group input[type="number"],
+.experiment-side input,
+.experiment-side select,
+.molecule-control select {
+  background: #fff;
+  border-color: #dce5f5;
+  color: #526d99;
+  border-radius: 7px;
+}
+.control-group input[type="range"] {
+  accent-color: var(--blue);
+}
+.experiment-header,
+.experiment-side {
+  background: #f8faff;
+  border-color: #e2e9f4;
+}
+.experiment-stage {
+  background: #eef5ff;
+}
+.experiment-side > p,
+.molecule-controls-label,
+.quiz-feedback {
+  color: #697891;
+}
+.stage-formula {
+  bottom: 5px;
+  padding-inline: 10px;
+  font: 500 18px/1.5 var(--display);
+  color: #4568ed;
+}
+.atom-picker button {
+  font-family: var(--sans);
+}
+.atom-picker .atom-C {
+  background: #43577b;
+  color: #fff;
+}
+.atom-picker .atom-N {
+  background: #5a87cf;
+  color: #fff;
+}
+.atom-picker .atom-O {
+  background: #bf7769;
+  color: #fff;
+}
+.atom-picker .atom-H {
+  background: #fff;
+  color: #526d99;
+  border-color: #dce5f5;
+}
+.atom-picker button.active {
+  outline-color: #4568ed;
+}
+.atom-picker button:hover:not(:disabled) {
+  color: #fff;
+}
+.atom-picker .atom-H:hover:not(:disabled) {
+  color: #4568ed;
+}
+.molecule-shape {
+  background: #ffffffed;
+  border-color: #dce5f5;
+  border-radius: 9px;
+  color: #526d99;
+}
+.stage-caption,
+.stage-formula,
+.experiment-return,
+.experiment-side label,
+.control-group label > span {
+  color: #6883ae;
+}
+.experiment-feedback {
+  border-left-color: #93b3fa;
+}
+.experiment-feedback.success {
+  color: #2f7d73;
+  background: #edf8f6;
+  border-color: #8abfba;
+}
+.history-timeline:before,
+.timeline-line {
+  background: #dce7fc;
+}
+.history-number,
+.route-number {
+  color: #7a9ad8;
+}
+.history-story {
+  border-radius: 14px;
+}
+.history-story button {
+  color: var(--blue);
+}
+.campaign-stat,
+.event-campaign-modal .campaign-stat {
+  font-family: var(--display);
+  color: #4568ed;
+}
+.campaign-stat small,
+.event-campaign-modal .campaign-stat small {
+  color: #8c9bb2;
+}
+.campaign-level,
+.event-campaign-modal .campaign-level {
+  background: #fff;
+  border: 1px solid #e0e8f7;
+  border-radius: 14px;
+}
+.campaign-level:hover,
+.event-campaign-modal .campaign-level:hover {
+  background: #f3f7ff;
+  border-color: #bdd0fb;
+}
+.campaign-level.done,
+.event-campaign-modal .campaign-level.done {
+  background: #edf4ff;
+  border-color: #bdcff9;
+}
+.campaign-level h3,
+.event-campaign-modal .campaign-level h3 {
+  font-family: var(--display);
+  font-weight: 550;
+  color: #3b5788;
+}
+.campaign-level p,
+.event-campaign-modal .campaign-level p {
+  color: #7b8eab;
+}
+.campaign-mini-portrait > small {
+  background: #fff;
+  border-color: #d6e2f8;
+  color: #7190c5;
+  font-family: var(--sans);
+}
+.event-campaign-modal {
+  background: linear-gradient(155deg, #fff, #f6f9ff) !important;
+  color: #23314c;
+  border-color: #dce6f7 !important;
+  border-radius: 24px !important;
+}
+.event-campaign-modal .campaign-path-note {
+  background: #f2f6ff;
+  border-color: #c5d6fc;
+  color: #7b8ead;
+}
+.event-campaign-modal .campaign-mini-portrait {
+  background: #edf3ff;
+  border-color: #cfddfa;
+  border-radius: 10px;
+}
+.story-panel-portrait.event-panel-portrait {
+  background: #faf3e3;
+  border-color: #bba98b;
+}
+.event-panel-portrait > small,
+.event-panel-portrait > span {
+  background: #fff9eded;
+  color: #6c5b48;
+  border-radius: 6px;
+}
+/* Scientific worlds keep their subject imagery inside a shared blue interface. */
+.modal-backdrop:has(.event-modal) {
+  background: #45629939;
+  backdrop-filter: blur(12px);
+}
+.event-modal.physics-level-modal {
+  --event-bg: #f8faff !important;
+  --event-panel: #fff;
+  --event-line: #e2e9f4;
+  --event-dim: #697891;
+  --event-text: #202c48;
+  --event-gold: #4568ed !important;
+  --event-green: #398cbd;
+  --event-wash: #edf3ff !important;
+  --atlas-brass: #7696d8;
+  border-color: #dce6f7;
+  border-radius: 22px;
+  box-shadow: 0 24px 90px -30px #31529466;
+}
+.event-modal:before {
+  display: none;
+}
+.event-body {
+  background:
+    radial-gradient(ellipse at 60% 0, #ebf2ff8a, transparent 48%), #f8faff;
+  background-image: none;
+}
+.event-header {
+  background: #fff;
+  border-color: #e2e9f4;
+}
+.event-heading > p {
+  color: #7790bc;
+  letter-spacing: 0.12em;
+}
+.event-heading h2 {
+  font-family: var(--display);
+  font-weight: 550;
+  font-size: 23px;
+  letter-spacing: 0.02em;
+}
+.event-save {
+  color: #7c94b8;
+}
+.event-back,
+.event-icon {
+  border: 1px solid #e0e8f7;
+  background: #f7faff;
+  color: #7187ab;
+  border-radius: 10px;
+}
+.event-back:hover,
+.event-icon:hover {
+  background: #edf3ff;
+  border-color: #c0d2fb;
+}
+.event-footer {
+  background: #f2f6ff;
+  border-color: #e2e9f4;
+  color: #899bb7;
+}
+.event-footer > span:first-child {
+  color: #738bb5;
+}
+.event-console h1,
+.event-console h2,
+.event-console h3,
+.event-console h4 {
+  font-family: var(--display);
+  letter-spacing: 0.015em;
+  font-weight: 550;
+  color: #253958;
+}
+.event-modal .event-console p,
+.event-modal .event-console small,
+.event-modal .event-console label,
+.event-modal .event-console legend,
+.event-modal .event-console summary {
+  color: #697891;
+}
+.event-kicker,
+.event-theme-label,
+.event-theme-label small {
+  color: #7290ca;
+  letter-spacing: 0.12em;
+}
+.event-cover h1 {
+  font-weight: 500;
+  font-size: clamp(29px, 3vw, 42px);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: #253958;
+}
+.event-cover h1:after {
+  content: "";
+  display: block;
+  margin-top: 16px;
+  width: 38px;
+  height: 3px;
+  border-radius: 4px;
+  background: #4568ed;
+}
+.event-premise {
+  border-color: #d4e0f5;
+}
+.event-premise > span {
+  color: #4568ed;
+}
+.event-cover-tags > span {
+  background: #eef3ff;
+  border-color: #dce6fa;
+  color: #7b92b8;
+  border-radius: 999px;
+  padding: 5px 10px;
+}
+.event-cover-world,
+.event-modal[data-physics-theme] .event-cover-world {
+  border: 1px solid #d8e4f8;
+  border-radius: 24px;
+  transform: none;
+  background: #fff;
+  box-shadow: 0 16px 50px -32px #31529455;
+}
+.event-cover-scene {
+  border-color: #dce6f7;
+  background: #eaf2ff;
+}
+.event-cover-person {
+  background: #fff !important;
+}
+.event-cover-person > b {
+  color: #a8bee5;
+  font-family: var(--display);
+  font-size: 40px;
+  font-weight: 400;
+}
+.event-cover-world blockquote {
+  border-color: #e2e9f4;
+  color: #6d82a3;
+}
+.event-cover-world cite {
+  color: #8c9bb2;
+}
+.event-role {
+  border: 1px solid #dfe8f8;
+  border-radius: 16px;
+  background: #fff;
+  padding-top: 18px;
+}
+.event-role:hover {
+  background: #f5f8ff;
+  border-color: #bed0fa;
+  box-shadow: 0 12px 24px -16px #4568ed33;
+}
+.event-role.selected {
+  background: #eef3ff;
+  border-color: #91aff6;
+  box-shadow: 0 8px 22px -15px #4568ed3b;
+}
+.event-role-content > strong {
+  font: 550 18px/1.7 var(--display);
+  color: #365080;
+}
+.event-role-content > b {
+  color: #4568ed;
+}
+.event-role-index,
+.event-role-check {
+  color: #7b9bd9;
+}
+.event-briefing-footer b {
+  color: #6d84aa;
+}
+.event-primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 5px 14px #4568ed18;
+}
+.event-primary:hover {
+  filter: none;
+  background: #3658d9;
+  color: #fff;
+  box-shadow: 0 8px 22px #4568ed2b;
+}
+.event-secondary {
+  border-color: #dce6f7;
+  background: #fff;
+  color: #627caa;
+  border-radius: 11px;
+}
+.event-secondary:hover {
+  border-color: #bcd0fb;
+  background: #edf3ff;
+}
+.event-link {
+  color: #4568ed !important;
+}
+.event-act-strip {
+  background: #f1f5fe;
+  border-color: #e1e9f7;
+}
+.event-act-strip > span {
+  color: #9cacc5;
+}
+.event-act-strip > span > b {
+  border-color: #d4e1fa;
+  background: #ffffff80;
+  color: #88a1cb;
+  font-family: var(--sans);
+}
+.event-act-strip > .current {
+  color: #4568ed;
+}
+.event-act-strip > .current > b {
+  background: #4568ed;
+  border-color: #4568ed;
+  color: #fff;
+}
+.event-act-strip > .complete {
+  color: #6595c5;
+}
+.event-crew,
+.event-log {
+  background: #f3f7fe;
+  border-color: #e1e9f7;
+}
+.event-resources,
+.event-cast,
+.event-pocket {
+  border-color: #dfe8f7;
+}
+.event-resource-bar {
+  height: 4px;
+  background: #e1eafa;
+}
+.event-resource-bar > i,
+.event-resource:last-child .event-resource-bar > i {
+  background: #7c9cf0;
+}
+.event-resource b {
+  font-family: var(--sans);
+  color: #6b86b5;
+}
+.event-resource b > small {
+  color: #9baecb;
+}
+.event-pocket > h4 {
+  color: #4568ed;
+  font-family: var(--display);
+}
+.event-pocket > h4 > small {
+  color: #7d92b4;
+}
+.event-pocket > .event-empty {
+  border-color: #ccd9f2;
+  color: #98a9c4;
+}
+.event-pocket-item {
+  color: #7a90b2;
+}
+.event-pocket-item > b {
+  color: #8ba5d5;
+}
+.event-pocket-item small {
+  color: #7697d5;
+}
+.event-cast-person > i {
+  color: #6d91c6;
+}
+.event-cast-person > i.doubt {
+  color: #a17da2;
+}
+.event-tabs {
+  border-color: #dfe8f7;
+}
+.event-tabs > button {
+  color: #869ab9;
+}
+.event-tabs > button.active {
+  color: #4568ed;
+  border-color: #4568ed;
+}
+.event-stage {
+  border: 1px solid #ccdcf7 !important;
+  border-radius: 15px;
+  background: #edf3ff;
+}
+.event-stage-top {
+  background: #fff;
+  border-color: #e1e9f7;
+  color: #7e94b7;
+}
+.event-science-ribbon,
+.event-modal[data-physics-theme] .event-science-ribbon {
+  background: #f0f5ff;
+  border-color: #d7e3fa;
+}
+.event-science-ribbon strong {
+  color: #5775a7;
+}
+.event-science-ribbon code {
+  color: #4568ed;
+  font-family: var(--display);
+  font-size: 13px;
+}
+.event-theme-label > .atlas-emblem,
+.event-science-ribbon > .atlas-emblem {
+  color: #6487d6;
+}
+.event-current-story > h3,
+.event-final-decision > h3 {
+  font-weight: 500;
+  color: #2b4167;
+}
+.event-branch-note {
+  border-color: #b6cdfa;
+  background: #f0f5ff;
+  color: #6b85b0;
+}
+.event-decision-label > span {
+  color: #58739d;
+}
+.event-decision-label > small {
+  color: #91a3bd;
+}
+.event-decision,
+.event-decision.risky {
+  border: 1px solid #dce6f8;
+  background: #fff;
+  border-radius: 14px;
+}
+.event-decision:hover {
+  border-color: #9fbcf7;
+  background: #f2f7ff;
+  box-shadow: 0 8px 20px -12px #4568ed33;
+}
+.event-decision-key {
+  background: #f2f6ff;
+  border-color: #cadbf9;
+  color: #6a8bca;
+  font-family: var(--sans);
+}
+.event-decision h4 {
+  font-size: 13px;
+  font-weight: 550;
+  color: #3b5684;
+}
+.event-decision b,
+.event-decision.risky b {
+  color: #7b96c4;
+}
+.event-decision.risky small {
+  color: #7a91b7;
+}
+.event-decision-arrow {
+  color: #819ed2;
+}
+.event-standby {
+  border-color: #d5e1f7;
+  color: #8ba0c0 !important;
+  background: #f7faff;
+  border-radius: 10px;
+}
+.event-standby:hover {
+  background: #edf3ff;
+  border-color: #b9cff9;
+}
+.event-standby > span {
+  color: #9bacc7;
+}
+.event-log-open {
+  border-color: #ccd9f3;
+}
+.event-log-open > i {
+  border-color: #95b0e8;
+  background: #eaf1ff;
+  border-radius: 50%;
+  transform: none;
+}
+.event-log-entry {
+  border-color: #dfe8f7;
+}
+.event-log-entry > span {
+  color: #8ba7d8;
+}
+.event-log-entry h4 {
+  color: #526f9c;
+  font-weight: 500;
+}
+.event-log-entry.adverse h4 {
+  color: #9c6e89;
+}
+.event-log-entry b {
+  color: #92a7c7;
+}
+.event-log-tip {
+  color: #9badc7 !important;
+}
+.event-lab-controls,
+.event-modal[data-physics-theme] .event-lab-controls {
+  border-color: #cdddf8;
+  background: #f2f6ff;
+  background-image: none;
+  border-radius: 14px;
+}
+.event-lab fieldset button {
+  border-color: #d4e1f8;
+  background: #fff;
+  color: #738db5;
+  border-radius: 9px;
+}
+.event-lab fieldset button:hover {
+  background: #ecf3ff;
+}
+.event-lab fieldset button.selected {
+  border-color: #8fb0f6;
+  background: #e9f1ff;
+  color: #4568ed;
+  box-shadow: inset 0 -2px #9cbbf9;
+}
+.event-hint {
+  color: #7c98c7;
+}
+.event-hint p {
+  background: #edf3ff;
+  border-radius: 10px;
+}
+.event-lab-submit {
+  border-color: #dfe8f7;
+}
+.event-lab-submit > span {
+  color: #7b95bd;
+}
+.event-readings {
+  border-color: #cbdcf8;
+  background: #edf4ff;
+  border-radius: 12px;
+}
+.event-readings > div {
+  border-color: #d4e2fa;
+}
+.event-readings strong {
+  color: #4d74b8;
+  font-family: var(--display);
+}
+.event-reaction {
+  border-color: #e0e8f7;
+  background: #fff;
+  border-radius: 14px;
+}
+.event-reaction small {
+  color: #7f9acd !important;
+}
+.event-consequence-footer {
+  border-color: #dfe8f7;
+}
+.event-consequence-footer > span {
+  color: #8ba0bd;
+}
+.event-proof-status {
+  border-radius: 10px;
+  background: #f4f5fc;
+  border-color: #d5dff2;
+  color: #7f84ae;
+}
+.event-proof-status.ready {
+  background: #edf4ff;
+  border-color: #c0d4f9;
+  color: #6083bd;
+}
+.event-plot,
+.event-comparison,
+.event-energy,
+.event-induction,
+.event-signal,
+.event-photoelectric,
+.event-time-track {
+  background: #f1f6ff;
+  border-color: #d2e0f8;
+  border-radius: 12px;
+}
+.event-comparison > div,
+.event-comparison b,
+.event-comparison > p,
+.event-energy > small,
+.event-induction > span,
+.event-signal,
+.event-photoelectric > p {
+  color: #7993b9;
+}
+.event-comparison i {
+  background: #99b3ef;
+}
+.event-comparison i.green {
+  background: #759cd9;
+}
+.event-time-track {
+  border-radius: 8px;
+}
+.event-time-track b,
+.event-time-track small {
+  color: #7b99cb;
+}
+.event-evidence-view > article,
+.event-science-card {
+  border-color: #cfdef9;
+  background: #f0f6ff;
+  border-radius: 14px;
+}
+.event-evidence-view article > small,
+.event-science-card > span {
+  color: #83a0cc !important;
+}
+.event-science-card > code {
+  color: #4568ed;
+  font-family: var(--display);
+}
+.event-empty-card {
+  border-color: #cbdcf6;
+  color: #92a7c5;
+  border-radius: 14px;
+}
+.event-ending-art {
+  border-color: #d1e0f8;
+  border-radius: 22px;
+}
+.event-ending-content > h1 {
+  font-weight: 500;
+  color: #2a4168;
+}
+.event-ending-stats {
+  border-color: #dfe8f7;
+}
+.event-ending-stats b {
+  color: #4568ed;
+  font-family: var(--display);
+}
+.event-ending-stats > span {
+  color: #849cbe;
+}
+.event-collected-endings {
+  color: #b6c4da;
+}
+.event-collected-endings > .collected {
+  color: #7294d5;
+}
+.event-ending-replay {
+  border-color: #d8e4f8;
+  background: #f4f8ff;
+  border-radius: 12px;
+}
+.event-ending-replay b {
+  color: #7693c4;
+}
+.event-ending-replay p {
+  border-color: #dde7f8;
+}
+.event-history-note {
+  border-color: #dce6f7;
+}
+.event-history-note > a {
+  color: #4568ed;
+}
+.event-console .atlas-portrait {
+  border-radius: 12px;
+}
+.atlas-scene text {
+  font-family: var(--sans);
+}
+.atlas-scene rect[fill*="-grain"] {
+  display: none;
+}
+.toast,
+body:has(.event-modal) > .toast {
+  background: #fff;
+  color: #4568ed;
+  border: 1px solid #d2e0fa;
+  box-shadow: 0 12px 40px -18px #31529455;
+  border-radius: 12px;
+}
+.map-loading {
+  background: #f5f9ff;
+  color: #7895c7;
+}
+.loading-compass {
+  color: #4568ed;
+}
+@media (max-width: 1200px) {
+  .map-stage[data-layer="world"] .map-intro {
+    width: 560px;
+    left: 50%;
+    max-width: calc(100% - 360px);
+  }
+  .map-intro h1 {
+    font-size: 38px;
+  }
+  .horizon-disciplines small {
+    display: none;
+  }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .map-stage[data-layer="world"] .map-intro {
+    left: 50%;
+    top: 126px;
+    width: calc(100% - 44px);
+    max-width: 620px;
+  }
+  .map-stage[data-layer="world"] .node-panel {
+    top: auto;
+    right: 22px;
+    left: auto;
+    bottom: 118px;
+    width: 400px;
+    max-height: 240px;
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    border-radius: 20px;
+  }
+  .map-stage[data-layer="world"] .panel-art {
+    height: 100%;
+    min-height: 185px;
+  }
+  .map-stage[data-layer="world"] .panel-art:after {
+    background: linear-gradient(90deg, transparent, #fff);
+  }
+  .map-stage[data-layer="world"] .panel-content {
+    padding: 18px 18px 20px;
+  }
+  .map-stage[data-layer="world"] .panel-description,
+  .map-stage[data-layer="world"] .dossier-chapters,
+  .map-stage[data-layer="world"] .fog-legend {
+    display: none;
+  }
+  .map-stage[data-layer="world"] .dossier-meta {
+    margin-block: 10px;
+    padding-block: 9px;
+  }
+  .map-stage[data-layer="world"] .panel-tag {
+    left: 9px;
+    font-size: 6px;
+    letter-spacing: 0.06em;
+  }
+}
+@media (max-width: 800px) {
+  .map-stage[data-layer="world"] .map-intro {
+    left: 50%;
+    top: 126px;
+    max-width: calc(100% - 36px);
+    width: 560px;
+  }
+  .map-intro h1 {
+    font-size: 34px;
+  }
+  .map-intro .eyebrow {
+    font-size: 8px;
+    margin-bottom: 12px;
+  }
+  .map-intro > p {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+  .horizon-disciplines {
+    display: none;
+  }
+  .horizon-start {
+    min-height: 44px;
+    min-width: 170px;
+    font-size: 12px;
+    margin-top: 17px;
+  }
+  .map-stage[data-layer="world"] .discovery-note {
+    top: 76px;
+    left: 18px;
+    font-size: 9px;
+  }
+  .event-cover h1 {
+    font-size: 30px;
+  }
+  .event-modal.physics-level-modal {
+    border-radius: 0;
+  }
+  .event-heading h2 {
+    font-size: 17px;
+  }
+  .event-cover-world,
+  .event-modal[data-physics-theme] .event-cover-world {
+    border-radius: 20px;
+  }
+  .event-header {
+    padding-block: 12px;
+  }
+  .event-science-ribbon code {
+    font-size: 11px;
+  }
+  .event-role-content > strong {
+    font-size: 17px;
+  }
+  .event-primary,
+  .event-secondary {
+    border-radius: 11px;
+  }
+  .event-stage {
+    border-radius: 12px;
+  }
+  .event-campaign-modal {
+    border-radius: 18px !important;
+  }
+  .panel-art:after {
+    background: linear-gradient(90deg, transparent, #fff);
+  }
+  .paper {
+    border-radius: 16px;
+  }
+  .node-panel {
+    border-radius: 18px;
+  }
+}
+@media (max-width: 700px) {
+  .stage-formula {
+    font-size: 14px;
+  }
+  .brand-compass {
+    width: 34px;
+    height: 34px;
+    font-size: 30px;
+    border-radius: 11px 11px 11px 4px;
+  }
+  .brand strong {
+    font-size: 18px;
+    letter-spacing: 0.05em;
+  }
+  .brand small {
+    font-size: 6px;
+    letter-spacing: 0.08em;
+  }
+  .subjects {
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .subjects button {
+    min-height: 27px;
+    font-size: 11px;
+  }
+  .map-stage[data-layer="world"] .map-intro {
+    top: 124px;
+    width: calc(100% - 32px);
+  }
+  .map-intro h1 {
+    font-size: 30px;
+  }
+  .map-intro .eyebrow {
+    font-size: 7px;
+    letter-spacing: 0.09em;
+  }
+  .map-intro > p {
+    font-size: 10px;
+  }
+  .horizon-start {
+    margin-top: 14px;
+    min-height: 42px;
+    min-width: 165px;
+    padding-inline: 23px;
+  }
+  .portal-name,
+  .island-portal.uncharted .portal-name {
+    border-radius: 12px;
+    padding: 8px 15px;
+  }
+  .portal-name strong {
+    font-size: 20px;
+  }
+  .portal-name > span {
+    font-size: 9px;
+  }
+  .portal-emblem,
+  .island-portal.uncharted .portal-emblem {
+    width: 54px;
+    height: 54px;
+  }
+  .quest-card h3 {
+    font-size: 12px;
+  }
+  .quest-emblem {
+    border-radius: 10px;
+  }
+  .node-panel .panel-content h2 {
+    font-size: 22px;
+  }
+  .event-heading h2 {
+    font-size: 16px;
+  }
+  .event-cover h1 {
+    font-size: 29px;
+  }
+  .event-cover h1:after {
+    margin-top: 12px;
+  }
+  .event-briefing {
+    padding-top: 23px;
+  }
+  .event-cover-world,
+  .event-modal[data-physics-theme] .event-cover-world {
+    border-radius: 18px;
+  }
+  .event-footer {
+    font-size: 8px;
+  }
+  .event-role {
+    border-radius: 13px;
+  }
+  .event-decision {
+    border-radius: 12px;
+  }
+  .event-primary {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blue-horizon-field,
+  .horizon-start,
+  .event-role,
+  .paper,
+  .primary-button {
+    animation: none;
+    transition: none;
+  }
+}

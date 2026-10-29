@@ -1,0 +1,298 @@
+/* ==========================================================================
+   知识群岛 · 统一界面层
+   唯一允许存放跨页组件规则的文件。令牌集中在 :root，新增颜色只允许取变量。
+   原则：统一文字、按钮、面板、图标与反馈；场景配色仍由各关美术自行决定。
+   ========================================================================== */
+
+:root {
+  /* 深海蓝界面底色 */
+  --ui-abyss: #0e1a2b;
+  --ui-bg: #122135;
+  --ui-bg-soft: #18293f;
+  --ui-panel: #1a2c44;
+  --ui-panel-2: #233a58;
+
+  /* 描边：细、浅，不再使用厚重黑框与多重描边 */
+  --ui-line: rgba(148, 178, 214, 0.24);
+  --ui-line-strong: rgba(148, 178, 214, 0.45);
+
+  /* 文字 */
+  --ui-ink: #edf3fc;
+  --ui-ink-2: #a8bdd8;
+  --ui-ink-3: #7e93b0;
+  --ui-paper: #eaf1fa;
+  --ui-paper-ink: #1b2c42;
+
+  /* 航海金：主要操作专用 */
+  --ui-gold: #f6cc78;
+  --ui-gold-deep: #c69a4a;
+  --ui-gold-ink: #2b2109;
+
+  /* 字体：标题衬线贯穿三层；正文中文无衬线；像素等宽只用于编号与读数 */
+  --ui-serif: Georgia, "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --ui-sans: "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --ui-mono: "Cascadia Mono", Consolas, ui-monospace, monospace;
+
+  --ui-body: 16px;
+  --ui-sm: 14px;
+  --ui-xs: 12px;
+
+  --ui-r: 4px;
+  --ui-shadow: 0 2px 10px rgba(4, 12, 24, 0.35);
+}
+
+/* ---------------------------------------------------------------- 外框 */
+.topbar {
+  background: var(--ui-bg);
+  border-bottom: 1px solid var(--ui-line);
+  box-shadow: none;
+  color: var(--ui-ink);
+  font-family: var(--ui-sans);
+}
+.bottom-bar {
+  background: var(--ui-bg);
+  border-top: 1px solid var(--ui-line);
+  box-shadow: none;
+  color: var(--ui-ink-2);
+  font-family: var(--ui-sans);
+}
+
+/* 面板：单层细边 + 柔和投影，替代 2px 描边与 3px 硬阴影 */
+.paper {
+  border-radius: var(--ui-r);
+  border: 1px solid var(--ui-line);
+  box-shadow: var(--ui-shadow);
+}
+
+/* ---------------------------------------------------------------- 按钮 */
+.topbar button,
+.bottom-bar button,
+.map-tools button,
+.perspective-switch button,
+.map-view-switch button,
+.zoom-controls button,
+.node-panel button,
+.fv-workbench button {
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-r);
+  background: transparent;
+  color: var(--ui-ink);
+  box-shadow: none;
+  font-family: var(--ui-sans);
+  font-size: var(--ui-sm);
+  line-height: 1.5;
+  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+.topbar button:hover:not(:disabled),
+.bottom-bar button:hover:not(:disabled),
+.map-tools button:hover:not(:disabled),
+.perspective-switch button:hover:not(:disabled),
+.map-view-switch button:hover:not(:disabled),
+.zoom-controls button:hover:not(:disabled),
+.node-panel button:hover:not(:disabled),
+.fv-workbench button:hover:not(:disabled) {
+  background: var(--ui-panel-2);
+  border-color: var(--ui-line-strong);
+}
+.topbar button:active:not(:disabled),
+.map-tools button:active:not(:disabled),
+.fv-workbench button:active:not(:disabled) {
+  background: var(--ui-abyss);
+}
+
+/* 主要操作：统一航海金 */
+#quest-start,
+.fv-workbench .fv-primary,
+.fv-workbench .fv-commit .fv-primary {
+  background: var(--ui-gold);
+  border: 1px solid var(--ui-gold);
+  color: var(--ui-gold-ink);
+  box-shadow: none;
+}
+#quest-start:hover:not(:disabled),
+.fv-workbench .fv-primary:hover:not(:disabled) {
+  background: var(--ui-gold-deep);
+  border-color: var(--ui-gold-deep);
+  color: var(--ui-gold-ink);
+}
+
+/* 焦点：全站同一种提示 */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------- 标题 */
+.island-title-name,
+.chapter-heading h1,
+.quest-card h3,
+.node-panel h2,
+.node-panel h3,
+.hs-copy h1,
+.hs-copy h2 {
+  font-family: var(--ui-serif);
+}
+
+/* ---------------------------------------------------------------- 岛屿卡片 */
+.island-identity {
+  border: 1px solid var(--ui-line-strong);
+  border-radius: var(--ui-r);
+  box-shadow: var(--ui-shadow);
+}
+
+/* 复色只改变地景；章节说明始终使用同一套深色纸面。 */
+.map-context .chapter-heading {
+  background: var(--ui-bg);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line-strong);
+  border-radius: var(--ui-r);
+  box-shadow: var(--ui-shadow);
+}
+.map-stage .map-context .chapter-heading h2 {
+  color: var(--ui-ink);
+  font-family: var(--ui-serif);
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.5;
+  letter-spacing: .04em;
+  overflow-wrap: anywhere;
+}
+.map-context .chapter-heading p {
+  color: var(--ui-ink-2);
+}
+.map-stage[data-layer="island"] .map-context .discovery-note {
+  padding: 6px 10px;
+  background: var(--ui-bg);
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-r);
+  color: var(--ui-ink-2);
+  text-shadow: none;
+}
+
+/* 地图工具组：收成一枚悬浮胶囊，避免按钮直接散落在底图上 */
+.map-tools {
+  background: var(--ui-panel);
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-r);
+  box-shadow: var(--ui-shadow);
+  padding: 4px;
+  gap: 2px;
+}
+.map-tools button {
+  border-color: transparent;
+  min-height: 30px;
+  padding: 4px 10px;
+}
+.map-tools button[aria-pressed="true"] {
+  background: var(--ui-panel-2);
+  border-color: var(--ui-line-strong);
+}
+
+/* ==========================================================================
+   关卡：操作界面统一为深海蓝 + 航海金。
+   各关 --fv-* 变量只作用于界面，场景美术在 JS 中自带配色，不受影响。
+   ========================================================================== */
+.modal.fv-modal,
+.modal.fv-modal[data-fv-theme] {
+  --fv-bg: var(--ui-panel);
+  --fv-panel: var(--ui-bg-soft);
+  --fv-ink: var(--ui-ink);
+  --fv-muted: var(--ui-ink-2);
+  --fv-line: var(--ui-line);
+  --fv-accent: var(--ui-gold);
+}
+.modal.fv-modal,
+.modal.fv-delivery-modal {
+  border-radius: var(--ui-r);
+  border: 1px solid var(--ui-line-strong);
+  box-shadow: 0 24px 80px rgba(3, 10, 22, 0.55);
+}
+
+/* 正文提升到可阅读字号；编号、计数、读数保留等宽小字 */
+.fv-condition p,
+.fv-feedback,
+.fv-intro p,
+.fv-lab,
+.fv-readings dl > div {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.fv-mission,
+.fv-controls legend,
+.fv-conversation small {
+  font-size: var(--ui-sm);
+}
+.fv-resources,
+.fv-number,
+.fv-boundary {
+  font-size: 13px;
+}
+.fv-header small,
+.fv-condition > small,
+.fv-number output,
+.fv-stars {
+  font-family: var(--ui-mono);
+}
+.fv-header h2#modal-title {
+  font-family: var(--ui-serif);
+}
+
+/* 浅灰蓝纸面：用于长文阅读，保证文字与背景反差 */
+.node-panel .island-dossier-body,
+.reading-paper {
+  background: var(--ui-paper);
+  color: var(--ui-paper-ink);
+}
+
+/* 桌面侧栏独立滚动时，控件和读数不能被 flex 压缩。 */
+.fv-lab-scroll > * {
+  flex-shrink: 0;
+}
+.fv-lab-scroll > .fv-readings dl {
+  grid-template-columns: minmax(0, 1fr);
+}
+.fv-lab-scroll > .fv-readings dd {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 窄屏或矮窗口由弹窗统一滚动，内层按内容展开，避免裁掉操作区。 */
+@media (max-width: 760px), (max-height: 760px) {
+  .modal.fv-modal {
+    height: auto;
+    max-height: min(92dvh, calc(100dvh - 32px));
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+  .modal.fv-modal > .fv-workbench:not(.fv-in-opening) {
+    flex: 0 0 auto;
+    height: auto;
+    overflow: visible;
+  }
+  .fv-workbench .fv-layout {
+    flex: 0 0 auto;
+    min-height: auto;
+    grid-template-rows: auto;
+  }
+  .fv-workbench .fv-lab,
+  .fv-workbench .fv-lab-scroll {
+    display: block;
+    overflow: visible;
+    max-height: none;
+  }
+  .fv-lab-scroll > .ro-guide {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar button,
+  .map-tools button,
+  .fv-workbench button {
+    transition: none;
+  }
+}

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>把问题寄出去 · P1 交互设计稿</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./prototype.css">
+  <script src="./prototype.js" defer></script>
+</head>
+<body data-view="map">
+  <div class="review-bar">
+    <span><b>P1</b> 交互设计稿 <i>／</i> 独立示意进度</span>
+    <div class="review-tools">
+      <label for="review-state">评审情境</label>
+      <select id="review-state">
+        <option value="fresh">新的旅程</option>
+        <option value="legacy">已有两份旧记录</option>
+        <option value="ready">三项齐备</option>
+        <option value="delivered">首张回条已到</option>
+      </select>
+      <button id="reset-demo" class="quiet">重置原型</button>
+      <a href="../../11-P1游戏体验与交互规则.md" target="_blank" rel="noopener">设计说明 ↗</a>
+    </div>
+  </div>
+  <header class="masthead">
+    <a class="brand" href="#" id="brand-home" aria-label="返回群岛地图">
+      <svg viewBox="0 0 48 40" aria-hidden="true"><path d="M8 10h8V5h15v5h6v7h8v5H34v10H20v5h-5v-8H8z" fill="currentColor"/><path d="M19 14h5v5h-5z" fill="#0c172c"/><path d="M30 29h11v5H28v-5" fill="#e8c675"/></svg>
+      <span>知识群岛<small>把问题寄出去</small></span>
+    </a>
+    <div class="chapter-chip"><span class="signal-dot"></span><span id="chapter-label">R01 · 第一船信</span><b id="chapter-count">0 / 3</b></div>
+    <nav class="global-nav" aria-label="随身物品">
+      <button data-panel="bag"><span aria-hidden="true">▱</span> 信袋 <b id="bag-count">0</b></button>
+      <button data-panel="journal"><span aria-hidden="true">⌑</span> 手记</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="map-view" class="map-layout" aria-label="群岛大地图">
+      <aside class="mission">
+        <span class="eyebrow">当前委托 / THE FIRST DELIVERY</span>
+        <h1 id="mission-title">第一船信</h1>
+        <p class="mission-copy" id="mission-copy">把四箱器材送到对岸。<br>最后一箱，也不能落。</p>
+        <div class="address-slip">
+          <span class="stamp-mini">待寄</span>
+          <small>收件人</small><b>小禾</b><span>化学岛 · 标本港观测窗口</span>
+        </div>
+        <p class="checklist-caption">这一趟还需要</p>
+        <div class="task-list" id="map-tasks">
+          <button data-level="P01" class="task-item"><span class="task-check" aria-hidden="true"></span><span><small>P01 / 潮汐港</small><b>船带得下吗？</b><em>承载记录</em></span><i>↗</i></button>
+          <button data-level="C01" class="task-item"><span class="task-check" aria-hidden="true"></span><span><small>C01 / 入口样品台</small><b>样品认得出吗？</b><em>身份记录</em></span><i>↗</i></button>
+          <button data-level="M03" class="task-item"><span class="task-check" aria-hidden="true"></span><span><small>M03 / 测绘台</small><b>窗口找得到吗？</b><em>坐标地址</em></span><i>↗</i></button>
+        </div>
+        <button id="map-deliver" class="primary deliver-button" hidden>交付第一船信 <span>→</span></button>
+        <div class="mission-note" id="mission-note"><span class="tiny-raven" aria-hidden="true">◆</span><p>“先去看看船。箱子总不能自己游过去吧。”<small>阿墨，已经准备好了。</small></p></div>
+      </aside>
+
+      <div class="chart">
+        <div class="chart-heading"><span>KNOWLEDGE ARCHIPELAGO</span><span>01—三座岛，一份委托</span></div>
+        <div class="chart-canvas">
+          <svg class="sea-map" viewBox="0 0 1120 650" role="img" aria-label="冷蓝海图上的物理、数学和化学三岛，地标在研究完成后局部恢复色彩">
+            <defs>
+              <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M56 0H0v56" fill="none" stroke="#8097be" stroke-opacity=".1"/><path d="M26 28h4m-2-2v4" stroke="#7c95bc" stroke-opacity=".15"/></pattern>
+              <pattern id="waves" width="96" height="70" patternUnits="userSpaceOnUse"><path d="M10 44h20m34-23h12" stroke="#809dc6" stroke-width="2" opacity=".14"/></pattern>
+              <g id="tree"><path d="M-4 11h8v15h-8z" fill="#374f76"/><path d="M-18 8h8V-3h7v-13h9v13h8V8h9v9h-41z" fill="#45628b"/></g>
+              <g id="house"><path d="M-24 0h48v35h-48z" fill="#42618d"/><path d="M-30-1h8v-9h12v-8h20v8h12v9h8v7h-60z" fill="#6683aa"/><path d="M-6 17H6v18H-6zM-17 10h6v6h-6zM11 10h6v6h-6z" fill="#192e50"/></g>
+            </defs>
+            <path d="M0 0h1120v650H0z" fill="#132743"/><path d="M0 0h1120v650H0z" fill="url(#grid)"/><path d="M0 0h1120v650H0z" fill="url(#waves)"/>
+            <g class="contours" fill="none" stroke="#3a5277" stroke-width="1" opacity=".55">
+              <path d="M40 330h38v-52h58v-30h81v20h66v-28h87v45h69v63h38v122h-47v76h-54v30H172v-20H84v-65H40z"/>
+              <path d="M333 93h62V41h75v-13h81v21h76v37h58v75h-19v67h-58v41H424v-20h-71v-67h-20z"/>
+              <path d="M679 279h51v-53h95v-23h112v23h67v42h66v85h-14v85h-60v49H773v-21h-80v-83h-14z"/>
+            </g>
+            <g class="island physics-island">
+              <path d="M100 363h36v-37h91v-20h92v25h66v45h38v86h-35v52h-59v24H192v-17h-65v-62h-27z" fill="#263f64" stroke="#5b759b" stroke-width="3"/>
+              <path d="M129 370h28v-23h78v-19h73v26h57v38h34v60h-33v40H213v-18h-59v-32h-25z" fill="#314e75"/>
+              <use href="#tree" x="170" y="381"/><use href="#tree" x="198" y="359"/><use href="#house" x="317" y="391"/>
+              <path d="M213 438h13v-16h13v-13h13v-17h14" fill="none" stroke="#6e83a6" stroke-width="9"/>
+              <g class="map-site" data-restore="P01">
+                <path class="site-paper" d="M198 445h87v42h-87z" fill="#6781a7"/><path class="site-roof" d="M190 445v-11h12v-11h58v11h15v11z" fill="#7492ba"/>
+                <path d="M212 460h12v27h-12zM242 458h21v13h-21z" fill="#253d5c"/>
+                <path d="M202 491h126v10H202zM242 486h9v40h-9zM291 486h9v40h-9z" fill="#6a7f9d"/>
+                <path class="site-boat" d="M301 510h54l-12 17h-30z" fill="#8192ad"/>
+              </g>
+              <text x="360" y="560" class="island-name">物理岛</text><text x="360" y="583" class="island-latin">PHYSICS / 01</text>
+            </g>
+            <g class="island math-island">
+              <path d="M385 103h39V74h68V58h66v22h55v29h40v74h-27v39h-58v24H448v-23h-46v-48h-17z" fill="#293f63" stroke="#5b759b" stroke-width="3"/>
+              <path d="M411 114h37V92h49V78h51v22h49v24h29v50h-28v33H466v-16h-34v-38h-21z" fill="#364e73"/>
+              <use href="#tree" x="436" y="131"/><use href="#tree" x="602" y="153"/>
+              <g class="map-site" data-restore="M03">
+                <path class="site-paper" d="M475 112h87v73h-87z" fill="#617da5"/><path class="site-roof" d="M465 112h10V99h18V88h51v11h18v13h10v8H465z" fill="#8197b7"/>
+                <path d="M486 127h11v58h-11zM513 127h11v58h-11zM540 127h11v58h-11z" fill="#203555"/>
+                <path d="M466 185h105v9H466zM454 194h127v8H454z" fill="#8292ad"/>
+              </g>
+              <text x="691" y="125" class="island-name">数学岛</text><text x="692" y="149" class="island-latin">MATHEMATICS / 02</text>
+            </g>
+            <g class="island chemistry-island">
+              <path d="M729 291h41v-36h69v-18h75v24h63v31h47v69h-22v53h-54v33H812v-22h-53v-49h-30z" fill="#293f63" stroke="#5b759b" stroke-width="3"/>
+              <path d="M754 305h38v-27h56v-19h53v25h57v25h39v43h-25v48h-44v22H829v-24h-47v-36h-28z" fill="#345174"/>
+              <use href="#tree" x="786" y="308"/><use href="#tree" x="943" y="325"/><use href="#house" x="928" y="365"/>
+              <g class="map-site" data-restore="C01">
+                <path class="site-paper" d="M812 310h86v83h-86z" fill="#6884a5"/><path class="site-roof" d="M802 311v-12h12v-13h18v-10h43v10h13v13h16v12z" fill="#7a96b7"/>
+                <path d="M824 324h62v40h-62z" fill="#2a476b"/><path d="M837 324v40m24-40v40M824 344h62" stroke="#849ab8" stroke-width="3"/>
+                <path class="site-flask" d="M843 335h12v15l6 9h-24l6-9z" fill="#809bbd"/><path d="M845 376h14v17h-14z" fill="#203555"/>
+              </g>
+              <text x="794" y="492" class="island-name">化学岛</text><text x="787" y="516" class="island-latin">CHEMISTRY / 03</text>
+            </g>
+            <g fill="none" stroke-linecap="square">
+              <path class="postal-route" d="M333 518C500 618 690 558 843 421" stroke="#6585af" stroke-width="2" stroke-dasharray="5 10"/>
+              <path d="M824 292C780 216 678 178 582 179" stroke="#6585af" stroke-width="2" stroke-dasharray="5 10" opacity=".6"/>
+              <path d="M448 207C348 224 285 281 269 333" stroke="#6585af" stroke-width="2" stroke-dasharray="5 10" opacity=".6"/>
+            </g>
+            <g class="chart-compass" transform="translate(1015 70)" fill="none" stroke="#90a5c5"><path d="M0-29V29M-29 0h58"/><path d="M0-22l7 22-7-5-7 5z" fill="#a7b9d1"/><path d="M0 22l7-22-7 5-7-5z"/><text y="-40" text-anchor="middle" fill="#aec0d8" stroke="none">N</text></g>
+            <text x="490" y="500" class="sea-word">等一封来自对岸的回信</text>
+            <g class="mail-boat" id="mail-boat" visibility="hidden"><path d="M0 0h42l-8 13H8z" fill="#e1b86a"/><path d="M20-24V0M23-23v20h19z" fill="#e8e9dc" stroke="#d2e0ea" stroke-width="2"/></g>
+          </svg>
+          <button class="landmark landmark-p" data-level="P01"><span class="landmark-dot">01</span><span class="landmark-label"><small>阿基米德</small><b>潮汐港</b><em>船带得下吗？</em></span></button>
+          <button class="landmark landmark-m" data-level="M03"><span class="landmark-dot">03</span><span class="landmark-label"><small>笛卡尔</small><b>坐标测绘台</b><em>窗口找得到吗？</em></span></button>
+          <button class="landmark landmark-c" data-level="C01"><span class="landmark-dot">01</span><span class="landmark-label"><small>波义耳</small><b>入口样品台</b><em>样品认得出吗？</em></span></button>
+          <button class="post-office" data-panel="office"><span aria-hidden="true">✉</span> 潮汐港邮局</button>
+          <div class="chart-legend"><span><i></i>尚待联系</span><span><i class="done"></i>成果已收好</span></div>
+        </div>
+        <div class="chart-footer"><span id="chart-status">可以从任何一站开始，成果会放进同一只信袋。</span><span class="chart-coordinate">30 个现场 · 自由探索</span></div>
+      </div>
+    </section>
+
+    <section id="level-view" class="level-screen" aria-label="当前关卡现场" hidden>
+      <div class="level-top"><button id="back-map" class="back-button">← 群岛地图</button><span id="location-label"></span><span class="free-tag">自由观察不消耗资源</span></div>
+      <div class="play-layout">
+        <div class="lab-area">
+          <div class="scene-panel">
+            <div class="scene-heading"><div><small id="scene-code"></small><h1 id="scene-title"></h1></div><span class="phase-label" id="phase-label"></span></div>
+            <div class="scene" id="scene">
+              <div id="scene-art"></div>
+              <div class="intro-note" id="intro-note"><div><span id="intro-speaker"></span><p id="intro-text"></p></div><button id="skip-intro">跳过开头</button></div>
+            </div>
+            <div class="phenomenon"><span class="observation-dot"></span><b id="phenomenon"></b><span id="preview-label">即时观察 · 尚未正式记录</span></div>
+          </div>
+          <section class="control-panel" aria-label="实验控件"><div class="control-heading"><span>动手试一试</span><small>操作不会扣除资源</small></div><div id="controls"></div></section>
+          <p class="model-caption" id="model-caption"></p>
+        </div>
+        <aside class="companion-panel">
+          <div class="person-row"><div class="portrait" id="portrait"></div><div><small>此刻，与你同行</small><h2 id="person-name"></h2><span id="person-english"></span></div></div>
+          <div class="goal-block"><span class="eyebrow">眼前的问题</span><h3 id="goal-title"></h3><p id="goal-detail"></p></div>
+          <div class="budget" aria-label="本轮研究资源">
+            <div><span>时间额度</span><b id="time-value">9</b><small>按记录结算</small></div>
+            <div><span>器材</span><b id="tools-value">4</b><small>本轮份额</small></div>
+            <div><span>可靠度</span><b id="trust-value">2</b><small>仅评价记录</small></div>
+          </div>
+          <div class="evidence-block"><div class="evidence-title"><b>已有证据</b><button id="open-records" class="text-button">查看记录 ↗</button></div><div id="evidence-slots"></div></div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <div class="conclusion-preview" id="conclusion-preview" hidden></div>
+          <div class="research-actions">
+            <p class="cost-label" id="cost-label"></p>
+            <button id="record-btn" class="primary">记录这一组</button>
+            <button id="next-condition" class="secondary" hidden>看看新的条件 →</button>
+            <button id="archive-btn" class="primary" hidden>收好这份成果 →</button>
+            <button id="resupply-btn" class="secondary" hidden>申请一次补给</button>
+            <button id="new-run-btn" class="text-button" hidden>保留既往记录，开始新一轮</button>
+            <button id="hint-btn" class="hint-button">阿墨，给一点线索 <small>免费</small></button>
+          </div>
+          <p class="fiction-note">人物对白为创作。模型范围与历史资料可在手记中查看。</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="satchel-footer"><span class="footer-envelope" aria-hidden="true">✉</span><span id="footer-text">00 回信还空着。弄明白一件事，就能写下一行。</span><button data-panel="letter" class="text-button">打开 00 回信 ↗</button></footer>
+  <p class="prototype-caption">P1 可交互线框 · 三个首章现场采用示意参数 · 独立保存，不读取正式游戏存档</p>
+  <dialog id="utility-drawer" class="drawer" aria-labelledby="drawer-title"><div class="drawer-heading"><div><span class="eyebrow">信使的随身物品</span><h2 id="drawer-title"></h2></div><button id="close-drawer" aria-label="关闭面板">×</button></div><div id="drawer-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#141c2e" />
+    <script>document.documentElement.dataset.entry='home';</script>
+    <title>知识群岛 · 让好奇心，带你远航</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1 20 12 31 16 20 20 16 31 12 20 1 16 12 12Z' fill='%23edc77c'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./src/styles.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/exploration.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/physics-levels.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/physics-console.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/blue-horizon.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/pixel-expeditions.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/pixel-atlas-hud.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/history-view.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/physics-research.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/physics-level-intro.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/physics-sandbox.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/chemistry.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/subject-levels.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/site-prologue.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/worldline.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/first-voyage.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/postal-world.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/nightwatch.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/revision.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/atlas.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/return.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/appendix.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/research-presentation.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/research-onboarding.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/harbor-entry.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/harbor-story.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/harbor-motion.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/world-map-layout.css?v=20261029-colour-1" />
+    <link rel="stylesheet" href="./src/ui-system.css?v=20261029-colour-1" />
+    <script src="./src/map-camera.js?v=20261029-colour-1" defer></script>
+    <script src="./src/content.js?v=20261029-colour-1" defer></script>
+    <script src="./src/science.js?v=20261029-colour-1" defer></script>
+    <script src="./src/exploration.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-level-data.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-map-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/research-engine.js?v=20261029-colour-1" defer></script>
+    <script src="./src/scenario-engine.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-investigations.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-scenarios.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-atlas-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-pixel-worlds.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-level-intro.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-sound.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-sandbox.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-console.js?v=20261029-colour-1" defer></script>
+    <script src="./src/physics-history.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-level-data.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-investigations.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-scenarios.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-atlas-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-pixel-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-pixel-worlds.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-workbench-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-level-intro.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-sound.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-sandbox.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-console.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-levels.js?v=20261029-colour-1" defer></script>
+    <script src="./src/math-history.js?v=20261029-colour-1" defer></script>
+    <script src="./src/chemistry-data.js?v=20261029-colour-1" defer></script>
+    <script src="./src/chemistry-engine.js?v=20261029-colour-1" defer></script>
+    <script src="./src/chemistry-scenarios.js?v=20261029-colour-1" defer></script>
+    <script src="./src/chemistry-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/chemistry-console.js?v=20261029-colour-1" defer></script>
+    <script src="./src/subject-levels.js?v=20261029-colour-1" defer></script>
+    <script src="./src/subject-map-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/history-view.js?v=20261029-colour-1" defer></script>
+    <script src="./src/progress-store.js?v=20261029-colour-1" defer></script>
+    <script src="./src/worldline-data.js?v=20261029-colour-1" defer></script>
+    <script src="./src/research-session.js?v=20261029-colour-1" defer></script>
+    <script src="./src/research-adapters.js?v=20261029-colour-1" defer></script>
+    <script src="./src/worldline.js?v=20261029-colour-1" defer></script>
+    <script src="./src/worldline-view.js?v=20261029-colour-1" defer></script>
+    <script src="./src/first-voyage-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/first-voyage-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/research-presentation.js?v=20261029-colour-1" defer></script>
+    <script src="./src/research-onboarding.js?v=20261029-colour-1" defer></script>
+    <script src="./src/first-voyage-workbench.js?v=20261029-colour-1" defer></script>
+    <script src="./src/first-voyage-delivery.js?v=20261029-colour-1" defer></script>
+    <script src="./src/nightwatch-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/nightwatch-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/nightwatch-runtime.js?v=20261029-colour-1" defer></script>
+    <script src="./src/nightwatch-lab.js?v=20261029-colour-1" defer></script>
+    <script src="./src/nightwatch-delivery.js?v=20261029-colour-1" defer></script>
+    <script src="./src/revision-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/revision-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/revision-runtime.js?v=20261029-colour-1" defer></script>
+    <script src="./src/revision-lab.js?v=20261029-colour-1" defer></script>
+    <script src="./src/revision-delivery.js?v=20261029-colour-1" defer></script>
+    <script src="./src/atlas-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/atlas-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/atlas-runtime.js?v=20261029-colour-1" defer></script>
+    <script src="./src/atlas-lab.js?v=20261029-colour-1" defer></script>
+    <script src="./src/atlas-delivery.js?v=20261029-colour-1" defer></script>
+    <script src="./src/postal-world.js?v=20261029-colour-1" defer></script>
+    <script src="./src/postal-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/postal-map-view.js?v=20261029-colour-1" defer></script>
+    <script src="./src/postal-room-view.js?v=20261029-colour-1" defer></script>
+    <script src="./src/return-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/return-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/return-lab.js?v=20261029-colour-1" defer></script>
+    <script src="./src/return-delivery.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-data.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-common.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-physics.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-math.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-chemistry.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-models.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-runtime.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-lab.js?v=20261029-colour-1" defer></script>
+    <script src="./src/appendix-post.js?v=20261029-colour-1" defer></script>
+    <script src="./src/map-activation.js?v=20261029-colour-1" defer></script>
+    <script src="./src/app.js?v=20261029-colour-1" defer></script>
+    <script src="./src/site-prologue-data.js?v=20261029-colour-1" defer></script>
+    <script src="./src/site-prologue-art.js?v=20261029-colour-1" defer></script>
+    <script src="./src/site-prologue.js?v=20261029-colour-1" defer></script>
+    <script src="./src/harbor-flight.js?v=20261029-colour-1" defer></script>
+    <script src="./src/harbor-story.js?v=20261029-colour-1" defer></script>
+    <script src="./src/harbor-entry.js?v=20261029-colour-1" defer></script>
+  </head>
+  <body>
+    <section id="harbor-home" class="harbor-home" data-phase="home" data-story-page="0" data-tone="light" role="region" aria-labelledby="harbor-title" tabindex="-1">
+      <div class="hf-scene" aria-hidden="true">
+        <img class="hf-panorama" src="./assets/harbor-arrival-v1.png?v=20261029-scroll-layout-3" alt="" fetchpriority="high" />
+        <img class="hf-dock" src="./assets/harbor-arrival-v1.png?v=20261029-scroll-layout-3" alt="" />
+        <div class="hf-water"></div>
+        <svg class="hs-flying-raven" viewBox="0 0 120 90"><path class="hs-wing-left" d="M62 48Q32-9 2 18l39 39Z"/><path class="hs-wing-right" d="M58 47Q92-8 119 24L79 58Z"/><path d="M40 50q24-17 39 0l-6 25-25 8 6-22Z"/><path d="M70 43l22 7-19 7Z" fill="#cabd94"/></svg>
+      </div>
+      <div class="hf-map-camera" aria-hidden="true"></div>
+      <div class="hf-mist hf-mist-far" aria-hidden="true"></div>
+      <div class="hf-mist" aria-hidden="true"></div>
+      <div class="hf-home-shade" aria-hidden="true"></div>
+      <div class="hf-story-scroll" tabindex="0" aria-label="群岛序章，向下阅读，向上回看">
+        <section class="hs-page hs-cover is-visible" data-chapter="harbor" aria-labelledby="harbor-title">
+          <div class="hs-copy hf-copy">
+            <p class="hf-eyebrow">THE ISLAND POST / 群岛序章</p>
+            <h1 id="harbor-title">把问题寄出去，<br /><em>等一封回信。</em></h1>
+            <p class="hs-lead">海的那一边，有人正在等你。</p>
+            <p class="hs-small">一段穿过物理、数学与化学的信使旅程。</p>
+          </div>
+          <span class="hs-scene-note">潮汐港 · 故事从一封未寄出的信开始</span>
+        </section>
+        <section class="hs-page hs-world" data-chapter="islands" aria-labelledby="hs-world-title">
+          <div class="hs-copy">
+            <p class="hs-kicker">01 / 我将去往的世界</p>
+            <h2 id="hs-world-title">三座岛，<br />还在等彼此的回信。</h2>
+            <p class="hs-lead">雾季，让三岛的夜邮停了下来。</p>
+            <p class="hs-prose">岛上的人还在修船、观察、画图。<br />白天的小艇仍在往返，夜里的信袋却很久没有走完一圈。</p>
+            <dl class="hs-islands"><div><dt>物理岛</dt><dd>船、钟与运动的轨迹</dd></div><div><dt>数学岛</dt><dd>地址、图形与关系的线索</dd></div><div><dt>化学岛</dt><dd>样品、结构与变化的记录</dd></div></dl>
+            <p class="hs-small">不同年代的研究现场，在这里相遇。</p>
+          </div>
+          <div class="hs-art" data-story-art="islands"></div>
+          <span class="hs-scene-note">一张旧航图，三个还在工作的港口</span>
+        </section>
+        <section class="hs-page hs-messenger" data-chapter="messenger" aria-labelledby="hs-messenger-title">
+          <div class="hs-copy">
+            <p class="hs-kicker">02 / 我的第一天</p>
+            <h2 id="hs-messenger-title">我想在这里，<br />留下自己的位置。</h2>
+            <p class="hs-lead">今天，我来潮汐港报到。</p>
+            <p class="hs-prose">我还不是正式信使。<br />老乔给了我一只临时信袋，<br />还有桌边一小块空位。</p>
+            <blockquote>“先借这里整理。<br />跑通邮路，就给你留个位置。”<cite>老乔 · 潮汐港站长</cite></blockquote>
+          </div>
+          <div class="hs-art" data-story-art="messenger"></div>
+          <span class="hs-scene-note">一只信袋 · 一本空白手记 · 借来的桌角</span>
+        </section>
+        <section class="hs-page hs-companion" data-chapter="companion" aria-labelledby="hs-companion-title">
+          <div class="hs-copy">
+            <p class="hs-kicker">03 / 和我同行的搭档</p>
+            <h2 id="hs-companion-title">这趟路，<br />我不是一个人。</h2>
+            <p class="hs-lead">它叫阿墨，一只喜欢捡纸夹的渡鸦。</p>
+            <p class="hs-prose">它认得群岛的路，<br />也喜欢把信整理得整整齐齐。</p>
+            <blockquote>“地址我熟。那些装置嘛……<br />我们一起试。”<cite>阿墨 · 你的信使搭档</cite></blockquote>
+          </div>
+          <div class="hs-art" data-story-art="companion"></div>
+          <span class="hs-scene-note">它负责记路，我们一起把问题弄明白</span>
+        </section>
+        <section class="hs-page hs-commission" data-chapter="commission" aria-labelledby="hs-commission-title">
+          <div class="hs-copy">
+            <p class="hs-kicker">04 / 第一份委托</p>
+            <h2 id="hs-commission-title">四箱货，<br />寄给对岸的小禾。</h2>
+            <p class="hs-lead">可是，最后一箱总是装不上船。</p>
+            <ol class="hs-errands"><li><span>01</span><div><strong>船能装下四箱吗？</strong><small>去物理岛，带回船型与载重记录。</small></div></li><li><span>02</span><div><strong>受潮的样品签，该怎么补？</strong><small>去化学岛，用性质辨认密封留样。</small></div></li><li><span>03</span><div><strong>“右上那间”，到底是哪一间？</strong><small>去数学岛，写下别人也能找到的地址。</small></div></li></ol>
+            <p class="hs-small">收件人：小禾 · 标本港内港窗口</p>
+          </div>
+          <div class="hs-art" data-story-art="commission"></div>
+          <span class="hs-scene-note">三座岛，一份共同的委托</span>
+        </section>
+        <section class="hs-page hs-departure" data-chapter="departure" aria-labelledby="hs-departure-title">
+          <div class="hs-copy">
+            <p class="hs-kicker">05 / 故事，该由我接着写了</p>
+            <h2 id="hs-departure-title">我想试试。</h2>
+            <p class="hs-lead">先把这四箱货，送到对岸。</p>
+            <p class="hs-prose">再看看，小禾会寄回什么。</p>
+            <p class="hs-departure-invite">继续下滑，跟随阿墨启程。<span aria-hidden="true">↓</span></p>
+          </div>
+          <div class="hs-art" data-story-art="departure"></div>
+          <span class="hs-scene-note">第一船信 · 还在等我们出发</span>
+        </section>
+      </div>
+      <header class="hf-top">
+        <div class="hf-brand"><span class="hf-compass" aria-hidden="true">✧</span><span><strong>知识群岛</strong><small>AN ATLAS OF CURIOSITY</small></span></div>
+        <span class="hs-top-label">PROLOGUE <i></i><span class="hs-chapter-name">海的那边</span></span>
+        <button class="hf-skip" data-flight="skip"><span class="hs-skip-label">跳过序章，进入地图</span><span aria-hidden="true">↗</span></button>
+      </header>
+      <nav class="hs-chapter-nav" aria-label="序章章节">
+        <button data-story-page="0" aria-label="第 1 幕，海的那边" aria-current="step"><span>01</span><i></i><b>海的那边</b></button>
+        <button data-story-page="1" aria-label="第 2 幕，三座岛"><span>02</span><i></i><b>三座岛</b></button>
+        <button data-story-page="2" aria-label="第 3 幕，我的桌角"><span>03</span><i></i><b>我的桌角</b></button>
+        <button data-story-page="3" aria-label="第 4 幕，搭档阿墨"><span>04</span><i></i><b>搭档阿墨</b></button>
+        <button data-story-page="4" aria-label="第 5 幕，第一份委托"><span>05</span><i></i><b>第一份委托</b></button>
+        <button data-story-page="5" aria-label="第 6 幕，我想试试"><span>06</span><i></i><b>我想试试</b></button>
+      </nav>
+      <div class="hf-bottom hs-bottom">
+        <div class="hs-page-index"><span class="hs-current-page">01</span><i></i><span>06</span></div>
+        <button class="hs-back" data-story-back aria-label="回到上一幕" disabled>↑<span>上一幕</span></button>
+        <button class="hf-start" data-flight="start"><span class="hf-start-circle" aria-hidden="true">↓</span><span><strong>向下滑动，故事从这里开始</strong><small>SCROLL TO BEGIN THE STORY</small></span></button>
+        <div class="hf-edition">THE ISLAND POST<br />把问题寄出去</div>
+      </div>
+      <p class="hs-reader-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div class="hf-flight-hud"><p class="hf-status" role="status" aria-live="polite">准备跟随阿墨启程</p><div class="hf-flight-line" aria-hidden="true"></div></div>
+    </section>
+    <section class="site-prologue" id="site-prologue" role="dialog" aria-modal="true" aria-labelledby="opening-title" tabindex="-1" data-state="loading" hidden>
+      <div class="op-loading"><span aria-hidden="true">✧</span><p id="opening-title">正在展开文明的长卷…</p></div>
+    </section>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="知识群岛，返回全图"
+        ><span class="brand-compass" aria-hidden="true">✧</span
+        ><span
+          ><strong>知识群岛</strong><small>AN ATLAS OF CURIOSITY</small></span
+        ></a
+      >
+      <nav class="subjects" aria-label="选择学科">
+        <button class="active" data-subject="ALL" aria-pressed="true">
+          世界全图
+        </button>
+        <button data-subject="P" aria-pressed="false">
+          <i class="subject-dot physics"></i>物理
+        </button>
+        <button data-subject="M" aria-pressed="false">
+          <i class="subject-dot maths"></i>数学
+        </button>
+        <button data-subject="C" aria-pressed="false">
+          <i class="subject-dot chemistry"></i>化学
+        </button>
+      </nav>
+      <div class="header-actions">
+        <button class="mail-entry" id="mail-toggle" aria-label="打开三岛邮路">三岛邮路 <b id="mail-count">0 / 5</b></button>
+        <button
+          class="icon-button"
+          id="search-toggle"
+          title="搜索知识 /"
+          aria-label="搜索知识"
+        ></button
+        ><span class="header-divider"></span
+        ><button class="journal-button" id="journal-toggle">
+          <span data-icon="book"></span><span>探索手记</span
+          ><b id="journal-count">0</b>
+        </button>
+      </div>
+    </header>
+
+    <main class="map-stage" id="map-stage" aria-label="交互式学科地图">
+      <svg class="horizon-defs" width="0" height="0" aria-hidden="true">
+        <defs>
+          <filter id="atlas-blue-map" color-interpolation-filters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="0.1382 0.4649 0.0469 0 .25 0.1169 0.3934 0.0397 0 .38 0.0850 0.2861 0.0289 0 .58 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+      <div class="blue-horizon-field" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" fill="none">
+          <g stroke="currentColor">
+            <path d="M-120 640C240 140 480 810 905 432S1410 98 1740 248" />
+            <path d="M-120 662C245 163 486 832 912 456S1417 125 1740 274" />
+            <path d="M-120 684C250 186 492 854 919 480S1424 152 1740 300" />
+            <path d="M-100 230C270 550 392 80 827 330S1300 790 1730 520" />
+            <path d="M-100 254C278 574 400 104 835 355S1308 815 1730 546" />
+          </g>
+          <g fill="currentColor">
+            <circle cx="218" cy="398" r="4" />
+            <circle cx="1271" cy="284" r="4" />
+            <circle cx="1164" cy="687" r="5" />
+          </g>
+          <g stroke="currentColor">
+            <circle cx="218" cy="398" r="14" />
+            <circle cx="1164" cy="687" r="16" />
+          </g>
+        </svg>
+      </div>
+      <div class="world" id="world">
+        <img
+          class="world-art"
+          id="world-art"
+          src="./assets/world-map-v2.png?v=20261029-scroll-layout-3"
+          alt="海洋中的三座科学岛屿，数学花园、物理观测站和化学温室"
+          draggable="false"
+        />
+        <svg
+          id="map-color-layer"
+          class="map-color-layer"
+          viewBox="0 0 1600 1000"
+          aria-hidden="true"
+        ></svg>
+        <svg
+          id="world-edges"
+          class="world-edges"
+          viewBox="0 0 1600 1000"
+          aria-label="知识关系连线"
+        ></svg>
+        <svg
+          id="island-trails"
+          class="island-trails"
+          viewBox="0 0 1600 1000"
+          aria-hidden="true"
+        ></svg>
+        <div id="level-regions" class="level-regions"></div>
+        <svg
+          id="map-fog"
+          class="map-fog"
+          viewBox="0 0 1600 1000"
+          aria-hidden="true"
+        ></svg>
+        <div class="island-name maths-name">
+          <span>THE GARDENS OF PATTERNS</span>
+          <h2>数学群岛</h2>
+          <p>从数量，走向无限可能</p>
+        </div>
+        <div class="island-name physics-name">
+          <span>THE COAST OF NATURAL LAWS</span>
+          <h2>物理群岛</h2>
+          <p>发现世界运行的规律</p>
+        </div>
+        <div class="island-name chemistry-name">
+          <span>THE GARDENS OF MATTER</span>
+          <h2>化学群岛</h2>
+          <p>在微观之中，遇见万千世界</p>
+        </div>
+        <div id="map-nodes"></div>
+        <svg id="postal-routes" class="postal-routes" viewBox="0 0 1600 1000" aria-hidden="true"></svg>
+        <div id="postal-local-pins" class="postal-local-layer"></div>
+        <span class="harbor-label">好奇心港湾</span>
+      </div>
+      <div class="perspective-switch paper" aria-label="地图视角">
+        <button
+          id="world-perspective"
+          class="active"
+          aria-label="大地图视角"
+          aria-pressed="true"
+        >
+          <span data-icon="compass"></span>大地图
+        </button>
+        <span class="perspective-divider">/</span>
+        <button id="island-perspective" aria-pressed="false">
+          <span data-icon="flag"></span
+          ><span id="island-perspective-label">当前关卡 · 物理岛</span>
+        </button>
+      </div>
+      <div class="map-context">
+        <div class="chapter-heading" id="chapter-heading" hidden>
+          <span>PHYSICS · TEN UNRESOLVED QUESTIONS</span>
+          <h1>物理岛<span>十场未决的探索</span></h1>
+          <p>回到科学问题尚未解决的那一刻。</p>
+        </div>
+        <div class="discovery-note" id="discovery-note">
+          <span class="discovery-dot"></span
+          ><span id="discovery-note-text">未知的海域，等待你的足迹。</span>
+        </div>
+      </div>
+      <div class="map-view-switch" aria-label="地图模式">
+        <button
+          class="active"
+          data-mode="knowledge"
+          aria-label="知识脉络"
+          aria-pressed="true"
+        >
+          <span data-icon="network"></span>知识脉络</button
+        ><button data-mode="history" aria-label="发展故事" aria-pressed="false">
+          <span data-icon="hourglass"></span>发展故事
+        </button>
+      </div>
+      <div class="map-loading" id="map-loading">
+        <span class="loading-compass">✧</span>
+        <p>正在展开航海图…</p>
+      </div>
+      <div class="map-tools">
+        <button class="paper-tool" id="postal-office-toggle" aria-label="回潮汐港邮局"><span data-icon="mail"></span><span>邮局</span></button>
+        <button
+          class="paper-tool fog-toggle"
+          id="fog-toggle"
+          aria-label="探索迷雾"
+          title="开启或关闭探索迷雾"
+          aria-pressed="true"
+        >
+          <span data-icon="cloud"></span><span>迷雾</span
+          ><i class="toggle-indicator"></i>
+        </button>
+        <button
+          class="paper-tool"
+          id="relations-toggle"
+          aria-label="知识连线"
+          title="显示或隐藏知识连线"
+          aria-pressed="false"
+        >
+          <span data-icon="network"></span><span>知识连线</span></button
+        ><button
+          class="paper-tool"
+          id="list-toggle"
+          aria-label="地点索引"
+          title="打开地点索引"
+        >
+          <span data-icon="list"></span><span>地点索引</span>
+        </button>
+      </div>
+      <section class="quest-card paper" aria-label="当前探索任务">
+        <span class="quest-emblem" data-icon="compass"></span>
+        <div>
+          <span class="eyebrow">今日的好奇心</span>
+          <h3 id="quest-title">球，为什么沿曲线飞行？</h3>
+          <p id="quest-subtitle">到物理岛，完成你的第一次实验</p>
+          <div id="postal-task-strip" aria-label="当前委托的三份成果"></div>
+        </div>
+        <button id="quest-start" aria-label="前往当前探索任务">
+          <span data-icon="arrow"></span>
+        </button>
+      </section>
+      <aside
+        class="node-panel paper"
+        id="node-panel"
+        aria-label="知识地点详情"
+        hidden
+      ></aside>
+      <div class="navigation-tools">
+        <button
+          class="compass-reset"
+          id="fit-map"
+          title="回到世界全图"
+          aria-label="回到世界全图"
+        >
+          <small>N</small><span>✧</span>
+        </button>
+        <div class="zoom-controls paper">
+          <button id="zoom-in" aria-label="放大地图">＋</button
+          ><span id="zoom-value">100%</span
+          ><button id="zoom-out" aria-label="缩小地图">−</button>
+        </div>
+      </div>
+      <div class="map-hint">
+        <span data-icon="mouse"></span>拖动探索 · 滚轮缩放 · 单击查看 · 双击进入
+      </div>
+    </main>
+
+    <footer class="bottom-bar">
+      <span class="live-dot"></span><span>世界很大，从一个问题开始。</span>
+      <div class="exploration-progress">
+        <span id="progress-text">已发现 0 / 30 个地点</span
+        ><span class="progress-track"><i id="progress-fill"></i></span>
+      </div>
+      <button id="help-toggle">
+        <span data-icon="help"></span><span>探索指南</span>
+      </button>
+    </footer>
+    <section
+      class="search-popover paper"
+      id="search-popover"
+      aria-label="搜索知识地点"
+      hidden
+    >
+      <label for="search-input"
+        ><span data-icon="search"></span
+        ><input
+          id="search-input"
+          type="search"
+          placeholder="寻找一个概念，例如：抛物线"
+          autocomplete="off"
+        /><kbd>ESC</kbd></label
+      >
+      <div id="search-results"></div>
+    </section>
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section
+        class="modal paper"
+        id="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        tabindex="-1"
+      ></section>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="save-status" id="save-status" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

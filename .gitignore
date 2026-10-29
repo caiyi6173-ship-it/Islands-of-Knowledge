@@ -1,0 +1,24 @@
+# 依赖与工具缓存
+node_modules/
+.playwright-cli/
+
+# 本地构建产物与临时文件
+publish/
+tmp/
+_shots/
+
+# 验收产物：保留文字记录，排除截图与日志
+output/*
+!output/*.md
+
+# 工作区内部数据（项目记忆、发布标记）
+.workbuddy/
+*.genie
+
+# 改造前的原始美术备份
+assets/legacy/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,42 @@
+{
+  "name": "knowledge-islands",
+  "version": "0.1.0",
+  "private": true,
+  "description": "可探索的物理、数学、化学知识群岛",
+  "scripts": {
+    "start": "node server.cjs",
+    "check": "node --check src/content.js && node --check src/science.js && node --check src/exploration.js && node --check src/physics-models.js && node --check src/physics-level-data.js && node --check src/physics-art.js && node --check src/physics-map-art.js && node --check src/physics-scenes.js && node --check src/physics-levels.js && node --check src/physics-investigations.js && node --check src/physics-scenarios.js && node --check src/physics-atlas-art.js && node --check src/physics-pixel-worlds.js && node --check src/physics-level-intro.js && node --check src/physics-sound.js && node --check src/physics-console.js && node --check src/physics-history.js && node --check src/math-models.js && node --check src/math-level-data.js && node --check src/math-art.js && node --check src/math-investigations.js && node --check src/math-scenarios.js && node --check src/math-atlas-art.js && node --check src/math-pixel-art.js && node --check src/math-pixel-worlds.js && node --check src/math-workbench-art.js && node --check src/math-level-intro.js && node --check src/math-sound.js && node --check src/math-sandbox.js && node --check src/math-console.js && node --check src/math-levels.js && node --check src/math-history.js && node --check src/history-view.js && node --check src/app.js && node --check src/physics-sandbox.js && node --check src/chemistry-data.js && node --check src/chemistry-engine.js && node --check src/chemistry-art.js && node --check src/chemistry-console.js && node --check src/scenario-engine.js && node --check src/research-engine.js && node --check src/chemistry-scenarios.js && node --check src/subject-levels.js && node --check src/subject-map-art.js && node --check src/site-prologue-data.js && node --check src/site-prologue-art.js && node --check src/site-prologue.js && node --check src/progress-store.js",
+    "test": "node --test tests/*.test.cjs",
+    "check:sandbox": "node --check src/physics-sandbox.js && node --check src/physics-sound.js",
+    "test:browser": "node scripts/check-high-priority.cjs",
+    "test:browser:worldline": "node scripts/check-high-priority.cjs worldline",
+    "check:worldline": "node --check src/worldline-data.js && node --check src/research-session.js && node --check src/research-adapters.js && node --check src/worldline.js && node --check src/worldline-view.js",
+    "check:first-voyage": "node --check src/first-voyage-models.js && node --check src/first-voyage-art.js && node --check src/first-voyage-workbench.js && node --check src/first-voyage-delivery.js",
+    "test:browser:first-voyage": "node scripts/check-high-priority.cjs first-voyage",
+    "check:postal-world": "node --check src/postal-world.js && node --check src/postal-art.js && node --check src/postal-map-view.js && node --check src/postal-room-view.js",
+    "test:browser:postal-world": "node scripts/check-high-priority.cjs postal-world",
+    "check:nightwatch": "node --check src/nightwatch-models.js && node --check src/nightwatch-art.js && node --check src/nightwatch-runtime.js && node --check src/nightwatch-lab.js && node --check src/nightwatch-delivery.js",
+    "test:browser:nightwatch": "node scripts/check-high-priority.cjs nightwatch",
+    "check:revision": "node --check src/revision-models.js && node --check src/revision-art.js && node --check src/revision-runtime.js && node --check src/revision-lab.js && node --check src/revision-delivery.js",
+    "test:browser:revision": "node scripts/check-high-priority.cjs revision",
+    "check:atlas": "node --check src/atlas-models.js && node --check src/atlas-art.js && node --check src/atlas-runtime.js && node --check src/atlas-lab.js && node --check src/atlas-delivery.js",
+    "test:browser:atlas": "node scripts/check-high-priority.cjs atlas",
+    "check:return": "node --check src/return-models.js && node --check src/return-art.js && node --check src/return-lab.js && node --check src/return-delivery.js",
+    "test:browser:return": "node scripts/check-high-priority.cjs return",
+    "check:appendix": "node --check src/appendix-data.js && node --check src/appendix-common.js && node --check src/appendix-physics.js && node --check src/appendix-math.js && node --check src/appendix-chemistry.js && node --check src/appendix-models.js && node --check src/appendix-art.js && node --check src/appendix-runtime.js && node --check src/appendix-lab.js && node --check src/appendix-post.js",
+    "test:browser:appendix": "node scripts/check-high-priority.cjs appendix",
+    "check:presentation": "node --check src/research-presentation.js && node --check src/physics-sound.js && node --check src/first-voyage-workbench.js && node --check src/appendix-runtime.js && node --check src/revision-runtime.js",
+    "test:browser:presentation": "node scripts/check-high-priority.cjs presentation",
+    "verify": "node scripts/verify.cjs",
+    "test:browser:campaign": "node scripts/check-high-priority.cjs campaign",
+    "test:browser:resilience": "node scripts/check-high-priority.cjs resilience",
+    "test:browser:onboarding": "node scripts/check-high-priority.cjs onboarding",
+    "check:harbor": "node --check src/map-camera.js && node --check src/harbor-flight.js && node --check src/harbor-story.js && node --check src/harbor-entry.js",
+    "test:browser:harbor": "node scripts/check-high-priority.cjs harbor",
+    "test:browser:map-activation": "node scripts/check-high-priority.cjs map-activation",
+    "test:browser:scroll-layout": "node scripts/check-high-priority.cjs scroll-layout"
+  },
+  "devDependencies": {
+    "@playwright/cli": "0.1.22"
+  }
+}

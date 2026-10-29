@@ -1,0 +1,636 @@
+.perspective-switch {
+  position: absolute;
+  top: 21px;
+  left: 27px;
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  z-index: 8;
+  gap: 5px;
+  border-radius: 6px;
+  box-shadow: 0 3px 15px #4057771a;
+}
+.perspective-switch button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  padding: 7px 10px;
+  border-radius: 3px;
+  color: #697891;
+  min-height: 32px;
+}
+.perspective-switch button.active {
+  background: #eef3ff;
+  color: #667a9d;
+}
+.perspective-switch svg {
+  width: 15px;
+  height: 15px;
+}
+.perspective-divider {
+  font-size: 14px;
+  color: #dfe8fa;
+}
+.map-stage .map-intro {
+  display: none;
+}
+.map-view-switch {
+  top: 24px;
+  left: 53%;
+}
+.map-tools {
+  top: 24px;
+  gap: 7px;
+  right: 26px;
+}
+.paper-tool {
+  min-height: 40px;
+}
+.fog-toggle {
+  gap: 7px;
+}
+.toggle-indicator {
+  width: 23px;
+  height: 13px;
+  background: #bdcbea;
+  border-radius: 8px;
+  position: relative;
+  display: inline-block;
+}
+.toggle-indicator:after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #ffffff;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.fog-toggle[aria-pressed="true"] .toggle-indicator {
+  background: #bdcbea;
+}
+.fog-toggle[aria-pressed="true"] .toggle-indicator:after {
+  transform: translateX(10px);
+}
+.map-fog {
+  position: absolute;
+  inset: 0;
+  width: 1600px;
+  height: 1000px;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 0.7s;
+}
+.world.fog-disabled .map-fog {
+  opacity: 0;
+}
+.island-trails {
+  position: absolute;
+  inset: 0;
+  width: 1600px;
+  height: 1000px;
+  z-index: 2;
+  pointer-events: none;
+}
+.exploration-trail {
+  fill: none;
+  stroke: #f8faff99;
+  stroke-width: 3;
+  stroke-dasharray: 3 8;
+  stroke-linecap: round;
+}
+.level-regions {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.region-label {
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  text-shadow:
+    0 1px 12px #f8faff,
+    0 0 5px #f8faff;
+}
+.region-label span {
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  color: #667a9d;
+}
+.region-label h2 {
+  font: 600 24px/1.8 var(--serif);
+  letter-spacing: 4px;
+  color: #405777;
+}
+.world.is-physics-island .island-name,
+.world.is-physics-island .harbor-label {
+  display: none;
+}
+.world.is-world-map .harbor-label {
+  z-index: 6;
+}
+.world.is-world-map .island-name {
+  display: none;
+}
+.world.is-world-map .map-node {
+  display: none;
+}
+.island-portal {
+  position: absolute;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  padding: 15px 20px;
+  min-width: 190px;
+  filter: drop-shadow(0 2px 7px #40577755);
+}
+.portal-emblem {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  color: #667a9d;
+  background: linear-gradient(140deg, #f8faff, #dfe8fa);
+  border: 2px solid #f8faff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 6px #f8faff35,
+    0 7px 0 #667a9d55;
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
+}
+.portal-emblem svg {
+  width: 30px;
+  height: 30px;
+}
+.island-portal:hover .portal-emblem {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 0 9px #f8faff44,
+    0 10px 0 #667a9d33;
+}
+.portal-name {
+  background: #fffffff5;
+  border: 1px solid #dfe8fa;
+  margin-top: 17px;
+  padding: 9px 22px 10px;
+  border-radius: 4px;
+  min-width: 176px;
+  box-shadow: 0 5px 15px #40577722;
+}
+.portal-name strong {
+  display: block;
+  font: 600 25px/1.5 var(--serif);
+  letter-spacing: 5px;
+}
+.portal-name small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #526b94;
+  margin-top: 3px;
+}
+.portal-name > span {
+  display: block;
+  font-size: 10px;
+  color: #526b94;
+  margin-top: 6px;
+}
+.island-portal.uncharted .portal-emblem {
+  background: linear-gradient(140deg, #f8faff, #dfe8fa);
+  color: #526b94;
+  box-shadow:
+    0 0 0 5px #eef3ff30,
+    0 6px 0 #667a9d40;
+}
+.island-portal.uncharted .portal-name {
+  background: #f8faffe8;
+  border-color: #dfe8fa;
+}
+.island-portal.uncharted .portal-name strong {
+  color: #526b94;
+}
+.island-dossier .panel-art {
+  height: 115px;
+}
+.island-dossier .panel-content h2 {
+  font-size: 30px;
+}
+.island-dossier .panel-question {
+  font: 14px var(--serif);
+  letter-spacing: 3px;
+  color: #526b94;
+}
+.island-dossier .panel-description {
+  font-size: 12px;
+  line-height: 2;
+}
+.island-dossier .panel-tag {
+  letter-spacing: 2px;
+}
+.dossier-meta {
+  display: flex;
+  gap: 12px;
+  border-block: 1px solid #eef3ff;
+  padding: 12px 0;
+  margin: 16px 0;
+  font-size: 10px;
+  color: #526b94;
+}
+.dossier-meta b {
+  font: 22px Georgia;
+  color: #526b94;
+  margin-right: 4px;
+}
+.dossier-chapters {
+  padding-top: 14px;
+  margin-top: 15px;
+  border-top: 1px solid #eef3ff;
+}
+.dossier-chapters small {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #697891;
+}
+.dossier-chapters p {
+  margin-top: 7px;
+  font-size: 11px;
+  color: #526b94;
+}
+.dossier-chapters p:before {
+  content: "◇";
+  color: #697891;
+  margin-right: 8px;
+}
+.level-dossier .panel-content h2 {
+  font-size: 25px;
+}
+.level-dossier .panel-art {
+  height: 120px;
+}
+.chapter-heading {
+  position: absolute;
+  top: 100px;
+  left: 35px;
+  z-index: 7;
+  pointer-events: none;
+  text-shadow:
+    0 1px 16px #f8faff,
+    0 0 8px #f8faff;
+}
+.chapter-heading > span {
+  font-size: 8px;
+  color: #526b94;
+  letter-spacing: 2px;
+}
+.chapter-heading h1 {
+  font: 600 33px/1.6 var(--serif);
+  letter-spacing: 6px;
+  color: #405777;
+}
+.chapter-heading h1 span {
+  font-size: 17px;
+  margin-left: 17px;
+  letter-spacing: 4px;
+  color: #526b94;
+}
+.chapter-heading p {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #526b94;
+  margin-top: 2px;
+}
+.discovery-note {
+  position: absolute;
+  left: 35px;
+  top: 87px;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #667a9d;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 10px #f8faff;
+}
+.discovery-dot {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background: #bdcbea;
+  box-shadow: 0 0 0 3px #eef3ff66;
+}
+.map-stage[data-layer="island"] .discovery-note {
+  top: 210px;
+}
+.map-stage[data-layer="island"][data-subject="M"] .discovery-note,
+.map-stage[data-layer="island"][data-subject="C"] .discovery-note {
+  top: 85px;
+}
+.map-stage[data-layer="world"] .node-panel {
+  top: 108px;
+  max-height: calc(100% - 245px);
+}
+.map-stage[data-layer="island"] .node-panel {
+  top: 105px;
+  max-height: calc(100% - 235px);
+}
+.map-stage[data-layer="world"] .map-hint {
+  color: #f8faff;
+}
+.map-stage[data-layer="world"] .quest-card {
+  width: 340px;
+}
+.map-node.unknown .node-pin {
+  background: #bdcbea;
+  border: 1px solid #f8faff;
+  box-shadow: 0 0 0 4px #eef3ff2b;
+  color: #f8faff;
+  width: 25px;
+  height: 25px;
+  font: 15px Georgia;
+}
+.map-node.unknown .node-label {
+  background: #f8faffce;
+  border-color: #dfe8fa;
+  color: #526b94;
+  font: 11px var(--sans);
+  letter-spacing: 1px;
+}
+.map-node.unknown {
+  filter: drop-shadow(0 1px 3px #40577725);
+}
+.map-node.island-landmark:not(.unknown) .node-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px;
+}
+.node-place-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.node-concept-name {
+  font: 9px/1.7 var(--sans);
+  letter-spacing: 1px;
+  color: #526b94;
+}
+.map-node.island-landmark.experiment .node-label {
+  padding: 6px 14px;
+}
+.map-node.island-landmark.experiment .node-place-name {
+  font-size: 15px;
+}
+.map-node.island-landmark {
+  min-height: 44px;
+  min-width: 92px;
+}
+.node-region-tag {
+  font-size: 10px;
+  color: #526b94;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+.landmark-subtitle {
+  font-size: 10px;
+  color: #526b94;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.fog-legend {
+  font-size: 10px;
+  color: #697891;
+  line-height: 1.9;
+  margin-top: 12px;
+}
+.fog-legend:before {
+  content: "◌";
+  margin-right: 5px;
+  font-size: 14px;
+  color: #697891;
+}
+.exploration-note {
+  font-size: 10px;
+  color: #526b94;
+  line-height: 1.8;
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #f8faff;
+  border-left: 2px solid #bdcbea;
+}
+@media (max-width: 1200px) {
+  .perspective-switch {
+    left: 20px;
+  }
+  .perspective-switch button {
+    font-size: 10px;
+    padding: 7px;
+  }
+  .map-view-switch {
+    left: 55%;
+  }
+  .map-view-switch button {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+  .map-tools .paper-tool span:not([data-icon]) {
+    display: none;
+  }
+  .chapter-heading {
+    left: 26px;
+  }
+  .chapter-heading h1 {
+    font-size: 28px;
+  }
+  .chapter-heading p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 800px) {
+  .map-view-switch {
+    left: auto;
+    right: 22px;
+    top: 78px;
+    transform: none;
+  }
+  .map-stage[data-layer="world"] .node-panel {
+    top: 133px;
+  }
+  .chapter-heading {
+    top: 85px;
+  }
+  .chapter-heading h1 {
+    font-size: 26px;
+  }
+  .chapter-heading > span {
+    font-size: 7px;
+  }
+  .map-stage[data-layer="island"] .discovery-note {
+    top: 190px;
+  }
+  .perspective-switch {
+    left: 15px;
+    top: 18px;
+  }
+  .map-tools {
+    right: 15px;
+    top: 18px;
+  }
+  .perspective-switch button {
+    font-size: 10px;
+    gap: 5px;
+    padding: 6px;
+  }
+  .perspective-switch svg {
+    width: 13px;
+    height: 13px;
+  }
+  .perspective-switch {
+    gap: 1px;
+  }
+  .perspective-divider {
+    font-size: 11px;
+  }
+  .paper-tool {
+    padding: 8px;
+    min-height: 38px;
+  }
+  .fog-toggle .toggle-indicator {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .perspective-switch {
+    top: 14px;
+    left: 12px;
+    padding: 3px;
+  }
+  .perspective-switch button {
+    font-size: 9px;
+    min-height: 30px;
+    padding: 5px;
+  }
+  .perspective-switch button svg {
+    display: none;
+  }
+  .map-tools {
+    top: 15px;
+    right: 11px;
+    gap: 4px;
+  }
+  .paper-tool {
+    padding: 7px;
+    min-height: 34px;
+  }
+  .paper-tool svg {
+    width: 14px;
+    height: 14px;
+  }
+  .map-view-switch {
+    right: 12px;
+    top: 65px;
+    padding: 2px;
+  }
+  .map-view-switch button {
+    font-size: 9px;
+    padding: 5px 8px;
+  }
+  .discovery-note {
+    left: 17px;
+    top: 65px;
+    font-size: 9px;
+    max-width: 175px;
+    line-height: 1.8;
+  }
+  .chapter-heading {
+    left: 18px;
+    top: 113px;
+  }
+  .chapter-heading > span {
+    font-size: 6px;
+    letter-spacing: 1.2px;
+  }
+  .chapter-heading h1 {
+    font-size: 25px;
+    letter-spacing: 4px;
+  }
+  .chapter-heading h1 span {
+    font-size: 12px;
+    margin-left: 10px;
+    letter-spacing: 2px;
+  }
+  .chapter-heading p {
+    display: none;
+  }
+  .map-stage[data-layer="island"] .discovery-note {
+    top: 173px;
+    max-width: 240px;
+  }
+  .map-stage[data-layer="world"] .node-panel,
+  .map-stage[data-layer="island"] .node-panel {
+    top: auto;
+    bottom: 104px;
+    max-height: 43%;
+  }
+  .island-dossier .panel-art {
+    height: 100%;
+    min-height: 185px;
+  }
+  .island-dossier .panel-content h2 {
+    font-size: 24px;
+  }
+  .island-dossier .panel-question {
+    font-size: 11px;
+    margin-bottom: 9px;
+  }
+  .island-dossier .dossier-meta {
+    margin: 7px 0;
+    padding: 5px 0;
+    gap: 10px;
+    font-size: 9px;
+  }
+  .dossier-meta b {
+    font-size: 17px;
+  }
+  .dossier-chapters,
+  .fog-legend,
+  .exploration-note {
+    display: none;
+  }
+  .island-dossier .panel-content {
+    padding: 13px;
+  }
+  .map-stage[data-layer="world"] .quest-card {
+    width: 245px;
+  }
+  .portal-name {
+    min-width: 150px;
+    padding: 8px 15px;
+  }
+  .portal-name strong {
+    font-size: 23px;
+  }
+  .island-portal {
+    min-width: 170px;
+  }
+  .level-dossier .panel-art {
+    min-height: 180px;
+  }
+  .chapter-heading ~ .node-panel .landmark-subtitle {
+    font-size: 9px;
+  }
+  .map-node.island-landmark .node-concept-name {
+    font-size: 10px;
+  }
+}
+.map-stage {
+  overflow: clip;
+}

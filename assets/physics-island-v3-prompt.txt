@@ -1,0 +1,15 @@
+Use case: stylized-concept. Create a NEW landscape 8:5 educational adventure game map, Physics Island, for the ten investigations below. Richly detailed realistic painterly 3D miniature diorama seen from high isometric camera. Full natural color, turquoise sea, limestone cliffs, lush forests, classical stone buildings, brass instruments, soft sunlight. Entire irregular island with ocean margin in frame, northern mountains, stream and bridges, winding paths, ten separated destinations. No text or UI; game labels added separately.
+
+Approximate destination centers as percentages of whole image:
+P01 (20%,77%) southwest Archimedes harbor: cargo sailboat, FOUR wooden instrument crates, shallow test basin and hollow hull shapes.
+P02 (23%,52%) west Galileo timing tower: inclined wooden ball track, THREE brass bells with increasing spacing.
+P03 (40%,28%) mountain Newton thought-model terrace: tabletop Earth globe, thin brass orbital arcs and SMALL horizontal model ball launcher, clearly an educational miniature model.
+P04 (43%,74%) southern Joule open workshop: falling weights on tall pulleys, shaft driving paddles in a copper water vessel, slim thermometer.
+P05 (55%,48%) central Young optics garden: shaded bench, two narrow slits, white screen with bright and dark interference bands, planted beds.
+P06 (68%,66%) southeast Faraday workshop: copper coil, magnet slider, galvanometer dial and hand crank.
+P07 (84%,49%) eastern signal station: TWO modest transmitter and receiver antenna towers on opposite banks of a narrow sea inlet.
+P08 (69%,26%) northeast Curie mineral measurement laboratory: open courtyard with mineral trays, blank reference tray, measuring box and electrometer, natural minerals without green glow.
+P09 (85%,77%) far southeast Planck blackbody furnace house: brick cavity furnace with tiny orange observation aperture, prism and spectrometer bench.
+P10 (87%,26%) far northeast Einstein photoelectric terrace: RED and BLUE lamps aimed at glass photoelectric vacuum tube with brass current meter.
+
+Experimental equipment is integrated into architecture and clearly visible. Terrain supports these intended positions. Paths connect the buildings; leave space for HTML labels. Exclude obsolete landmarks: basketball hoops or courts, Newton cradle, giant waterwheel, pendulum or electric orb temples, closed lamp circuit garden. No people, writing, numbers, badges, symbols, fog, UI, watermark, pixel art, flat vector or low-poly.

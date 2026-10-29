@@ -1,0 +1,957 @@
+/* Blue is unexplored territory. Discoveries reveal the original map underneath. */
+.map-color-layer {
+  position: absolute;
+  inset: 0;
+  width: 1600px;
+  height: 1000px;
+  z-index: 1;
+  pointer-events: none;
+}
+.map-color-layer image {
+  filter: none;
+}
+.world.is-physics-island .story-map-art {
+  filter: drop-shadow(0 4px 5px #355a9b20);
+}
+.world.is-physics-island .map-node.island-landmark.unknown .story-map-art {
+}
+.world.is-physics-island .level-cleared .story-map-art {
+  filter: drop-shadow(0 5px 5px #655f4a30);
+}
+.map-node.level-cleared .node-label {
+  border-color: #c2d7b5;
+  background: #fffff4f5;
+  color: #405948;
+}
+.map-node.level-cleared .story-map-seal {
+  background: #609873;
+}
+.island-portal.has-discoveries .portal-emblem {
+  background: #5a9c85;
+}
+.color-restoration {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 15px 0 0;
+  font-size: 10px;
+  color: #647f9e;
+}
+.color-restoration > i {
+  width: 8px;
+  height: 8px;
+  background: conic-gradient(#7bc8b1, #f6cf7b, #e29c9c, #8f9fd5, #7bc8b1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #edf3ff;
+}
+.color-restoration b {
+  color: #4568ed;
+  font-weight: 500;
+}
+
+/* Each science event is its own cartridge: shared pixel frames, distinct palettes. */
+#modal-backdrop:has(.pixel-event-modal) {
+  background: #141b2bd9;
+  backdrop-filter: blur(7px);
+}
+#modal-backdrop .pixel-event-modal {
+  --event-bg: var(--px-bg) !important;
+  --event-panel: var(--px-panel);
+  --event-gold: var(--px-accent) !important;
+  --event-text: var(--px-ink);
+  --event-dim: var(--px-muted);
+  --event-wash: var(--px-panel) !important;
+  --event-line: var(--px-line);
+  --atlas-brass: var(--px-accent);
+  --sans: "Cascadia Mono", "Consolas", "Microsoft YaHei", monospace;
+  --serif: var(--sans);
+  --display: var(--sans);
+  background: var(--px-bg);
+  color: var(--px-ink);
+  border: 2px solid var(--px-line);
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 4px var(--px-bg),
+    0 0 0 6px var(--px-line),
+    0 22px 90px #0009;
+}
+#modal-backdrop .pixel-event-modal:before {
+  display: none;
+}
+#modal-backdrop .pixel-event-modal .event-console {
+  color: var(--px-ink);
+  font-family: var(--sans);
+}
+#modal-backdrop .pixel-event-modal .event-body {
+  background: var(--px-bg);
+}
+#modal-backdrop .pixel-event-modal .event-console :is(h1, h2, h3, h4, strong) {
+  color: var(--px-ink);
+  font-family: var(--sans);
+  font-weight: 600;
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-console
+  :is(p, small, label, legend, summary) {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-console a {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal :is(.event-header, .event-footer) {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+}
+#modal-backdrop .pixel-event-modal .event-header {
+  padding-block: 14px;
+  border-bottom-width: 2px;
+}
+#modal-backdrop .pixel-event-modal .event-heading h2 {
+  color: var(--px-ink);
+  font-size: 21px;
+  letter-spacing: 0.02em;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-heading > p,
+    .event-save,
+    .event-kicker,
+    .event-theme-label,
+    .event-theme-label small,
+    .event-theme-label .atlas-emblem
+  ) {
+  color: var(--px-accent);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-back, .event-icon, .event-secondary) {
+  background: var(--px-bg);
+  color: var(--px-muted);
+  border: 1px solid var(--px-line);
+  border-radius: 1px;
+  box-shadow: 0 3px 0 #0003;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-back, .event-icon, .event-secondary):hover {
+  color: var(--px-accent);
+  background: var(--px-panel);
+  border-color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-footer {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-footer > span:first-child {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-footer i {
+  background: var(--px-accent);
+  box-shadow: 0 0 7px var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-cover h1 {
+  color: var(--px-ink);
+  font-size: clamp(28px, 2.7vw, 40px);
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+}
+#modal-backdrop .pixel-event-modal .event-cover h1:after {
+  background: var(--px-accent);
+  border-radius: 0;
+  width: 42px;
+  height: 4px;
+  box-shadow: 7px 0 var(--px-secondary);
+}
+#modal-backdrop .pixel-event-modal .event-premise {
+  border-left: 3px solid var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-premise > span {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-cover-tags > span {
+  background: var(--px-panel);
+  color: var(--px-muted);
+  border: 1px solid var(--px-line);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-cover-world {
+  border: 2px solid var(--px-line);
+  background: var(--px-panel);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 #0003;
+  overflow: hidden;
+  transform: none;
+}
+#modal-backdrop .pixel-event-modal .event-cover-scene {
+  background: var(--px-bg);
+  border-bottom: 2px solid var(--px-line);
+}
+#modal-backdrop .pixel-event-modal .event-cover-person {
+  background: var(--px-panel) !important;
+}
+#modal-backdrop .pixel-event-modal .event-cover-person > b {
+  color: var(--px-accent);
+  font-family: var(--sans);
+  opacity: 0.25;
+}
+#modal-backdrop .pixel-event-modal .event-cover-world blockquote {
+  border-color: var(--px-line);
+  color: var(--px-ink);
+}
+#modal-backdrop .pixel-event-modal .event-cover-world cite {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-cover-world .px-portrait {
+  width: 63px;
+  height: 70px;
+}
+#modal-backdrop .pixel-event-modal .event-role {
+  border: 2px solid var(--px-line);
+  border-radius: 0;
+  background: var(--px-panel);
+  box-shadow: 4px 4px 0 #0003;
+}
+#modal-backdrop .pixel-event-modal .event-role:hover {
+  border-color: var(--px-accent);
+  background: var(--px-panel);
+}
+#modal-backdrop .pixel-event-modal .event-role.selected {
+  border-color: var(--px-accent);
+  background: var(--px-panel);
+  box-shadow:
+    inset 0 -4px color-mix(in srgb, var(--px-accent) 17%, transparent),
+    4px 4px 0 #0003;
+}
+#modal-backdrop .pixel-event-modal .event-role-content > strong {
+  color: var(--px-ink);
+  font-family: var(--sans);
+  font-size: 17px;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-role-content > b,
+    .event-role-check,
+    .event-role-index,
+    .event-briefing-footer b
+  ) {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-role-content > span {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-primary {
+  background: var(--px-accent);
+  color: var(--px-bg);
+  border: 2px solid var(--px-accent);
+  border-radius: 0;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--px-accent) 40%, #000);
+  font-family: var(--sans);
+  font-weight: 700;
+}
+#modal-backdrop .pixel-event-modal .event-primary:hover {
+  background: var(--px-accent);
+  color: var(--px-bg);
+  filter: brightness(1.09);
+  transform: translateY(-1px);
+}
+#modal-backdrop .pixel-event-modal .event-primary:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+#modal-backdrop .pixel-event-modal .event-link {
+  color: var(--px-accent) !important;
+}
+#modal-backdrop .pixel-event-modal .event-act-strip {
+  background: var(--px-bg);
+  border-color: var(--px-line);
+}
+#modal-backdrop .pixel-event-modal .event-act-strip > span {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-act-strip > span > b {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+  color: var(--px-muted);
+  border-radius: 0;
+  font-family: var(--sans);
+}
+#modal-backdrop .pixel-event-modal .event-act-strip > .current {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-act-strip > .current > b {
+  background: var(--px-accent);
+  border-color: var(--px-accent);
+  color: var(--px-bg);
+}
+#modal-backdrop .pixel-event-modal .event-act-strip > .complete {
+  color: var(--px-secondary);
+}
+#modal-backdrop .pixel-event-modal :is(.event-crew, .event-log) {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-resources, .event-cast, .event-pocket) {
+  border-color: var(--px-line);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-resource > div:first-child,
+    .event-resource b,
+    .event-resource b > small,
+    .event-cast-person > i,
+    .event-pocket-item
+  ) {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-resource-bar {
+  background: var(--px-bg);
+  height: 5px;
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-resource-bar > i {
+  background: var(--px-accent);
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-resource:nth-of-type(2)
+  .event-resource-bar
+  > i {
+  background: var(--px-secondary);
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-resource:last-child
+  .event-resource-bar
+  > i {
+  background: #a7d5a1;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-pocket > h4,
+    .event-pocket-item > b,
+    .event-pocket-item small,
+    .event-cast-person > i,
+    .event-log-open > small
+  ) {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-pocket > .event-empty {
+  background: var(--px-bg);
+  border-color: var(--px-line);
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-tabs {
+  border-color: var(--px-line);
+}
+#modal-backdrop .pixel-event-modal .event-tabs > button {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-tabs > button.active {
+  color: var(--px-accent);
+  border-color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-stage {
+  border: 2px solid var(--px-line) !important;
+  border-radius: 0;
+  background: var(--px-panel);
+  box-shadow: 4px 4px 0 #0003;
+}
+#modal-backdrop .pixel-event-modal .event-stage-top {
+  background: var(--px-panel);
+  color: var(--px-accent);
+  border-color: var(--px-line);
+}
+#modal-backdrop .pixel-event-modal .event-stage-top small {
+  color: var(--px-muted);
+}
+.pixel-live-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 4px;
+  background: var(--px-accent);
+  vertical-align: middle;
+  animation: px-blink 2s steps(2, end) infinite;
+}
+#modal-backdrop .pixel-event-modal .event-science-ribbon {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+  padding-block: 13px;
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-science-ribbon
+  :is(strong, code, .atlas-emblem) {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-science-ribbon span {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-science-ribbon code {
+  font-family: var(--sans);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-current-story > h3, .event-final-decision > h3) {
+  color: var(--px-ink);
+  font-size: 23px;
+}
+#modal-backdrop .pixel-event-modal .event-branch-note {
+  background: var(--px-panel);
+  border-color: var(--px-secondary);
+  color: var(--px-muted);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-decision-label > span {
+  color: var(--px-ink);
+}
+#modal-backdrop .pixel-event-modal .event-decision-label > small {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal :is(.event-decision, .event-decision.risky) {
+  border: 1px solid var(--px-line);
+  border-radius: 0;
+  background: var(--px-panel);
+  box-shadow: 3px 3px 0 #0002;
+}
+#modal-backdrop .pixel-event-modal .event-decision:hover {
+  background: color-mix(in srgb, var(--px-panel) 90%, var(--px-accent));
+  border-color: var(--px-accent);
+  box-shadow: 3px 3px 0 #0004;
+}
+#modal-backdrop .pixel-event-modal .event-decision-key {
+  border-color: var(--px-line);
+  color: var(--px-accent);
+  background: var(--px-bg);
+  border-radius: 0;
+  font-family: var(--sans);
+}
+#modal-backdrop .pixel-event-modal .event-decision h4 {
+  color: var(--px-ink);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-decision b, .event-decision-arrow) {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-decision.risky :is(b, small) {
+  color: var(--px-secondary);
+}
+#modal-backdrop .pixel-event-modal .event-standby {
+  border-color: var(--px-line);
+  background: var(--px-bg);
+  color: var(--px-muted);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-standby > span {
+  color: var(--px-muted);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-log-open, .event-log-entry, .event-log-tip) {
+  border-color: var(--px-line);
+}
+#modal-backdrop .pixel-event-modal .event-log-open > i {
+  background: var(--px-accent);
+  border-color: var(--px-panel);
+}
+#modal-backdrop .pixel-event-modal .event-log-entry > span {
+  background: var(--px-panel);
+  color: var(--px-accent);
+  border-color: var(--px-line);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-log-entry b {
+  color: var(--px-secondary);
+}
+#modal-backdrop .pixel-event-modal .event-log-tip {
+  color: var(--px-muted) !important;
+}
+#modal-backdrop .pixel-event-modal .event-lab-controls {
+  border-color: var(--px-line);
+  background: var(--px-panel);
+  background-image: none;
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-lab fieldset button {
+  border: 1px solid var(--px-line);
+  color: var(--px-muted);
+  background: var(--px-bg);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-lab fieldset button.selected {
+  border-color: var(--px-accent);
+  color: var(--px-accent);
+  background: var(--px-bg);
+  box-shadow: inset 0 -3px var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-lab fieldset button:hover {
+  color: var(--px-accent);
+  border-color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal :is(.event-hint, .event-lab-submit > span) {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-hint p {
+  background: var(--px-panel);
+  border-radius: 0;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-lab-submit, .event-consequence-footer, .event-ending-stats) {
+  border-color: var(--px-line);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-readings, .event-proof-status, .event-proof-status.ready) {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+  color: var(--px-muted);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-readings > div {
+  border-color: var(--px-line);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-readings strong, .event-proof-status.ready b) {
+  color: var(--px-accent);
+  font-family: var(--sans);
+}
+#modal-backdrop .pixel-event-modal .event-reaction {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-reaction small {
+  color: var(--px-accent) !important;
+}
+#modal-backdrop .pixel-event-modal .event-consequence-footer > span {
+  color: var(--px-muted);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-plot,
+    .event-comparison,
+    .event-energy,
+    .event-induction,
+    .event-signal,
+    .event-photoelectric,
+    .event-time-track
+  ) {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+  border-radius: 0;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-comparison > div,
+    .event-comparison b,
+    .event-comparison > p,
+    .event-energy > small,
+    .event-induction > span,
+    .event-signal,
+    .event-photoelectric > p,
+    .event-time-track b,
+    .event-time-track small
+  ) {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-comparison i {
+  background: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-comparison i.green {
+  background: var(--px-secondary);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-evidence-view > article,
+    .event-science-card,
+    .event-ending-replay
+  ) {
+  background: var(--px-panel);
+  border-color: var(--px-line);
+  border-radius: 0;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-evidence-view article > small, .event-science-card > span) {
+  color: var(--px-secondary) !important;
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(
+    .event-science-card > code,
+    .event-ending-stats b,
+    .event-ending-replay b
+  ) {
+  color: var(--px-accent);
+  font-family: var(--sans);
+}
+#modal-backdrop .pixel-event-modal .event-ending-art {
+  border: 2px solid var(--px-line);
+  border-radius: 0;
+  max-height: 275px;
+}
+#modal-backdrop .pixel-event-modal .event-ending-content > h1 {
+  color: var(--px-accent);
+}
+#modal-backdrop
+  .pixel-event-modal
+  :is(.event-collected-endings, .event-ending-stats > span) {
+  color: var(--px-muted);
+}
+#modal-backdrop .pixel-event-modal .event-collected-endings > .collected {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .event-ending-replay p {
+  border-color: var(--px-line);
+}
+#modal-backdrop .pixel-event-modal :is(.event-history-note, .event-empty-card) {
+  border-color: var(--px-line);
+  border-radius: 0;
+}
+#modal-backdrop .pixel-event-modal .event-history-note > a {
+  color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal :is(button, a, summary):focus-visible {
+  outline-color: var(--px-accent);
+}
+#modal-backdrop .pixel-event-modal .px-portrait {
+  image-rendering: pixelated;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+.px-scene {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+.px-scene text {
+  font-family: Consolas, monospace;
+}
+.px-scene * {
+  transform-box: view-box;
+}
+.px-person-idle {
+  animation: px-person 2s steps(2, end) infinite;
+}
+.px-twinkle {
+  animation: px-twinkle 4s steps(3, end) infinite;
+}
+.px-clouds {
+  animation: px-clouds 20s steps(40, end) infinite alternate;
+}
+.px-water {
+  animation: px-water 3s steps(4, end) infinite;
+}
+.px-boat {
+  animation: px-boat 3s steps(6, end) infinite;
+}
+.px-sinking {
+  animation: px-sink 2.5s steps(14, end) forwards;
+}
+.px-bird {
+  animation: px-clouds 10s steps(40, end) infinite alternate;
+}
+.px-rolling {
+  animation: px-roll 4s linear infinite;
+}
+.px-bell {
+  animation: px-twinkle 2s steps(3, end) infinite;
+}
+.px-orbit {
+  animation: px-trajectory 9s linear infinite;
+  offset-rotate: 0deg;
+  offset-anchor: 0px 0px;
+}
+.px-escape {
+  animation: px-escape 4s steps(60, end) infinite;
+}
+.px-paddle {
+  animation: px-orbit 5s steps(16, end) infinite;
+}
+.px-weight {
+  animation: px-weight 4s steps(14, end) infinite alternate;
+}
+.px-steam,
+.px-smoke {
+  animation: px-steam 3s steps(10, end) infinite;
+}
+.px-light-beam {
+  animation: px-beam 3s steps(3, end) infinite;
+}
+.px-fringe {
+  animation: px-beam 4s steps(3, end) infinite;
+}
+.px-magnet {
+  animation: px-magnet 4s steps(20, end) infinite;
+}
+.px-needle {
+  animation: px-needle 4s steps(16, end) infinite;
+}
+.px-charge {
+  animation: px-blink 1.2s steps(2, end) infinite;
+}
+.px-radio-wave {
+  animation: px-radio 2.5s steps(8, end) infinite;
+}
+.px-radiation {
+  animation: px-radiation 2.4s steps(10, end) infinite;
+}
+.px-geiger {
+  animation: px-geiger 1.6s steps(2, end) infinite;
+}
+.px-flame {
+  animation: px-flame 1s steps(4, end) infinite alternate;
+}
+.px-packet {
+  animation: px-packet 2s steps(12, end) infinite;
+}
+.px-electron {
+  animation: px-electron 2s steps(14, end) infinite;
+}
+@keyframes px-person {
+  50% {
+    translate: 0 -1px;
+  }
+}
+@keyframes px-blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes px-twinkle {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes px-clouds {
+  to {
+    translate: 23px 0;
+  }
+}
+@keyframes px-water {
+  50% {
+    translate: 6px 0;
+    opacity: 0.6;
+  }
+}
+@keyframes px-boat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 3px;
+  }
+}
+@keyframes px-sink {
+  to {
+    translate: 0 44px;
+    opacity: 0.65;
+  }
+}
+@keyframes px-roll {
+  0%,
+  12% {
+    translate: 0 0;
+  }
+  60% {
+    translate: 113px 33px;
+  }
+  90%,
+  100% {
+    translate: 269px 78px;
+  }
+}
+@keyframes px-orbit {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes px-trajectory {
+  to {
+    offset-distance: 100%;
+  }
+}
+@keyframes px-escape {
+  from {
+    translate: -30px 20px;
+  }
+  to {
+    translate: 195px -90px;
+    opacity: 0;
+  }
+}
+@keyframes px-weight {
+  to {
+    translate: 0 22px;
+  }
+}
+@keyframes px-steam {
+  from {
+    translate: 0 6px;
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  to {
+    translate: 8px -24px;
+    opacity: 0;
+  }
+}
+@keyframes px-beam {
+  50% {
+    opacity: 0.6;
+  }
+}
+@keyframes px-magnet {
+  0%,
+  100% {
+    translate: -12px 0;
+  }
+  50% {
+    translate: 25px 0;
+  }
+}
+@keyframes px-needle {
+  0%,
+  100% {
+    rotate: -20deg;
+  }
+  50% {
+    rotate: 22deg;
+  }
+}
+@keyframes px-radio {
+  0% {
+    translate: -6px 0;
+    opacity: 0.15;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  to {
+    translate: 14px 0;
+    opacity: 0.15;
+  }
+}
+@keyframes px-radiation {
+  from {
+    translate: 0 8px;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  to {
+    translate: 22px -14px;
+    opacity: 0;
+  }
+}
+@keyframes px-geiger {
+  50% {
+    opacity: 0.8;
+  }
+}
+@keyframes px-flame {
+  50% {
+    translate: 2px -4px;
+    opacity: 0.85;
+  }
+  to {
+    translate: -1px 0;
+  }
+}
+@keyframes px-packet {
+  from {
+    translate: 0 0;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    translate: 25px 0;
+    opacity: 0;
+  }
+}
+@keyframes px-electron {
+  from {
+    translate: -5px 0;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    translate: 25px 0;
+    opacity: 0;
+  }
+}
+@media (max-width: 780px) {
+  #modal-backdrop .pixel-event-modal {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #modal-backdrop .pixel-event-modal .event-heading h2 {
+    font-size: 16px;
+  }
+  #modal-backdrop .pixel-event-modal .event-cover h1 {
+    font-size: 29px;
+  }
+  #modal-backdrop .pixel-event-modal .event-crew {
+    border-bottom: 1px solid var(--px-line);
+  }
+  #modal-backdrop .pixel-event-modal .event-role-content > strong {
+    font-size: 17px;
+  }
+  #modal-backdrop .pixel-event-modal .event-current-story > h3 {
+    font-size: 21px;
+  }
+  #modal-backdrop .pixel-event-modal .event-science-ribbon code {
+    font-size: 10px;
+  }
+  #modal-backdrop .pixel-event-modal .event-stage-top {
+    gap: 7px;
+  }
+  #modal-backdrop .pixel-event-modal .event-stage-top small {
+    font-size: 7px;
+  }
+  #modal-backdrop .pixel-event-modal .event-cover-world {
+    box-shadow: 4px 4px 0 #0003;
+  }
+  .color-restoration {
+    font-size: 8px;
+    margin-top: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .px-scene *,
+  .px-portrait *,
+  .pixel-live-dot {
+    animation: none !important;
+  }
+  .px-rolling {
+    translate: 0 0;
+  }
+}

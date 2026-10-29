@@ -1,0 +1,169 @@
+{
+  "voice": "Microsoft Huihui Desktop",
+  "rate": 1,
+  "format": "MP3 mono 24 kHz / 48 kbps",
+  "clips": [
+    {
+      "id": "answers",
+      "cue": 0,
+      "text": "AI 让答案以前所未有的速度，来到我们面前。",
+      "file": "answers-0.mp3",
+      "duration": 3.766042,
+      "budget": 4,
+      "sha256": "51f00ce7d32179954f47d0c089ed94bccd1efb9fefe76a6bf9497877c412c4f7"
+    },
+    {
+      "id": "answers",
+      "cue": 1,
+      "text": "而一个好问题，是怎样诞生的？",
+      "file": "answers-1.mp3",
+      "duration": 3.516667,
+      "budget": 4,
+      "sha256": "b6b8ffb9832dbdb0daac035aa5fd6f55d093415f2b2c653e884470ec2a2a29ed"
+    },
+    {
+      "id": "manuscripts",
+      "cue": 0,
+      "text": "从琴弦的比例，到船舷边的水线。",
+      "file": "manuscripts-0.mp3",
+      "duration": 3.769958,
+      "budget": 5.5,
+      "sha256": "467a423a31fe57f5bc644a802e389afeb9faaefa4e2397eabb2b8d2995c967e0"
+    },
+    {
+      "id": "manuscripts",
+      "cue": 1,
+      "text": "人们把观察写进卷轴，让经验成为可以交流的知识。",
+      "file": "manuscripts-1.mp3",
+      "duration": 5.259458,
+      "budget": 5.5,
+      "sha256": "586ab2de998dd99d0b0a816806d1a4f598a9744444bd1d73150ed3d1285cf7df"
+    },
+    {
+      "id": "unknown",
+      "cue": 0,
+      "text": "未知可以被命名，关系可以被画出。",
+      "file": "unknown-0.mp3",
+      "duration": 4.010958,
+      "budget": 6,
+      "sha256": "7b85d2c2a75e3bed2f08ade31a900d2690678beb2396e735b3293ef6d1e96283"
+    },
+    {
+      "id": "unknown",
+      "cue": 1,
+      "text": "方程、坐标与函数，让思想越过语言与时间。",
+      "file": "unknown-1.mp3",
+      "duration": 5.147833,
+      "budget": 6,
+      "sha256": "bf9de3bdcc688330db93487b8da09ddf6de8917383bd2b9c9b1ed97ac73fd4d6"
+    },
+    {
+      "id": "observe",
+      "cue": 0,
+      "text": "小球越滚越快，月亮却始终没有落到地面。",
+      "file": "observe-0.mp3",
+      "duration": 4.594708,
+      "budget": 6,
+      "sha256": "47d939b5129f8f6c1611484a19b5a343bc863bb97eaae5ffb83da53458351ab1"
+    },
+    {
+      "id": "observe",
+      "cue": 1,
+      "text": "他们追问现象，也让测量与推演检验自己的想法。",
+      "file": "observe-1.mp3",
+      "duration": 5.026167,
+      "budget": 6,
+      "sha256": "2e329c246edf3621cb21bfbc68a9fd63523692377269d130703dd329a8478ded"
+    },
+    {
+      "id": "evidence",
+      "cue": 0,
+      "text": "重物落下，水温微微上升；物质变化，天平仍在平衡。",
+      "file": "evidence-0.mp3",
+      "duration": 5.7595,
+      "budget": 6,
+      "sha256": "0376eb7f4d910235efb79b6d94f9c2d4fd93561f1871303190e2d52394b3b1da"
+    },
+    {
+      "id": "evidence",
+      "cue": 1,
+      "text": "一次次称量与记录，让看不见的联系有了证据。",
+      "file": "evidence-1.mp3",
+      "duration": 4.842375,
+      "budget": 6,
+      "sha256": "d3fab6b826345a2245124abe79859a21ccf86282ac04f97304bb80ab3d4b50e5"
+    },
+    {
+      "id": "connections",
+      "cue": 0,
+      "text": "线圈里出现电流，信号越过海峡，元素找到自己的位置。",
+      "file": "connections-0.mp3",
+      "duration": 5.759542,
+      "budget": 6,
+      "sha256": "bd68ed7d7662abc9be6828822e903101f3d7cfdd1073d8cb3c8fb79b262783dc"
+    },
+    {
+      "id": "connections",
+      "cue": 1,
+      "text": "人类逐渐学会，从纷繁的现象中寻找共同的秩序。",
+      "file": "connections-1.mp3",
+      "duration": 5.193042,
+      "budget": 6,
+      "sha256": "18ba26f64fffb969f7281e1c895b734e786dbf3f28712b208cc928d90e52d37a"
+    },
+    {
+      "id": "light",
+      "cue": 0,
+      "text": "光会相互抵消，矿石留下信号，炉光提出新的难题。",
+      "file": "light-0.mp3",
+      "duration": 5.262333,
+      "budget": 5.5,
+      "sha256": "9f501c93e46fef95eca6b3b367f2c23a605f0f35224be7521b56f1be53e16cb6"
+    },
+    {
+      "id": "light",
+      "cue": 1,
+      "text": "当证据超出已有的解释，新的理解开始生长。",
+      "file": "light-1.mp3",
+      "duration": 4.765333,
+      "budget": 5.5,
+      "sha256": "c9d97c61f6b7e2e7e281c2c9cba5d1b43babf12ebd1ba906cec8121877c4c9f4"
+    },
+    {
+      "id": "legacy",
+      "cue": 0,
+      "text": "手稿、图纸、公式与实验记录，也是人类留下的文化。",
+      "file": "legacy-0.mp3",
+      "duration": 4.763625,
+      "budget": 5,
+      "sha256": "0336ba9edf3939f5fe5877fdd4bc974375afef17b7e82502c9001694d3693839"
+    },
+    {
+      "id": "legacy",
+      "cue": 1,
+      "text": "AI 所连接的知识背后，是许多人漫长的探索。",
+      "file": "legacy-1.mp3",
+      "duration": 4.753958,
+      "budget": 5,
+      "sha256": "2ea48a07263a20b363365604580949cb50feb665236d348be1eb7d1342a403f9"
+    },
+    {
+      "id": "islands",
+      "cue": 0,
+      "text": "AI 时代，更值得认识那些教会人类提问的人。",
+      "file": "islands-0.mp3",
+      "duration": 3.76525,
+      "budget": 4,
+      "sha256": "f2e0883792223a6afc0fb072bdbb1b803589f8274a7bf54d7227451a55041400"
+    },
+    {
+      "id": "islands",
+      "cue": 1,
+      "text": "亲自探索，让证据支持你的判断。",
+      "file": "islands-1.mp3",
+      "duration": 3.736792,
+      "budget": 4,
+      "sha256": "026a5812e573c86b9e335aa558f65209c12f86bbac08418f24c74f9fbfe93881"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+/* Subject differences stay in instruments and palettes; the frame is Physics'. */
+.subject-pixel-scene {
+  aspect-ratio: 640 / 256;
+}
+.event-stage-visual .subject-instrument {
+  overflow: visible;
+  touch-action: none;
+  background: transparent !important;
+  filter: none !important;
+}
+.subject-pixel-scene > svg.subject-instrument {
+  width: 484px;
+  height: 266px;
+  max-height: none;
+}
+.subject-pixel-scene > svg.px-portrait {
+  width: 34px;
+  height: 38px;
+  max-height: none;
+}
+.subject-instrument [data-drag],
+.subject-instrument [data-chem-angle] {
+  cursor: grab;
+  touch-action: none;
+}
+.subject-instrument [data-drag]:active,
+.subject-instrument [data-chem-angle]:active {
+  cursor: grabbing;
+}
+.subject-instrument [data-drag]:focus-visible,
+.subject-instrument [data-chem-angle]:focus-visible {
+  outline: 3px solid var(--px-accent);
+  outline-offset: 5px;
+}
+.sandbox-paused .event-stage-visual * {
+  animation-play-state: paused !important;
+}
+.world.is-math-island .island-name,
+.world.is-math-island .harbor-label {
+  display: none;
+}
+.world.is-math-island .story-map-art {
+}
+.world.is-math-island .level-cleared .story-map-art {
+  filter: none;
+}
+.map-stage:is([data-subject="M"], [data-subject="C"]) .chapter-heading h2 {
+  color: #e7d9bd;
+  font-size: 19px;
+  margin: 7px 0;
+  line-height: 1.7;
+}
+body:has(.event-modal) > .toast {
+  top: auto;
+  bottom: 55px;
+  right: 22px;
+  max-width: calc(100vw - 44px);
+}
+.subject-instrument .chem-ferry {
+  animation: chem-crossing 5s ease-in-out infinite alternate;
+}
+.subject-instrument .chem-ferry.reverse {
+  animation-direction: alternate-reverse;
+}
+.subject-instrument .chem-gas {
+  animation: chem-bubble 2s ease-in-out infinite;
+  animation-delay: var(--bubble-delay);
+}
+.subject-instrument .chem-electron-flow {
+  stroke-dasharray: 10 7;
+  animation: chem-flow 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .subject-pixel-scene * {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,71 @@
+/* A continuous sea surrounds the islands; only decorative margins are cropped. */
+.map-stage[data-layer=world]{background:radial-gradient(ellipse at 50% 50%,#d5e1f1 20%,#e6edf7 90%)}
+.map-stage[data-layer=world][data-fog=off]{background:radial-gradient(ellipse at 50% 45%,#a9c2d9 10%,#c2d4e6 72%,#dce8f3)}
+.world.is-world-map > :is(.world-art,.map-color-layer,.map-fog),
+.world.is-world-map::after{mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(180deg,transparent,#000 7%,#000 93%,transparent);mask-composite:intersect}
+
+.island-identity{position:absolute;z-index:7;width:244px;padding:12px 17px 10px;transform:translate(-50%,-50%) scale(var(--island-label-scale,1));transform-origin:50% 50%;border:1px solid #829db8;border-top:2px solid var(--island-accent,#a7c3e8);background:linear-gradient(135deg,#10273aef,#1b3347ed);color:#f2f5f8;cursor:pointer;text-align:left;box-shadow:3px 4px 0 #10253d40;transition:background .2s,border-color .2s;clip-path:polygon(0 8px,8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%)}
+.island-identity[data-island=P]{--island-accent:#a3c8eb}
+.island-identity[data-island=M]{--island-accent:#c5b5e5}
+.island-identity[data-island=C]{--island-accent:#a2d4c0}
+.island-title-head{display:flex;align-items:center;gap:12px;color:var(--island-accent);font:10px/1.4 Georgia,serif;letter-spacing:.12em}
+.island-title-head svg{width:32px;height:32px;stroke:currentColor;stroke-width:1.25;fill:none;flex-shrink:0}
+.island-title-head small{display:block;font-size:8px;letter-spacing:.2em;margin-top:3px;opacity:.75}
+.island-title-name{display:block;font:600 38px/1.3 var(--serif);letter-spacing:.13em;margin:5px 0 8px}
+.island-title-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #89a7c13b;padding-top:8px;font:11px/1.5 var(--sans);letter-spacing:.04em;color:#afc4d7}
+.island-title-footer>span:last-child{color:var(--island-accent)}
+.island-identity:hover,.island-identity:focus-visible{background:#203d56;border-color:var(--island-accent)}
+/* Preserve the map anchor while the global button press style is active. */
+.island-identity:active:not(:disabled){transform:translate(-50%,-50%) scale(var(--island-label-scale,1))}
+.map-node:active:not(:disabled){transform:translate(-50%,-50%)}
+.island-identity:focus-visible{outline:none;box-shadow:inset 0 0 0 2px #ead39e,3px 4px 0 #10253d40}
+.postal-world-station{width:164px;transform:translate(-50%,-50%) scale(var(--postal-pin-scale,1));transform-origin:50% 50%}
+.postal-world-station>button:first-child{width:164px;padding:0}
+.postal-station-art{position:relative;width:74px;height:45px;margin:0 auto 4px;filter:drop-shadow(0 3px 2px #27465e20)}
+.postal-station-art i{position:absolute;bottom:-2px;right:-5px;width:25px;height:21px;background:#19344b;color:#e8d4a3;border:1px solid #8da2af;font:16px/19px sans-serif;font-style:normal}
+.postal-world-station.has-record .postal-station-art{filter:drop-shadow(0 3px 2px #27465e20)}
+.postal-world-station strong{font-size:17px;line-height:1.55;letter-spacing:0;padding:5px 7px;border-color:#738da3;background:#152b40ee;box-shadow:0 2px 0 #1224393b}
+.postal-world-station button:hover strong,.postal-world-station button:focus-visible strong{background:#213c55}
+.postal-route-caption rect{fill:#203e5570;stroke:#839db05c}
+.postal-route-caption text{font-size:13px;fill:#e5ebec}
+.postal-route-caption .postal-route-note{font-size:9.5px;fill:#dae5ef}
+
+@media(min-width:1100px){
+ .map-stage[data-layer=world] .quest-card{width:300px;padding:11px 13px!important;gap:10px}
+ .map-stage[data-layer=world] .quest-card h3{font-size:13px!important}
+ .map-stage[data-layer=world] .quest-card .quest-emblem{display:none}
+ .map-stage[data-layer=world] .map-hint{font-size:9px;opacity:.82}
+}
+@media(max-width:700px){
+ .map-stage[data-layer=world] .map-context{top:100px}
+ .map-stage[data-layer=world] .map-context .discovery-note{font-size:8px!important;line-height:1.5;padding:3px 5px!important}
+ .island-identity{padding:8px 17px}
+ .island-title-head{font-size:13px;gap:10px}.island-title-head small{display:none}
+ .island-title-head svg{width:20px;height:20px}.island-title-name{font-size:36px;line-height:1.25;margin:5px 0 6px}
+ .island-title-footer{font-size:16px;line-height:1.4;padding-top:6px}.island-title-footer>span:last-child{font-size:16px}
+ .postal-world-station>button:first-child{display:flex;align-items:center;min-height:82px;padding:0}
+ .postal-world-station strong{width:100%;font-size:20px;line-height:1.6;padding:10px 5px}
+ .postal-station-art{display:none}
+}
+@media(min-width:600px) and (max-height:500px){
+ body:has(.map-stage[data-layer=world])>.topbar{grid-template-columns:auto minmax(230px,1fr) auto;grid-template-rows:1fr;height:54px!important;min-height:54px!important;padding:6px 12px!important;gap:12px}
+ body:has(.map-stage[data-layer=world])>.topbar .brand{grid-column:1;grid-row:1}
+ body:has(.map-stage[data-layer=world])>.topbar .brand strong{font-size:14px!important}
+ body:has(.map-stage[data-layer=world])>.topbar .brand small{display:none}
+ body:has(.map-stage[data-layer=world])>.topbar .brand-compass{width:28px!important;height:28px!important;font-size:23px!important}
+ body:has(.map-stage[data-layer=world])>.topbar .subjects{grid-column:2;grid-row:1;width:100%}
+ body:has(.map-stage[data-layer=world])>.topbar .header-actions{grid-column:3;grid-row:1}
+ .map-stage[data-layer=world] .perspective-switch{top:12px;left:12px;right:auto;width:236px}
+ .map-stage[data-layer=world] .map-view-switch{top:12px;left:260px;right:auto;transform:none;width:160px}
+ .map-stage[data-layer=world] :is(.perspective-switch,.map-view-switch) button{white-space:nowrap;font-size:9px!important;gap:4px;padding-inline:5px!important}
+ .map-stage[data-layer=world] .map-tools{top:12px;right:12px}
+ .map-stage[data-layer=world] :is(.map-context,.map-hint){display:none}
+ .map-stage[data-layer=world] .quest-card{left:12px;bottom:8px;width:216px;height:46px!important;min-height:46px!important;padding:6px 9px!important}
+ .map-stage[data-layer=world] .quest-card :is(.quest-emblem,.eyebrow,p,#postal-task-strip){display:none}
+ .map-stage[data-layer=world] .quest-card h3{font-size:11px!important}
+ .island-identity{margin-top:8px;min-height:86px;display:grid;place-items:center;padding:10px}
+ .island-identity :is(.island-title-head,.island-title-footer){display:none}.island-title-name{margin:0}
+ .postal-station-art{display:none}
+ .postal-world-station>button:first-child{display:flex;align-items:center;min-height:82px;padding:0}
+ .postal-world-station strong{width:100%;font-size:20px;padding:10px 5px}
+}

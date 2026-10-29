@@ -1,0 +1,254 @@
+/* Math Island specific styling and purple theme accents */
+
+.math-event-console {
+  --event-accent: #8565b5;
+  --event-wash: #f5f0fb;
+  --event-bg: #faf7fd;
+}
+
+.math-level-modal {
+  --event-gold: #8565b5;
+  --event-wash: #f5f0fb;
+  --event-bg: #faf7fd;
+  border-color: #d6cae8;
+}
+
+.math-event-header {
+  border-bottom-color: #e5dcf2;
+}
+
+.math-event-footer {
+  border-top-color: #e5dcf2;
+}
+
+.math-event-footer .satchel-icon {
+  color: #8565b5;
+}
+
+.math-event-footer .postmark-chip.current {
+  background: #8565b5;
+  color: #ffffff;
+  border-color: #6b4d99;
+}
+
+.math-intro-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 14, 28, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.math-intro-overlay .intro-card {
+  width: min(860px, calc(100vw - 48px));
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+  background: #faf7fd;
+  border: 1px solid #d6cae8;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(35, 20, 55, 0.35);
+  padding: 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.math-intro-overlay .intro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.math-intro-overlay .intro-badge {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #8565b5;
+  background: #ece5f5;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.math-intro-overlay .intro-skip {
+  background: none;
+  border: none;
+  color: #7b6f8c;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.math-intro-overlay .intro-skip:hover {
+  color: #8565b5;
+}
+
+.math-intro-overlay .intro-body {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 680px) {
+  .math-intro-overlay .intro-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.math-intro-overlay .intro-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.math-intro-overlay .intro-portrait-frame {
+  width: 130px;
+  height: 160px;
+  border: 1px solid #d6cae8;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.math-intro-overlay .intro-visual-plate h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #3b3646;
+}
+
+.math-intro-overlay .intro-visual-plate small {
+  font-size: 11px;
+  color: #7b6f8c;
+}
+
+.math-intro-overlay .intro-act {
+  display: none;
+}
+
+.math-intro-overlay .intro-act.active {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: math-fade-in 0.3s ease;
+}
+
+@keyframes math-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.math-intro-overlay .intro-title {
+  margin: 0;
+  font-size: 20px;
+  color: #2b223d;
+}
+
+.math-intro-overlay .intro-prologue-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4a4159;
+}
+
+.math-intro-overlay .intro-quote {
+  margin: 8px 0 0;
+  padding-left: 14px;
+  border-left: 3px solid #8565b5;
+  font-style: italic;
+  color: #6b578c;
+  font-size: 13px;
+}
+
+.math-intro-overlay .intro-act-tag {
+  font-size: 11px;
+  color: #8565b5;
+  font-weight: bold;
+}
+
+.math-intro-overlay .intro-story-title,
+.math-intro-overlay .intro-challenge-title {
+  margin: 0;
+  font-size: 17px;
+  color: #2b223d;
+}
+
+.math-intro-overlay .intro-story-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a4159;
+}
+
+.math-intro-overlay .intro-steps-list {
+  padding-left: 20px;
+  margin: 0;
+  font-size: 13px;
+  color: #4a4159;
+  line-height: 1.6;
+}
+
+.math-intro-overlay .intro-law-card {
+  background: #ece5f5;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.math-intro-overlay .intro-law-card code {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  color: #4b346e;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.math-intro-overlay .intro-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e5dcf2;
+  padding-top: 16px;
+}
+
+.math-intro-overlay .intro-progress-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.math-intro-overlay .intro-progress-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d6cae8;
+  transition: all 0.2s;
+}
+
+.math-intro-overlay .intro-progress-dots .dot.active {
+  background: #8565b5;
+  width: 20px;
+  border-radius: 4px;
+}
+
+.math-intro-overlay .intro-btn-next {
+  background: #8565b5;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.math-intro-overlay .intro-btn-next:hover {
+  background: #7351a3;
+}

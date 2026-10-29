@@ -1,0 +1,144 @@
+/* A full-screen pixel film, with HTML captions kept clear of the scenery. */
+.site-prologue {
+  --op-accent: #edc77c;
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #090f1b;
+  color: #f0eadb;
+  font-family: "Microsoft YaHei UI", "PingFang SC", sans-serif;
+  text-shadow: none;
+  color-scheme: dark;
+}
+.site-prologue[hidden] { display: none !important; }
+.site-prologue *, .site-prologue *::before, .site-prologue *::after { box-sizing: border-box; }
+.site-prologue :focus-visible { outline: 2px solid var(--op-accent); outline-offset: 4px; }
+.site-prologue:focus { outline: none; }
+.site-prologue button {
+  color: #b6c2d0;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  min-height: 38px;
+  border: 1px solid #334252;
+  border-radius: 0;
+  background: #111d2c;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.site-prologue button:hover:not(:disabled) { color: #fff2d0; border-color: var(--op-accent); background: #1c2b39; }
+.site-prologue button:disabled { opacity: .35; cursor: default; }
+.site-prologue button[hidden] { display: none; }
+.op-shell {
+  width: min(1680px, 100%);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto;
+  padding: 0 clamp(16px, 2.5vw, 36px) 14px;
+}
+.op-header { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:14px 0 12px; border-bottom:1px solid #263242; }
+.op-brand { display:flex; align-items:center; gap:13px; }
+.op-brand > span { display:grid; place-items:center; width:38px; height:38px; color:var(--op-accent); border:1px solid #8c7955; box-shadow:3px 3px #02070d; font:31px/1 Georgia,serif; }
+.op-brand b { display:block; font-size:16px; font-weight:600; letter-spacing:.14em; }
+.op-brand small { display:block; margin-top:5px; color:#8391a4; font-size:10px; letter-spacing:.12em; }
+.op-header-actions { display:flex; align-items:center; gap:12px; }
+.site-prologue .op-skip { border-color:transparent; background:transparent; color:#b8b6a8; }
+.op-skip > span { margin-left:14px; color:var(--op-accent); font-size:18px; }
+.site-prologue [data-opening="sound"][aria-pressed="true"] { color:var(--op-accent); border-color:#8b7752; }
+.op-chapter { padding:14px 0 12px; }
+.op-era { margin:0 0 9px; color:var(--op-accent); font:10px/1.6 "Cascadia Mono",Consolas,"Microsoft YaHei",monospace; letter-spacing:.18em; }
+.op-chapter h1 { color:#f4eddf; font-size:clamp(25px,3vw,38px); font-weight:500; line-height:1.4; letter-spacing:.12em; margin:0; }
+.op-stage { position:relative; height:clamp(380px, calc(100dvh - 420px), 760px); overflow:hidden; background:#0f1c2e; border:1px solid #3a4651; box-shadow:0 6px 0 #020812; }
+.op-stage canvas { display:block; width:100%; height:100%; image-rendering:pixelated; image-rendering:crisp-edges; }
+.op-stage-border { position:absolute; inset:7px; border:1px solid #b6c0b012; pointer-events:none; }
+.op-stage::after { content:""; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,#00000010 0,#00000010 1px,transparent 1px,transparent 4px); }
+.op-scene-count { position:absolute; top:17px; left:21px; color:#d5cfb4; font:10px Consolas,monospace; letter-spacing:.15em; }
+.op-film-tag { position:absolute; right:20px; top:17px; color:#c0c5b75c; font:8px Consolas,monospace; letter-spacing:.22em; }
+.op-cast { display:flex; justify-content:center; align-items:center; gap:clamp(14px,3vw,42px); min-height:52px; padding:8px 0 6px; }
+.op-person { display:flex; align-items:center; gap:10px; min-width:0; }
+.op-person > span { display:block; width:29px; height:32px; overflow:hidden; border-bottom:1px solid #8b8056; }
+.op-person svg { display:block; width:100%; height:100%; image-rendering:pixelated; }
+.op-person b { color:#b6c1ca; font-size:12px; line-height:1.5; font-weight:400; white-space:nowrap; }
+.op-cast-note { color:#8392a2; font-size:11px; text-align:center; letter-spacing:.07em; margin:10px 0; }
+.op-caption { position:relative; text-align:center; padding:6px 32px 10px; min-height:88px; display:flex; flex-direction:column; justify-content:center; }
+.op-quote-mark { position:absolute; left:calc(50% - 365px); top:10px; color:var(--op-accent); font:38px/1 Georgia,serif; opacity:.5; }
+.op-caption p { margin:0 auto; max-width:850px; font-size:clamp(15px,1.7vw,21px); font-weight:400; line-height:1.9; color:#eee7d8; letter-spacing:.05em; text-wrap:pretty; }
+.op-audio-status { display:block; color:#748598; font-size:10px; line-height:1.7; margin-top:10px; letter-spacing:.04em; }
+.op-footer { border-top:1px solid #283445; padding-top:9px; }
+.op-timeline { display:flex; gap:7px; }
+.site-prologue .op-timeline button { flex:1; position:relative; min-width:0; min-height:31px; padding:7px 4px; background:transparent; border-color:transparent; border-top:2px solid #2b384a; color:#6f7f93; font:9px Consolas,monospace; text-align:left; }
+.op-timeline button > i { position:absolute; height:2px; top:-2px; left:0; right:0; background:var(--op-accent); transform:scaleX(0); transform-origin:left; }
+.site-prologue .op-timeline button[aria-current] { color:var(--op-accent); }
+.site-prologue .op-timeline button.op-played { color:#a2aeaf; }
+.op-playback { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:6px 0 0; }
+.op-readiness { display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:10px; color:#8392a2; line-height:1.7; }
+.op-readiness > i { width:4px; height:4px; background:#8496ab; }
+.op-readiness[data-ready="true"] > i { background:#8bbd9b; box-shadow:0 0 0 3px #8bbd9b10; }
+.op-time { padding-left:13px; color:#697c92; font-family:Consolas,monospace; white-space:nowrap; }
+.op-controls { display:flex; flex-shrink:0; gap:8px; }
+.site-prologue [data-opening="pause"] { min-width:86px; color:#e0d7b7; }
+.site-prologue .op-launch { background:#dfbc77; color:#172230; border-color:#f2d89b; font-weight:600; }
+.site-prologue .op-launch:hover { background:#eed197; color:#172230; }
+.op-progress { height:1px; background:#182433; margin-top:14px; }
+.op-progress > i { display:block; height:1px; background:var(--op-accent); transform:scaleX(0); transform-origin:left; }
+.op-loading { position:absolute; inset:0; display:grid; place-content:center; text-align:center; gap:15px; }
+.op-loading > span { color:#edc77c; font-size:44px; }
+.op-loading p { color:#c4c6be; font-size:14px; letter-spacing:.15em; }
+.op-reduced .op-stage::after { display:none; }
+.op-reduced *, .op-reduced *::before, .op-reduced *::after { animation:none !important; transition:none !important; }
+.site-prologue[data-paused="true"] * { animation-play-state:paused !important; }
+@media (min-width:701px) and (max-height:800px) {
+  .op-header { padding:8px 0 7px; }
+  .op-chapter { padding:8px 0; }
+  .op-chapter h1 { font-size:28px; line-height:1.3; }
+  .op-era { margin-bottom:6px; }
+  .op-cast { min-height:42px; padding:5px 0; }
+  .op-caption { min-height:72px; padding:4px 24px 7px; }
+  .op-caption p { font-size:17px; line-height:1.7; }
+  .op-audio-status { margin-top:6px; }
+  .op-footer { padding-top:6px; }
+  .site-prologue .op-timeline button { min-height:24px; padding:4px; }
+  .op-playback { padding-top:3px; }
+  .op-controls button { min-height:34px; padding:6px 11px; }
+  .op-progress { margin-top:8px; }
+}
+@media (max-width:700px) {
+  .op-shell { padding:0 16px 12px; min-height:750px; grid-template-rows:auto auto auto auto auto auto; }
+  .op-stage { height:clamp(280px, calc(100dvh - 500px), 500px); }
+  .op-header { padding:17px 0 13px; gap:8px; }
+  .op-brand { gap:9px; }
+  .op-brand > span { width:29px; height:31px; font-size:24px; }
+  .op-brand b { font-size:13px; letter-spacing:.1em; }
+  .op-brand small { font-size:8px; letter-spacing:0; }
+  .op-header-actions { gap:2px; }
+  .site-prologue .op-header-actions button { padding:8px; font-size:10px; }
+  .op-skip > span { margin-left:3px; font-size:13px; }
+  .op-chapter { padding:20px 0 15px; }
+  .op-era { font-size:9px; letter-spacing:.06em; }
+  .op-chapter h1 { font-size:25px; letter-spacing:.06em; }
+  .op-film-tag { font-size:6px; right:12px; letter-spacing:.08em; }
+  .op-scene-count { font-size:9px; left:13px; }
+  .op-cast { gap:8px 15px; flex-wrap:wrap; min-height:66px; padding:13px 0 6px; }
+  .op-person { gap:6px; }
+  .op-person > span { width:22px; height:25px; }
+  .op-person b { font-size:10px; }
+  .op-cast-note { font-size:10px; line-height:1.7; margin:3px 0; }
+  .op-caption { padding:11px 9px 18px; min-height:135px; }
+  .op-caption p { font-size:16px; line-height:1.9; letter-spacing:.02em; }
+  .op-audio-status { font-size:9px; margin-top:10px; }
+  .op-quote-mark { display:none; }
+  .op-timeline { gap:4px; }
+  .site-prologue .op-timeline button { min-height:29px; font-size:8px; }
+  .op-playback { flex-direction:column; align-items:stretch; gap:13px; padding-top:1px; }
+  .op-readiness { gap:7px; font-size:9px; }
+  .op-time { margin-left:auto; padding:0; }
+  .op-controls { justify-content:space-between; gap:7px; }
+  .op-controls button { flex:1; min-height:42px; font-size:11px; padding:9px; }
+  .site-prologue .op-launch { flex:2; }
+  .op-progress { margin-top:12px; }
+}

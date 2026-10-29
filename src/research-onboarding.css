@@ -1,0 +1,72 @@
+/* Preserve the original cutscene player; keep contextual controls below it. */
+.fv-workbench.fv-in-opening { position:absolute;inset:0;overflow:hidden;pointer-events:none; }
+.fv-workbench.fv-in-opening > * { visibility:hidden; }
+.modal.fv-modal:has(>.fv-classic-intro:not([hidden])) { padding:0; }
+.fv-classic-intro { position:relative;height:min(800px,calc(90dvh - 4px),calc(100dvh - 128px));margin:0;padding:0;border:0;background:transparent; }
+.fv-classic-intro[hidden] { display:none; }
+.fv-classic-intro *,.fv-classic-intro *::before,.fv-classic-intro *::after { box-sizing:border-box; }
+.fv-classic-intro .px-intro-stage { min-height:0;overflow-y:auto; }
+.fv-classic-intro .px-prologue-stage { min-height:0;overflow-y:auto;display:block;align-content:center; }
+.fv-classic-intro .px-prologue-header,.fv-classic-intro .px-prologue-footer,.fv-classic-intro .px-intro-header { flex-shrink:0;flex-wrap:wrap;gap:10px; }
+.fv-classic-intro .px-person-info { min-width:0;overflow-wrap:anywhere; }
+.fv-classic-intro .px-act-person,.fv-classic-intro .px-act-story,.fv-classic-intro .px-act-mission { flex-shrink:0; }
+.fv-classic-intro button { min-height:40px; }
+.fv-classic-intro button:focus-visible { outline:3px solid var(--event-gold,#f6cc78);outline-offset:3px; }
+.px-intro-paused * { animation:none!important;transition:none!important; }
+/* One companion card, one real control, no blocking overlay. */
+.fv-workbench { position:relative; }
+.fv-workbench .ro-guide { position:relative;border:1px solid var(--fv-line);border-top:2px solid var(--fv-accent);margin-bottom:20px;background:var(--fv-bg);padding:12px;scroll-margin:16px; }
+.ro-guide-head { display:flex;align-items:center;gap:8px;min-width:0; }
+.ro-avatar { flex:0 0 36px;width:36px;height:36px;border:1px solid var(--fv-line);background:#cbd5ba;display:grid;place-items:center;box-shadow:2px 2px 0 #0002; }
+.ro-avatar svg { width:33px;height:29px;image-rendering:pixelated; }
+.ro-speaker { flex:1;min-width:0;font-size:12px;font-weight:600;color:var(--fv-ink); }
+.ro-speaker small { display:block;margin-top:3px;color:var(--fv-muted);font-size:9px;font-weight:400;letter-spacing:.08em; }
+.fv-workbench .ro-guide-head button { padding:5px 6px;min-height:34px;font-size:10px;border-color:transparent;white-space:nowrap; }
+.fv-workbench .ro-guide-head [data-ro-action=help] { color:var(--fv-accent);border-bottom-color:var(--fv-line); }
+.fv-workbench .ro-guide-head [data-ro-action=collapse] { font-size:16px;min-width:28px; }
+.ro-guide-meta { display:flex;justify-content:space-between;align-items:center;gap:8px;margin:14px 0 10px;font-size:10px;color:var(--fv-accent); }
+.ro-guide-meta>span { border:1px solid var(--fv-line);padding:3px 6px; }
+.ro-guide-meta>small { color:var(--fv-muted);font-size:9px; }
+.ro-guide-body>strong { display:block;font-size:14px;font-weight:600;font-family:Georgia,"Noto Serif SC","Songti SC",serif;line-height:1.6; }
+.ro-guide-body>p { font-size:12px;line-height:1.85;margin:7px 0 9px;overflow-wrap:anywhere; }
+.ro-guide-body>.ro-operation-note { display:block;font-size:10px;line-height:1.75;color:var(--fv-muted);padding-top:9px;border-top:1px dashed var(--fv-line); }
+.ro-guide[data-familiar=true] .ro-guide-meta { margin-top:10px; }
+.ro-guide-body>.ro-change { border-left:2px solid var(--fv-accent);padding:7px 9px;margin-bottom:12px;background:var(--fv-panel);font-size:11px; }
+.ro-change b { display:block;margin-bottom:3px;color:var(--fv-accent);font-size:10px; }
+.ro-guide-body>.ro-reaction { font-size:10px;color:var(--fv-accent);margin-bottom:8px; }
+.fv-workbench .ro-to-record { margin-top:12px;width:100%;font-size:11px;text-align:left; }
+.fv-workbench .ro-stall { display:block;padding:8px 0 0;margin-top:10px;border:0;border-top:1px dashed var(--fv-line);font-size:10px;line-height:1.8;text-align:left;color:var(--fv-accent); }
+.ro-help { padding-top:10px;margin-top:12px;border-top:1px dashed var(--fv-line); }
+.ro-help>p { color:var(--fv-muted);font-size:11px;line-height:1.8;margin:0 0 10px; }
+.ro-help-actions { display:grid;gap:6px; }
+.fv-workbench .ro-help-actions button { text-align:left;font-size:11px;min-height:36px;padding:7px 9px; }
+.ro-guide [hidden] { display:none!important; }
+.fv-workbench .ro-target { outline:2px solid var(--fv-accent);outline-offset:5px;scroll-margin:24px; }
+.fv-workbench .ro-target:focus-visible { outline:3px solid var(--fv-ink); }
+.ro-target-pulse { animation:ro-point 650ms ease-out 2; }
+.ro-charge-note { padding:9px 0;margin:10px 0;color:var(--fv-muted);font-size:10px;line-height:1.8;border-top:1px dashed var(--fv-line); }
+.ro-live { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap; }
+.ro-demo-anchor { position:relative; }
+.ro-demo { position:absolute;display:block;z-index:12;width:28px;height:35px;pointer-events:none;color:var(--fv-accent);filter:drop-shadow(1px 2px 1px #0005); }
+.ro-demo svg { display:block;width:24px;height:30px;image-rendering:pixelated; }
+.ro-demo-ring { position:absolute;left:-10px;top:-10px;width:25px;height:25px;border:2px solid var(--fv-accent);border-radius:50%;animation:ro-ring 1s ease-out infinite; }
+.ro-demo-adjust,.ro-demo-assemble { animation:ro-drag 1.2s ease-in-out infinite; }
+.ro-demo-hold .ro-demo-ring { animation:ro-hold 1.6s ease-in-out infinite; }
+@keyframes ro-drag { 0%,20% { translate:-18px 0; } 75%,100% { translate:18px 0; } }
+@keyframes ro-ring { from { scale:.55;opacity:1; } to { scale:1.4;opacity:0; } }
+@keyframes ro-hold { 0%,15%,85%,100% { scale:.7;opacity:.3; } 25%,75% { scale:1;opacity:1; } }
+@keyframes ro-point { 50% { outline-offset:8px; } }
+@media(max-width:760px) {
+  .fv-workbench .ro-guide { padding:10px;margin-bottom:18px; }.fv-workbench .ro-guide-head button,.fv-workbench .ro-help-actions button { min-height:44px; }.ro-avatar { flex-basis:30px;width:30px;height:32px; }.ro-avatar svg { width:28px; }.ro-guide-head { gap:5px; }
+  .fv-classic-intro button { min-height:44px; }
+}
+@media(max-width:700px) {
+  .fv-classic-intro .px-intro-stage { justify-content:flex-start;padding:16px; }
+  .fv-classic-intro .px-intro-header-actions { width:100%;justify-content:space-between; }
+  .fv-classic-intro .px-prologue-footer { font-size:10px; }
+  .fv-classic-intro .px-prologue-tag,.fv-classic-intro .px-intro-tag { font-size:9px;letter-spacing:.05em; }
+  .fv-classic-intro .px-step-pill { padding:7px 9px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .px-intro-theater * { animation:none!important;transition:none!important; }.ro-demo,.ro-demo-ring,.ro-target-pulse { animation:none!important; }.ro-demo-ring { opacity:1; }
+}

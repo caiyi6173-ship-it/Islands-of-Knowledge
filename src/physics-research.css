@@ -1,0 +1,721 @@
+/* Research tools inherit each event's own pixel palette. */
+.research-revise {
+  margin-top: 24px;
+  padding: 15px;
+  border: 1px solid var(--px-line);
+  background: var(--px-panel);
+}
+.research-revise > button {
+  width: 100%;
+  text-align: center;
+}
+#modal-backdrop .pixel-event-modal .event-console .research-revise > p {
+  margin-top: 10px;
+  font: 11px/1.9 var(--px-hud-body);
+}
+.research-ledger {
+  margin-block: 24px;
+}
+.research-ledger > h4 {
+  font-size: 13px;
+  margin-block: 9px 14px;
+}
+.research-ledger details {
+  border: 1px solid var(--px-line);
+  background: var(--px-panel);
+  padding: 12px 14px;
+  margin-bottom: 9px;
+}
+.research-ledger summary {
+  font: 11px/1.9 var(--px-hud-body);
+  cursor: pointer;
+}
+.research-ledger details > p {
+  font: 11px/1.9 var(--px-hud-body);
+  margin-top: 10px;
+}
+.research-ledger dl {
+  margin: 12px 0;
+}
+.research-ledger dl > div {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--px-line);
+  font: 10px/1.8 var(--px-hud-body);
+}
+.research-ledger dt {
+  color: var(--px-muted);
+}
+.research-ledger dd {
+  color: var(--px-accent);
+  text-align: right;
+  margin: 0;
+}
+.research-ledger details > small {
+  font-size: 9px;
+}
+#modal-backdrop .pixel-event-modal .event-console .research-record-readings {
+  color: var(--px-secondary);
+  margin-top: 7px;
+  font-size: 10px;
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-console
+  :is(
+    .research-prediction,
+    .research-guidance,
+    .research-comparison-plan,
+    .research-observation,
+    .research-comparison,
+    .research-report
+  ) {
+  margin-top: 18px;
+  padding: 17px 18px;
+  border: 1px solid var(--px-line);
+  background: var(--px-panel);
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-console
+  :is(.research-prediction, .research-comparison-plan, .research-comparison) {
+  border-left: 2px solid var(--px-accent);
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-console
+  :is(
+    .research-prediction h4,
+    .research-observation h4,
+    .research-comparison h4
+  ) {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 7px 0 10px;
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-console
+  :is(
+    .research-prediction p,
+    .research-guidance p,
+    .research-comparison-plan p,
+    .research-observation p,
+    .research-comparison p,
+    .research-report p,
+    .research-proof-help
+  ) {
+  font: 12px/1.95 var(--px-hud-body);
+}
+.research-prediction > div:first-child,
+.research-guidance > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.research-prediction > div:first-child > small {
+  font-size: 9px;
+}
+.research-prediction > div:last-child {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.research-prediction button {
+  flex: 1 1 130px;
+  min-height: 40px;
+  padding: 9px 11px;
+  border: 1px solid var(--px-line);
+  color: var(--px-muted);
+  background: var(--px-bg);
+  font: 11px/1.8 var(--px-hud-body);
+  text-align: left;
+}
+#modal-backdrop
+  .pixel-event-modal
+  .event-console
+  :is(
+    .research-prediction button.selected,
+    .research-hypotheses button.selected,
+    .research-scope button.selected
+  ) {
+  border-color: var(--px-accent);
+  color: var(--px-ink);
+  box-shadow: inset 0 -2px var(--px-accent);
+  background: color-mix(in srgb, var(--px-panel) 88%, var(--px-accent));
+}
+.research-prediction button:hover,
+.research-hypotheses button:hover,
+.research-scope button:hover {
+  border-color: var(--px-accent);
+}
+.research-guidance strong {
+  font-size: 11px;
+}
+.research-guidance > div > span {
+  font-size: 9px;
+  color: var(--px-accent);
+}
+.research-guidance button,
+.research-comparison-plan > button {
+  color: var(--px-accent);
+  font: 10px/1.8 var(--px-hud-body);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.research-guidance p {
+  margin-top: 8px;
+}
+.research-guidance button:disabled {
+  opacity: 0.45;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+.research-comparison-plan > strong {
+  font-size: 13px;
+}
+.research-comparison-plan small {
+  display: block;
+  font-size: 10px;
+  margin-top: 7px;
+}
+.research-comparison-plan > button {
+  margin-top: 8px;
+}
+.research-observation {
+  border-left: 2px solid var(--px-secondary) !important;
+}
+.research-observation p > span {
+  font-size: 10px;
+  color: var(--px-secondary);
+  padding-right: 10px;
+}
+.research-reflection {
+  margin-top: 7px;
+}
+.research-reading-table {
+  margin: 14px 0 11px;
+  border: 1px solid var(--px-line);
+}
+.research-reading-table > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.research-reading-table > div + div {
+  border-top: 1px solid var(--px-line);
+}
+.research-reading-table :is(span, b) {
+  font: 11px/1.8 var(--px-hud-body);
+  padding: 9px 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.research-reading-table b {
+  background: var(--px-bg);
+  color: var(--px-accent);
+  font-size: 10px;
+}
+.research-reading-table span + span,
+.research-reading-table b + b {
+  border-left: 1px solid var(--px-line);
+}
+.research-comparison > small {
+  font-size: 10px;
+  line-height: 1.9;
+  display: block;
+}
+.event-consequence-footer > span > small {
+  display: block;
+  font-size: 9px;
+  margin-top: 5px;
+}
+.research-compare-button > small {
+  display: block;
+  font-size: 9px;
+  margin-top: 3px;
+}
+.research-argument-step {
+  padding-top: 22px;
+  margin-top: 20px;
+  border-top: 1px solid var(--px-line);
+}
+.research-argument-step > h4 {
+  font-size: 14px;
+  line-height: 1.8;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.research-argument-step > h4 > b {
+  color: var(--px-accent);
+  font: 11px var(--px-hud-font);
+}
+.research-argument-step > h4 > small {
+  font-size: 10px;
+  font-weight: 400;
+  margin-left: auto;
+}
+.research-hypotheses,
+.research-scope {
+  display: grid;
+  gap: 9px;
+  margin-top: 14px;
+}
+.research-hypotheses button,
+.research-scope button {
+  color: var(--px-muted);
+  background: var(--px-panel);
+  border: 1px solid var(--px-line);
+  padding: 12px 14px;
+  text-align: left;
+  font: 12px/1.9 var(--px-hud-body);
+}
+.research-proof-help {
+  margin-top: 9px;
+}
+.research-proof-records {
+  display: grid;
+  gap: 10px;
+  margin-top: 13px;
+}
+.research-proof-records > button {
+  display: flex;
+  align-items: start;
+  gap: 13px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--px-line);
+  background: var(--px-panel);
+  padding: 14px;
+}
+.research-proof-records > button.selected {
+  border-color: var(--px-accent);
+  box-shadow: inset 3px 0 var(--px-accent);
+}
+.research-proof-records > button:hover {
+  border-color: var(--px-secondary);
+}
+.research-proof-records > button > div {
+  min-width: 0;
+}
+.research-proof-check {
+  color: var(--px-accent);
+  font-size: 14px;
+}
+.research-proof-records small {
+  display: block;
+  font-size: 9px;
+  line-height: 1.8;
+}
+.research-proof-records strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 5px 0;
+}
+#modal-backdrop .pixel-event-modal .event-console .research-proof-records p {
+  font: 11px/1.9 var(--px-hud-body);
+}
+.research-proof-records b {
+  font-size: 9px;
+  color: var(--px-secondary);
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+.research-argument-status {
+  border-left: 2px solid var(--px-accent);
+  padding: 11px 13px;
+  background: var(--px-panel);
+  color: var(--px-accent);
+  font: 10px/1.8 var(--px-hud-body);
+  margin-top: 22px;
+}
+.research-argument-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 17px;
+}
+.research-argument-actions .event-primary {
+  flex: 1;
+}
+.research-argument-actions button:disabled {
+  opacity: 0.45;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.research-report > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin: 13px 0;
+}
+.research-report article {
+  padding: 13px 10px;
+  border: 1px solid var(--px-line);
+  text-align: center;
+  opacity: 0.5;
+}
+.research-report article.earned {
+  opacity: 1;
+  border-color: var(--px-accent);
+  background: color-mix(in srgb, var(--px-panel) 90%, var(--px-accent));
+}
+.research-report article > b {
+  display: block;
+  color: var(--px-accent);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.research-report article > strong {
+  display: block;
+  font-size: 12px;
+  margin: 4px 0;
+}
+.research-report article > small {
+  display: block;
+  font: 9px/1.8 var(--px-hud-body);
+}
+.research-argument-feedback {
+  padding-top: 12px;
+  border-top: 1px solid var(--px-line);
+  margin-top: 10px;
+}
+@media (max-width: 700px) {
+  #modal-backdrop
+    .pixel-event-modal
+    .event-console
+    :is(
+      .research-prediction,
+      .research-guidance,
+      .research-comparison-plan,
+      .research-observation,
+      .research-comparison,
+      .research-report
+    ) {
+    padding: 13px;
+    margin-top: 15px;
+  }
+  .research-prediction button {
+    flex-basis: 100%;
+  }
+  .research-guidance > div {
+    align-items: start;
+  }
+  .research-reading-table :is(span, b) {
+    padding: 8px 7px;
+    font-size: 10px;
+  }
+  .research-argument-step > h4 {
+    font-size: 13px;
+    gap: 8px;
+  }
+  .research-hypotheses button,
+  .research-scope button {
+    padding: 11px;
+    font-size: 12px;
+  }
+  .research-proof-records > button {
+    padding: 11px;
+    gap: 9px;
+  }
+  .research-proof-records strong {
+    font-size: 12px;
+  }
+  .research-argument-actions {
+    flex-direction: column-reverse;
+  }
+  .research-report > div {
+    gap: 6px;
+  }
+  .research-report article {
+    padding: 10px 5px;
+  }
+  .research-report article > strong {
+    font-size: 10px;
+  }
+  .research-report article > small {
+    font-size: 8px;
+  }
+}
+
+/* ==========================================================================
+   即时动态物理沙盒 (Live Telemetry & Instant Feedback)
+   ========================================================================== */
+
+/* 场景上方的星级探索评价 */
+.event-stars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 4px 10px;
+  border: 1px solid var(--px-line, #384c72);
+}
+
+.event-stars .star {
+  font-size: 13px;
+  color: #4a5d7c;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.2s;
+}
+
+.event-stars .star.earned {
+  color: var(--event-gold, #f6cc78);
+  text-shadow: 0 0 6px rgba(246, 204, 120, 0.7);
+  font-weight: 800;
+}
+
+.event-stars .star small {
+  font-size: 9px;
+  color: #8fa0bc;
+}
+
+.event-stars .star.earned small {
+  color: var(--event-gold, #f6cc78);
+}
+
+/* 声音切换按钮 */
+.event-sound-toggle {
+  background: var(--event-bg, #141c2e);
+  color: var(--event-dim, #8ba2c4);
+  border: 1px solid var(--event-line, #384c72);
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 1px 1px 0 #0004;
+}
+
+.event-sound-toggle:hover {
+  color: var(--event-gold, #f6cc78);
+  border-color: var(--event-gold, #f6cc78);
+}
+
+/* 即时物理遥测仪表盘 (Live Telemetry Strip) */
+.event-live-telemetry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: rgba(16, 24, 40, 0.92);
+  border: 1px solid var(--event-line, #384c72);
+  border-top: 2px solid var(--event-line, #384c72);
+  padding: 10px 16px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+  margin-top: -4px;
+  position: relative;
+  z-index: 5;
+}
+
+.telemetry-metrics {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.telemetry-item span {
+  color: var(--event-dim, #8ba2c4);
+}
+
+.telemetry-item strong {
+  color: var(--event-text, #f0f4fc);
+  font-family: var(--sans, monospace);
+  font-weight: 700;
+}
+
+.telemetry-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 0;
+}
+
+.telemetry-status.status-eureka {
+  background: color-mix(in srgb, var(--event-gold, #f6cc78) 20%, transparent);
+  border: 1px solid var(--event-gold, #f6cc78);
+  color: var(--event-gold, #f6cc78);
+  box-shadow: 0 0 8px rgba(246, 204, 120, 0.35);
+  animation: px-pulse-glow 1.5s infinite;
+}
+
+.telemetry-status.status-warning {
+  background: rgba(237, 148, 127, 0.2);
+  border: 1px solid #ed947f;
+  color: #ed947f;
+  box-shadow: 0 0 8px rgba(237, 148, 127, 0.3);
+  animation: px-pulse-warning 1s infinite;
+}
+
+.telemetry-status.status-neutral {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--event-line, #384c72);
+  color: var(--event-dim, #8ba2c4);
+}
+
+@keyframes px-pulse-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(246, 204, 120, 0.3); }
+  50% { box-shadow: 0 0 14px rgba(246, 204, 120, 0.7); }
+}
+
+@keyframes px-pulse-warning {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+/* 按钮 Eureka 金色脉冲 */
+.btn-eureka-glow {
+  box-shadow: 0 0 12px rgba(246, 204, 120, 0.7) !important;
+  border-color: var(--event-gold, #f6cc78) !important;
+  animation: px-pulse-btn 1.5s infinite;
+}
+
+@keyframes px-pulse-btn {
+  0%, 100% { transform: translateY(0); filter: brightness(1); }
+  50% { transform: translateY(-1px); filter: brightness(1.15); }
+}
+
+/* 震屏动画（失误惩罚） */
+@keyframes px-screen-shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5px, 3px); }
+  40% { transform: translate(5px, -3px); }
+  60% { transform: translate(-4px, 2px); }
+  80% { transform: translate(3px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.pixel-event-modal.screen-shake {
+  animation: px-screen-shake 0.35s ease-in-out;
+}
+
+/* 紧急援助卡片 */
+.event-emergency-card {
+  background: #2b1d16;
+  border: 1px solid #d48235;
+  box-shadow: 0 0 15px rgba(212, 130, 53, 0.3);
+  padding: 14px 18px;
+  margin-block: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.event-emergency-card strong {
+  color: #f6cc78;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.event-emergency-card p {
+  color: #dfcfbf;
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.event-emergency-card button {
+  background: #d48235;
+  color: #141c2e;
+  border: none;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.event-emergency-card button:hover {
+  filter: brightness(1.15);
+}
+
+/* 一体化工作台布局优化 */
+.event-workbench-story {
+  background: var(--event-panel, #1b263b);
+  border: 1px solid var(--event-line, #384c72);
+  border-left: 3px solid var(--event-gold, #f6cc78);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.event-workbench-story h4 {
+  font-size: 13px;
+  color: var(--event-text, #f0f4fc);
+  margin-bottom: 2px;
+}
+
+.event-workbench-story p {
+  font-size: 11px;
+  color: var(--event-dim, #8ba2c4);
+  margin: 0;
+}
+
+.event-workbench-npc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--event-bg, #141c2e);
+  padding: 4px 10px;
+  border: 1px solid var(--event-line, #384c72);
+  font-size: 11px;
+  color: #ed947f;
+  white-space: nowrap;
+}
+
+/* 角色快速切换条 */
+.event-role-quick {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.event-role-chip {
+  background: var(--event-bg, #141c2e);
+  border: 1px solid var(--event-line, #384c72);
+  color: var(--event-dim, #8ba2c4);
+  font-size: 10px;
+  padding: 3px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s;
+}
+
+.event-role-chip:hover {
+  color: var(--event-text, #f0f4fc);
+  border-color: var(--event-text, #f0f4fc);
+}
+
+.event-role-chip.selected {
+  background: color-mix(in srgb, var(--event-gold, #f6cc78) 18%, transparent);
+  border-color: var(--event-gold, #f6cc78);
+  color: var(--event-gold, #f6cc78);
+  font-weight: 700;
+}

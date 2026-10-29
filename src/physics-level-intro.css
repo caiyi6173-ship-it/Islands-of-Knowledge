@@ -1,0 +1,748 @@
+/* ==========================================================================
+   Pixel Level Intro Cutscene (关卡像素开场动画系统)
+   序章：黑屏白字打字机介绍历史背景 -> 像素动画三幕式剧场（全自动播放）
+   ========================================================================== */
+
+/* 全屏黑屏打字序章 */
+.px-blackout-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 32px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: var(--sans, "Cascadia Mono", "Consolas", monospace);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 复古 CRT 扫描线与暗部噪点 */
+.px-blackout-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.45) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 4px, 6px 100%;
+  z-index: 2;
+}
+
+/* 退出黑屏动画：像素消隐/扫描线收拢 */
+.px-blackout-screen.px-prologue-exit {
+  animation: px-blackout-out 0.38s steps(6, end) forwards;
+  pointer-events: none;
+}
+
+@keyframes px-blackout-out {
+  0% {
+    opacity: 1;
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    filter: brightness(2) contrast(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+    visibility: hidden;
+  }
+}
+
+/* 序章顶部栏 */
+.px-prologue-header {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.px-prologue-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8fa0bc;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.px-prologue-tag i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #f6cc78;
+  box-shadow: 0 0 6px #f6cc78;
+  animation: px-blink 1s steps(2, end) infinite;
+}
+
+/* 序章中央文字展示区 */
+.px-prologue-stage {
+  position: relative;
+  z-index: 3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.px-prologue-box {
+  max-width: 760px;
+  width: 100%;
+  border-left: 3px solid #f6cc78;
+  padding: 22px 28px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+.px-prologue-era {
+  color: #f6cc78;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.px-prologue-era .px-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #f6cc78;
+}
+
+.px-prologue-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin: 0 0 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 12px;
+}
+
+.px-prologue-body {
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+  min-height: 120px;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.px-typed-text {
+  white-space: pre-wrap;
+}
+
+.px-caret {
+  display: inline-block;
+  width: 9px;
+  color: #f6cc78;
+  font-weight: 900;
+  margin-left: 2px;
+  animation: px-blink 0.6s steps(2, end) infinite;
+  vertical-align: baseline;
+}
+
+/* 序章底部控制与提示 */
+.px-prologue-footer {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 14px;
+  font-size: 11px;
+}
+
+.px-prologue-hint {
+  color: #6c7d98;
+}
+
+.px-prologue-hint kbd {
+  background: #1a2233;
+  color: #c0d0e6;
+  padding: 1px 5px;
+  border: 1px solid #334466;
+  font-family: inherit;
+  font-size: 10px;
+}
+
+.px-prologue-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #a0b4d0;
+  font-weight: 600;
+}
+
+.px-prologue-status .px-status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #39d353;
+  box-shadow: 0 0 6px #39d353;
+  animation: px-blink 1.2s steps(2, end) infinite;
+}
+
+/* ==========================================================================
+   像素剧场本体 (三幕式动画)
+   ========================================================================== */
+
+.px-intro-theater {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  background: var(--event-bg, #141c2e);
+  color: var(--event-text, #f0f4fc);
+  font-family: var(--sans, "Cascadia Mono", "Consolas", monospace);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: px-fade-in 0.3s steps(4, end);
+}
+
+@keyframes px-fade-in {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 自动播放顶部进度条 */
+.px-intro-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.px-intro-progress-fill {
+  height: 100%;
+  background: var(--event-gold, #f6cc78);
+  width: 0%;
+  box-shadow: 0 0 6px var(--event-gold, #f6cc78);
+  transition: width 0.1s linear;
+}
+
+/* 剧场顶部控制栏 */
+.px-intro-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--event-panel, #1b263b);
+  border-bottom: 2px solid var(--event-line, #384c72);
+  box-shadow: 0 3px 0 #0004;
+}
+
+.px-intro-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--event-gold, #f6cc78);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.px-intro-tag i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--event-gold, #f6cc78);
+  box-shadow: 0 0 5px var(--event-gold, #f6cc78);
+  animation: px-blink 1.2s steps(2, end) infinite;
+}
+
+.px-intro-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.px-intro-toggle-play {
+  background: var(--event-bg, #141c2e);
+  color: var(--event-gold, #f6cc78);
+  border: 1px solid var(--event-line, #384c72);
+  border-radius: 0;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #0004;
+  transition: transform 0.1s;
+}
+
+.px-intro-toggle-play:hover {
+  filter: brightness(1.15);
+  border-color: var(--event-gold, #f6cc78);
+}
+
+.px-intro-toggle-play:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.px-intro-skip {
+  background: var(--event-bg, #141c2e);
+  color: var(--event-dim, #8ba2c4);
+  border: 1px solid var(--event-line, #384c72);
+  border-radius: 0;
+  padding: 5px 12px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #0004;
+  transition: transform 0.1s;
+}
+
+.px-intro-skip:hover {
+  color: var(--event-gold, #f6cc78);
+  border-color: var(--event-gold, #f6cc78);
+}
+
+.px-intro-skip:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* 剧场核心舞台视口 */
+.px-intro-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 幕 1：物理学家登场 */
+.px-act-person {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 780px;
+  width: 100%;
+  background: var(--event-panel, #1b263b);
+  border: 2px solid var(--event-line, #384c72);
+  box-shadow:
+    0 0 0 4px var(--event-bg, #141c2e),
+    0 0 0 6px var(--event-line, #384c72),
+    6px 6px 0 #0005;
+  padding: 24px 30px;
+  position: relative;
+  animation: px-slide-up 0.35s steps(4, end);
+}
+
+.px-person-frame {
+  flex-shrink: 0;
+  width: 130px;
+  height: 140px;
+  background: var(--event-bg, #141c2e);
+  border: 2px solid var(--event-line, #384c72);
+  box-shadow: inset 0 0 0 2px var(--event-panel, #1b263b), 3px 3px 0 #0004;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.px-person-frame .px-portrait {
+  width: 90px;
+  height: 95px;
+  filter: drop-shadow(2px 2px 0 #0006);
+}
+
+.px-person-era-badge {
+  position: absolute;
+  bottom: -10px;
+  background: var(--event-gold, #f6cc78);
+  color: var(--event-bg, #141c2e);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  box-shadow: 1px 1px 0 #0006;
+}
+
+.px-person-info {
+  flex: 1;
+}
+
+.px-person-info .px-kicker {
+  color: var(--event-gold, #f6cc78);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.px-person-info h2 {
+  font-size: 28px;
+  margin: 4px 0 2px;
+  color: var(--event-text, #f0f4fc);
+  letter-spacing: 0.05em;
+}
+
+.px-person-info .px-english {
+  font-size: 11px;
+  color: var(--event-dim, #8ba2c4);
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.px-person-info .px-role-badge {
+  display: inline-block;
+  background: color-mix(in srgb, var(--event-gold, #f6cc78) 18%, transparent);
+  border: 1px solid var(--event-gold, #f6cc78);
+  color: var(--event-gold, #f6cc78);
+  font-size: 11px;
+  padding: 2px 8px;
+  margin-bottom: 12px;
+}
+
+.px-person-quote {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--event-text, #f0f4fc);
+  background: var(--event-bg, #141c2e);
+  border-left: 3px solid var(--event-gold, #f6cc78);
+  padding: 8px 12px;
+  margin: 0;
+}
+
+/* 幕 2：历史故事与危机 */
+.px-act-story {
+  display: flex;
+  flex-direction: column;
+  max-width: 820px;
+  width: 100%;
+  background: var(--event-panel, #1b263b);
+  border: 2px solid var(--event-line, #384c72);
+  box-shadow:
+    0 0 0 4px var(--event-bg, #141c2e),
+    0 0 0 6px var(--event-line, #384c72),
+    6px 6px 0 #0005;
+  animation: px-slide-up 0.35s steps(4, end);
+  overflow: hidden;
+}
+
+.px-story-scene-wrapper {
+  background: var(--event-bg, #141c2e);
+  border-bottom: 2px solid var(--event-line, #384c72);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 180px;
+}
+
+.px-story-scene-wrapper .px-scene {
+  max-height: 200px;
+  width: 100%;
+  max-width: 620px;
+  image-rendering: pixelated;
+}
+
+.px-story-dialogue {
+  padding: 18px 24px;
+}
+
+.px-story-dialogue .px-kicker {
+  color: var(--event-gold, #f6cc78);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.px-story-dialogue h3 {
+  font-size: 20px;
+  color: var(--event-text, #f0f4fc);
+  margin: 4px 0 10px;
+}
+
+.px-story-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--event-dim, #8ba2c4);
+  margin-bottom: 12px;
+}
+
+.px-story-npc-box {
+  background: var(--event-bg, #141c2e);
+  border: 1px solid var(--event-line, #384c72);
+  border-left: 3px solid #ed947f;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.px-story-npc-box small {
+  color: #ed947f;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.px-story-npc-box span {
+  font-size: 12px;
+  color: var(--event-text, #f0f4fc);
+}
+
+/* 幕 3：任务挑战与物理定律 */
+.px-act-mission {
+  display: flex;
+  flex-direction: column;
+  max-width: 780px;
+  width: 100%;
+  background: var(--event-panel, #1b263b);
+  border: 2px solid var(--event-line, #384c72);
+  box-shadow:
+    0 0 0 4px var(--event-bg, #141c2e),
+    0 0 0 6px var(--event-line, #384c72),
+    6px 6px 0 #0005;
+  padding: 24px 30px;
+  animation: px-slide-up 0.35s steps(4, end);
+}
+
+.px-mission-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--event-line, #384c72);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.px-mission-header h3 {
+  font-size: 20px;
+  color: var(--event-gold, #f6cc78);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.px-mission-header span {
+  font-size: 11px;
+  color: var(--event-dim, #8ba2c4);
+}
+
+.px-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.px-mission-card {
+  background: var(--event-bg, #141c2e);
+  border: 1px solid var(--event-line, #384c72);
+  box-shadow: 2px 2px 0 #0003;
+  padding: 12px 14px;
+}
+
+.px-mission-card small {
+  display: block;
+  font-size: 10px;
+  color: var(--event-gold, #f6cc78);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.px-mission-card p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--event-text, #f0f4fc);
+  margin: 0;
+}
+
+.px-mission-formula {
+  grid-column: 1 / -1;
+  background: var(--event-bg, #141c2e);
+  border: 1px solid var(--event-gold, #f6cc78);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.px-mission-formula strong {
+  font-size: 11px;
+  color: var(--event-dim, #8ba2c4);
+}
+
+.px-mission-formula code {
+  color: var(--event-gold, #f6cc78);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 剧场底部操作与步进栏 */
+.px-intro-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--event-panel, #1b263b);
+  border-top: 2px solid var(--event-line, #384c72);
+  box-shadow: 0 -3px 0 #0004;
+}
+
+.px-intro-steps {
+  display: flex;
+  gap: 8px;
+}
+
+.px-step-pill {
+  border: 1px solid var(--event-line, #384c72);
+  background: var(--event-bg, #141c2e);
+  color: var(--event-dim, #8ba2c4);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #0003;
+  transition: all 0.1s;
+}
+
+.px-step-pill:hover {
+  color: var(--event-text, #f0f4fc);
+  border-color: var(--event-text, #f0f4fc);
+}
+
+.px-step-pill.active {
+  background: var(--event-gold, #f6cc78);
+  color: var(--event-bg, #141c2e);
+  border-color: var(--event-gold, #f6cc78);
+  font-weight: 800;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.3), 2px 2px 0 #0003;
+}
+
+.px-intro-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.px-intro-btn-next,
+.px-intro-btn-start {
+  background: var(--event-gold, #f6cc78);
+  color: var(--event-bg, #141c2e);
+  border: 2px solid var(--event-gold, #f6cc78);
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--event-gold, #f6cc78) 40%, #000);
+  transition: transform 0.1s, filter 0.1s;
+}
+
+.px-intro-btn-next:hover,
+.px-intro-btn-start:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.px-intro-btn-next:active,
+.px-intro-btn-start:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.px-btn-countdown {
+  display: inline-block;
+  opacity: 0.85;
+  margin-left: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes px-slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes px-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* 响应式适配 */
+@media (max-width: 700px) {
+  .px-blackout-screen {
+    padding: 16px;
+  }
+  .px-prologue-box {
+    padding: 16px;
+  }
+  .px-prologue-title {
+    font-size: 20px;
+  }
+  .px-prologue-body {
+    font-size: 14px;
+  }
+  .px-act-person {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 16px;
+  }
+  .px-person-frame {
+    width: 100px;
+    height: 110px;
+  }
+  .px-person-quote {
+    text-align: left;
+  }
+  .px-story-scene-wrapper {
+    min-height: 140px;
+    padding: 6px;
+  }
+  .px-mission-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .px-intro-footer {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .px-intro-steps {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+  .px-intro-actions {
+    order: 1;
+    width: 100%;
+  }
+  .px-intro-btn-next,
+  .px-intro-btn-start {
+    width: 100%;
+  }
+}

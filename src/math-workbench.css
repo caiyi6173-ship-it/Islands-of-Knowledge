@@ -1,0 +1,1122 @@
+/* An instrument cabinet for mathematical play. All rules are local to Math. */
+.math-level-modal {
+  --px-ink: #f6eedb;
+}
+.math-event-console {
+  color: var(--px-ink);
+  background: var(--px-bg);
+}
+.math-event-console button {
+  color: var(--px-ink);
+}
+.math-event-console h3,
+.math-event-console h4 {
+  color: var(--px-ink);
+}
+#modal-backdrop .math-level-modal .math-header {
+  padding: 13px 22px;
+  gap: 16px;
+}
+.math-header .event-heading p {
+  font:
+    9px/1.8 Consolas,
+    monospace;
+  letter-spacing: 1.5px;
+  color: var(--px-muted);
+}
+.math-header .event-heading h2 {
+  font-size: 22px;
+  line-height: 1.6;
+}
+.math-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.math-best {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--px-muted);
+  font-size: 20px;
+  white-space: nowrap;
+}
+.math-best > span {
+  opacity: 0.28;
+}
+.math-best > .earned {
+  opacity: 1;
+  color: var(--px-accent);
+}
+.math-best > small {
+  font:
+    8px Consolas,
+    monospace;
+  margin-left: 7px;
+  letter-spacing: 1px;
+}
+.math-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 24px;
+  border-bottom: 1px solid #ffffff1b;
+  background: #0002;
+}
+.math-topline > nav {
+  display: flex;
+  gap: 26px;
+}
+.math-topline nav > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--px-muted);
+  font-size: 11px;
+}
+.math-topline nav b {
+  border: 1px solid #ffffff28;
+  padding: 4px 6px;
+  font:
+    10px Consolas,
+    monospace;
+}
+.math-topline nav > .current {
+  color: var(--px-accent);
+}
+.math-topline .current b {
+  color: var(--px-bg);
+  background: var(--px-accent);
+  border-color: var(--px-accent);
+}
+.math-topline .complete b {
+  color: #a5d6b7;
+}
+.math-resources {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.math-resources > span {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  color: var(--px-muted);
+  font-size: 10px;
+}
+.math-resources b {
+  color: var(--px-ink);
+  font:
+    18px/1.5 Consolas,
+    monospace;
+}
+.math-resources small {
+  color: var(--px-muted);
+  font-size: 10px;
+  margin-left: 3px;
+}
+.math-workbench-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  scrollbar-color: var(--px-far) var(--px-bg);
+  scroll-behavior: smooth;
+}
+.math-workbench-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 28px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 22px 26px 32px;
+}
+.math-stage-column {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  min-width: 0;
+}
+.math-control-column {
+  min-width: 0;
+}
+.math-instrument {
+  border: 1px solid var(--px-far);
+  box-shadow: 4px 4px 0 #0003;
+  background: var(--px-panel);
+}
+.math-stage-heading {
+  padding: 11px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 12px;
+  color: var(--px-accent);
+  font-size: 11px;
+  border-bottom: 1px solid #ffffff16;
+}
+.math-stage-heading small {
+  color: var(--px-muted);
+  font-size: 9px;
+}
+.math-svg-slot {
+  overflow: hidden;
+  background: var(--px-bg);
+}
+.math-svg-slot > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.math-svg-slot [data-drag] {
+  cursor: grab;
+  touch-action: none;
+}
+.math-svg-slot [data-drag]:active {
+  cursor: grabbing;
+}
+.math-svg-slot [data-drag]:focus-visible {
+  outline: 2px solid var(--px-accent);
+  outline-offset: 5px;
+}
+.math-play-controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  background: #0002;
+  padding: 9px 12px;
+  border-top: 1px solid #ffffff18;
+}
+.math-play-controls > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--px-accent);
+  letter-spacing: 1px;
+  font:
+    9px Consolas,
+    monospace;
+}
+.math-play-controls small {
+  color: var(--px-muted);
+  letter-spacing: 0;
+  font-size: 9px;
+}
+.math-play-controls i,
+.math-footer i {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  background: #a6d6b5;
+  box-shadow: 0 0 0 3px #a6d6b511;
+}
+.math-play-controls > div {
+  display: flex;
+  gap: 5px;
+}
+.math-event-console button {
+  cursor: pointer;
+}
+.math-play-controls button {
+  padding: 6px 9px;
+  border: 1px solid #ffffff2a;
+  background: #ffffff07;
+  font-size: 10px;
+  min-height: 30px;
+}
+.math-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  padding: 16px 14px;
+  background: #0002;
+  border-top: 1px solid #ffffff16;
+}
+.math-metrics > div {
+  min-width: 0;
+  padding-right: 10px;
+  border-right: 1px solid #ffffff17;
+}
+.math-metrics > div:last-child {
+  border: 0;
+}
+.math-metrics small {
+  display: block;
+  font-size: 10px;
+  color: var(--px-muted);
+  margin-bottom: 7px;
+}
+.math-metrics strong {
+  color: var(--px-ink);
+  font-size: 14px;
+  line-height: 1.65;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.math-companion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-top: 1px solid #ffffff1a;
+}
+.math-companion > svg {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 47px;
+}
+.math-companion small {
+  font-size: 10px;
+  color: var(--px-accent);
+}
+.math-companion p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--px-muted);
+  margin-top: 5px;
+}
+.math-insight {
+  margin: 17px 0 0;
+  border: 1px solid #ffffff23;
+  padding: 13px 15px;
+  background: #ffffff03;
+}
+.math-insight summary {
+  font-size: 12px;
+  color: var(--px-ink);
+  cursor: pointer;
+  line-height: 1.8;
+}
+.math-insight summary small {
+  float: right;
+  color: var(--px-accent);
+  font-size: 10px;
+}
+.math-insight p {
+  font-size: 12px;
+  line-height: 2;
+  color: var(--px-muted);
+  margin-top: 12px;
+}
+.math-tabs {
+  display: flex;
+  gap: 22px;
+  border-bottom: 1px solid #ffffff24;
+  margin-bottom: 20px;
+}
+.math-tabs button {
+  padding: 2px 0 13px;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--px-muted);
+  font-size: 11px;
+}
+.math-tabs .active {
+  border-bottom-color: var(--px-accent);
+  color: var(--px-accent);
+}
+.math-kicker {
+  color: var(--px-accent);
+  font:
+    9px/1.6 Consolas,
+    monospace;
+  letter-spacing: 2px;
+}
+.math-mission h3 {
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 5px 0 8px;
+}
+.math-mission p,
+.math-argument > p,
+.math-records > p,
+.math-ending > p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--px-muted);
+}
+.math-role-choice {
+  margin: 13px 0;
+  color: var(--px-muted);
+  font-size: 10px;
+}
+.math-role-choice summary {
+  cursor: pointer;
+  padding-bottom: 7px;
+}
+.math-role-choice > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.math-role-choice button {
+  min-height: 30px;
+  padding: 5px 9px;
+}
+.math-control-groups {
+  display: grid;
+  gap: 17px;
+  margin: 17px 0;
+}
+.math-control-groups fieldset {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid #ffffff24;
+  padding: 13px 14px 15px;
+  background: #ffffff03;
+}
+.math-control-groups legend {
+  padding: 0 5px;
+  color: var(--px-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.math-control-groups output {
+  margin-left: 10px;
+  color: var(--px-accent);
+  font:
+    15px Consolas,
+    monospace;
+  font-variant-numeric: tabular-nums;
+}
+.math-control-groups input[type="range"] {
+  width: 100%;
+  display: block;
+  height: 26px;
+  accent-color: var(--px-accent);
+  cursor: ew-resize;
+  margin: 4px 0;
+}
+.math-range-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  color: var(--px-muted);
+  margin: 0 0 12px;
+}
+.math-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.math-presets button,
+.math-role-choice button,
+.math-forecast button,
+.math-claims button,
+.math-proof-picker button {
+  border: 1px solid #ffffff2a;
+  background: var(--px-panel);
+  padding: 8px 11px;
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: left;
+}
+.math-presets button {
+  min-height: 36px;
+  flex: 1 1 auto;
+}
+.math-event-console button.selected {
+  border-color: var(--px-accent);
+  background: color-mix(in srgb, var(--px-accent) 13%, var(--px-panel));
+  color: var(--px-accent);
+  box-shadow: inset 0 -2px 0 var(--px-accent);
+}
+.math-event-console button:hover:not(:disabled) {
+  border-color: var(--px-accent);
+}
+.math-event-console :is(button, input, a, summary):focus-visible {
+  outline: 2px solid var(--px-accent);
+  outline-offset: 3px;
+}
+.math-event-console button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.math-comparison {
+  display: grid;
+  gap: 5px;
+  padding: 11px 13px;
+  margin-top: -17px;
+  border: 1px dashed #ffffff30;
+  border-top: 0;
+  color: var(--px-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+.math-comparison b {
+  color: var(--px-ink);
+  font-size: 11px;
+}
+.math-comparison.fair {
+  border-color: #9ed8b85c;
+  background: #9ed8b809;
+}
+.math-comparison.fair b {
+  color: #a5d9bc;
+}
+.math-forecast {
+  padding: 13px 0;
+  margin: 5px 0;
+  border-bottom: 1px solid #ffffff1d;
+}
+.math-forecast summary {
+  color: var(--px-muted);
+  cursor: pointer;
+  font-size: 11px;
+}
+.math-forecast summary small {
+  opacity: 0.65;
+  margin-left: 8px;
+  font-size: 9px;
+}
+.math-forecast p {
+  margin: 13px 0 8px;
+  color: var(--px-muted);
+  font-size: 11px;
+}
+.math-forecast > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.math-commit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 10px;
+}
+.math-commit > div {
+  display: grid;
+  gap: 5px;
+}
+.math-commit strong {
+  color: var(--px-ink);
+  font-size: 12px;
+}
+.math-commit span {
+  color: var(--px-accent);
+  font-size: 10px;
+}
+.math-commit small {
+  color: var(--px-muted);
+  font-size: 9px;
+}
+.math-event-console .math-primary {
+  background: var(--px-accent);
+  color: var(--px-bg);
+  border: 1px solid var(--px-accent);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--px-accent) 50%, #000);
+  padding: 11px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.7;
+  min-height: 43px;
+}
+.math-minor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 7px;
+  color: var(--px-muted);
+  font-size: 10px;
+  margin: 4px 0 16px;
+}
+.math-minor-actions button {
+  border: 0;
+  background: none;
+  color: var(--px-accent);
+  padding: 7px 0;
+  font-size: 10px;
+}
+.math-result {
+  margin-top: 17px;
+  padding: 16px;
+  border: 1px solid #9ed8b84f;
+  border-left: 3px solid #9ed8b8;
+  background: #9ed8b807;
+}
+.math-result.adverse {
+  border-color: #e9a38f66;
+  border-left-color: #e9a38f;
+  background: #e9a38f08;
+}
+.math-result h3 {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-top: 5px;
+}
+.math-result p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--px-muted);
+  margin-top: 8px;
+}
+.math-result > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+.math-result small {
+  color: var(--px-muted);
+  font-size: 9px;
+}
+.math-comparison-readings {
+  margin-top: 13px;
+  padding-top: 12px;
+  border-top: 1px solid #ffffff17;
+  color: var(--px-muted);
+  font-size: 10px;
+}
+.math-comparison-readings summary {
+  cursor: pointer;
+}
+.math-comparison-readings table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  table-layout: fixed;
+}
+.math-comparison-readings th,
+.math-comparison-readings td {
+  padding: 9px 5px;
+  border-bottom: 1px solid #ffffff20;
+  text-align: left;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+}
+.math-aid {
+  padding: 13px;
+  margin: 12px 0;
+  border: 1px solid #e9b87d66;
+  background: #e9b87d0b;
+}
+.math-aid p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--px-muted);
+}
+.math-aid button,
+.math-ending-actions > button:not(.math-primary) {
+  padding: 9px 12px;
+  border: 1px solid #ffffff35;
+  background: var(--px-panel);
+  font-size: 11px;
+}
+.math-aid button {
+  margin-top: 9px;
+}
+.math-records h3,
+.math-notes h3,
+.math-argument > h3,
+.math-ending > h3 {
+  font-size: 22px;
+  line-height: 1.7;
+  margin: 8px 0 12px;
+}
+.math-records details {
+  margin-top: 12px;
+  padding: 13px;
+  border: 1px solid #ffffff25;
+  font-size: 11px;
+}
+.math-records summary {
+  cursor: pointer;
+  color: var(--px-ink);
+}
+.math-records details p {
+  color: var(--px-muted);
+  line-height: 1.9;
+  margin-top: 10px;
+}
+.math-records dl {
+  margin: 10px 0 0;
+}
+.math-records dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 0;
+  border-top: 1px solid #ffffff15;
+}
+.math-records dd {
+  margin: 0;
+}
+.math-person {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin: 18px 0;
+}
+.math-person > svg {
+  width: 52px;
+  height: 65px;
+  flex-shrink: 0;
+}
+.math-person small {
+  color: var(--px-muted);
+  font-size: 9px;
+}
+.math-notes h4 {
+  margin: 23px 0 9px;
+  font-size: 14px;
+}
+.math-notes p {
+  font-size: 12px;
+  line-height: 2;
+  color: var(--px-muted);
+}
+.math-notes code {
+  display: block;
+  padding: 13px;
+  background: #ffffff07;
+  border: 1px solid #ffffff23;
+  color: var(--px-accent);
+  font-size: 12px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  margin-top: 12px;
+  line-height: 1.8;
+}
+.math-notes a {
+  font-size: 11px;
+  line-height: 1.9;
+  display: block;
+  margin-top: 10px;
+}
+.math-notes .math-history-boundary {
+  font-size: 10px;
+  margin-top: 10px;
+}
+.math-argument h4 {
+  font-size: 13px;
+  margin: 23px 0 10px;
+}
+.math-claims {
+  display: grid;
+  gap: 7px;
+}
+.math-claims button {
+  min-height: 44px;
+}
+.math-proof-picker {
+  border-block: 1px solid #ffffff22;
+  margin: 19px 0;
+  padding: 13px 0;
+}
+.math-proof-picker summary {
+  color: var(--px-accent);
+  font-size: 12px;
+  line-height: 1.8;
+  cursor: pointer;
+}
+.math-proof-picker summary small {
+  font-size: 9px;
+  color: var(--px-muted);
+  margin-left: 7px;
+}
+.math-proof-picker > div {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+}
+.math-proof-picker button {
+  display: grid;
+  gap: 7px;
+}
+.math-proof-picker button b {
+  font-size: 11px;
+}
+.math-proof-picker button span {
+  color: var(--px-muted);
+  font-size: 10px;
+}
+.math-argument-status {
+  color: var(--px-muted);
+  font-size: 10px;
+  padding: 14px 0;
+}
+.math-ending-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.math-reward {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 15px;
+  margin-top: 17px;
+  background: #ffffff07;
+  border: 1px solid #ffffff25;
+}
+.math-reward > svg {
+  width: 44px;
+  height: 55px;
+  flex: 0 0 44px;
+}
+.math-reward h4 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+.math-reward small,
+.math-reward p {
+  color: var(--px-accent);
+  font-size: 10px;
+}
+.math-rating {
+  display: grid;
+  gap: 12px;
+  padding: 20px 0;
+}
+.math-rating b {
+  color: var(--px-muted);
+  font-size: 12px;
+}
+.math-rating .earned b {
+  color: var(--px-accent);
+}
+.math-rating small {
+  display: block;
+  margin: 5px 0 0 17px;
+  font-size: 10px;
+  color: var(--px-muted);
+  line-height: 1.8;
+}
+.math-letter {
+  margin: 5px 0;
+  padding: 18px;
+  border-left: 2px solid var(--px-accent);
+  background: #ffffff04;
+  color: var(--px-ink);
+  font-size: 12px;
+  line-height: 2;
+}
+.math-letter small {
+  display: block;
+  color: var(--px-muted);
+  font-size: 9px;
+  margin-top: 10px;
+}
+.math-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 23px;
+  border-top: 1px solid #ffffff22;
+  background: var(--px-panel);
+  color: var(--px-muted);
+  font-size: 9px;
+}
+.math-footer > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.math-water-line {
+  animation: math-water 2s linear infinite;
+}
+.math-star {
+  animation: math-glimmer 2s steps(4) infinite;
+}
+.math-event-console.sandbox-paused .math-svg-slot * {
+  animation-play-state: paused !important;
+}
+@keyframes math-water {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+@keyframes math-glimmer {
+  50% {
+    opacity: 0.4;
+  }
+}
+.math-level-modal.math-mistake {
+  animation: px-screen-shake 0.3s steps(3);
+}
+body:has(.math-level-modal) > .toast {
+  top: auto;
+  bottom: 55px;
+  right: 20px;
+  max-width: calc(100vw - 40px);
+}
+/* The prologue is still played on every entrance; its frame follows the level. */
+.math-level-modal .math-intro-overlay {
+  background: #0d1326e8;
+}
+.math-level-modal .math-intro-overlay .intro-card {
+  background: var(--px-bg);
+  color: var(--px-ink);
+  border: 1px solid var(--px-far);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 #0005;
+}
+.math-level-modal
+  .math-intro-overlay
+  :is(h2, h3, .intro-title, .intro-story-title, .intro-challenge-title) {
+  color: var(--px-ink);
+}
+.math-level-modal
+  .math-intro-overlay
+  :is(p, .intro-story-text, .intro-prologue-text, .intro-steps-list) {
+  color: var(--px-muted);
+}
+.math-level-modal .math-intro-overlay :is(.intro-badge, .intro-law-card) {
+  background: var(--px-panel);
+  color: var(--px-accent);
+  border-radius: 0;
+}
+.math-level-modal .math-intro-overlay .intro-law-card code {
+  color: var(--px-accent);
+  white-space: normal;
+}
+.math-level-modal .math-intro-overlay .intro-portrait-frame {
+  border-radius: 0;
+  background: var(--px-panel);
+  border-color: var(--px-far);
+}
+.math-level-modal .intro-portrait-frame > svg {
+  width: 100%;
+  height: 100%;
+}
+.math-level-modal .intro-instrument-preview > svg {
+  display: block;
+  width: 100%;
+  max-height: 210px;
+}
+.math-level-modal .intro-fiction-note {
+  display: block;
+  margin-top: 8px;
+  font-size: 9px;
+  opacity: 0.7;
+  font-style: normal;
+}
+.math-level-modal .math-intro-overlay .intro-quote {
+  color: var(--px-accent);
+  border-left-color: var(--px-accent);
+}
+.math-level-modal .math-intro-overlay .intro-skip {
+  color: var(--px-accent);
+}
+.math-level-modal .math-intro-overlay .intro-btn-next {
+  color: var(--px-bg);
+  background: var(--px-accent);
+  border-radius: 0;
+}
+.math-level-modal .math-intro-overlay .intro-footer {
+  border-top-color: var(--px-far);
+}
+.math-level-modal .math-intro-overlay .intro-visual-plate h3 {
+  color: var(--px-ink);
+}
+.math-level-modal .math-intro-overlay .intro-visual-plate small {
+  color: var(--px-muted);
+}
+.world.is-math-island .island-name,
+.world.is-math-island .harbor-label {
+  display: none;
+}
+.world.is-math-island > .map-art {
+}
+.world.is-math-island .story-map-art {
+}
+.world.is-math-island .level-cleared .story-map-art {
+  filter: none;
+}
+.map-stage[data-subject="M"] .chapter-heading h2 {
+  color: #e7d9bd;
+  font-size: 19px;
+  margin: 7px 0;
+}
+@media (max-width: 1000px) {
+  .math-workbench-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px;
+    padding: 18px;
+  }
+  .math-header .event-heading h2 {
+    font-size: 18px;
+  }
+  .math-best > small {
+    display: none;
+  }
+  .math-play-controls > span small {
+    display: none;
+  }
+  .math-metrics {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  #modal-backdrop .math-level-modal .math-header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 7px 10px;
+    padding: 10px 12px;
+  }
+  .math-header .event-back {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 8px;
+  }
+  .math-header .event-back > span {
+    display: none;
+  }
+  .math-header .event-heading {
+    grid-column: 2;
+  }
+  .math-header .event-heading p {
+    font-size: 7px;
+    letter-spacing: 0.7px;
+  }
+  .math-header .event-heading h2 {
+    font-size: 16px;
+  }
+  .math-best {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 17px;
+  }
+  .math-tools {
+    grid-column: 1/-1;
+    justify-content: end;
+  }
+  .math-topline {
+    padding: 9px 13px;
+    gap: 10px;
+  }
+  .math-topline > nav {
+    gap: 12px;
+  }
+  .math-topline nav > span {
+    gap: 5px;
+    font-size: 9px;
+  }
+  .math-topline nav b {
+    padding: 3px 4px;
+    font-size: 9px;
+  }
+  .math-resources {
+    gap: 19px;
+  }
+  .math-resources > span {
+    font-size: 9px;
+    gap: 5px;
+  }
+  .math-resources b {
+    font-size: 13px;
+  }
+  .math-workbench-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 13px 12px 24px;
+  }
+  .math-stage-column {
+    position: static;
+    width: 100%;
+  }
+  .math-stage-heading {
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+  .math-stage-heading small {
+    font-size: 8px;
+  }
+  .math-play-controls {
+    padding: 8px;
+  }
+  .math-play-controls > span {
+    font-size: 8px;
+    letter-spacing: 0.3px;
+  }
+  .math-play-controls button {
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+  .math-metrics {
+    padding: 11px;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  }
+  .math-metrics small {
+    font-size: 8px;
+  }
+  .math-metrics strong {
+    font-size: 11px;
+  }
+  .math-companion {
+    padding: 10px;
+    align-items: start;
+    gap: 9px;
+  }
+  .math-companion > svg {
+    flex-basis: 30px;
+    width: 30px;
+    height: 38px;
+  }
+  .math-companion small {
+    font-size: 9px;
+  }
+  .math-companion p {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+  .math-insight {
+    padding: 10px 12px;
+    margin-top: 13px;
+  }
+  .math-insight summary {
+    font-size: 11px;
+  }
+  .math-tabs {
+    margin-bottom: 15px;
+  }
+  .math-mission h3 {
+    font-size: 18px;
+  }
+  .math-commit {
+    flex-wrap: wrap;
+  }
+  .math-commit > button {
+    width: 100%;
+  }
+  .math-footer {
+    padding: 9px 12px;
+    font-size: 8px;
+  }
+  .math-footer > span:last-child {
+    display: none;
+  }
+  .math-level-modal .math-intro-overlay .intro-card {
+    padding: 20px;
+  }
+  .math-level-modal .math-intro-overlay .intro-body {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .math-level-modal .math-intro-overlay .intro-visual {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .math-event-console *,
+  .math-level-modal.math-mistake {
+    animation: none !important;
+    transition: none !important;
+  }
+  .math-workbench-body {
+    scroll-behavior: auto;
+  }
+}

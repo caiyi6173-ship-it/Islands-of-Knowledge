@@ -1,0 +1,253 @@
+/* Chemistry map and archive only. All workbench layout comes from Physics. */
+.world.is-chemistry-island .island-name,
+.world.is-chemistry-island .harbor-label {
+  display: none;
+}
+.world.is-chemistry-island .story-map-art {
+}
+.world.is-chemistry-island .level-cleared .story-map-art {
+  filter: none;
+}
+.chem-scene {
+  width: 100%;
+  height: auto;
+  display: block;
+  shape-rendering: crispEdges;
+  image-rendering: pixelated;
+  font-family: Consolas, "Microsoft YaHei", monospace;
+  filter: none !important;
+}
+@keyframes chem-crossing {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(140px);
+  }
+}
+@keyframes chem-bubble {
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.45;
+  }
+}
+@keyframes chem-flow {
+  to {
+    stroke-dashoffset: -34;
+  }
+}
+.chem-island-portraits {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+.chem-island-portraits svg {
+  width: 49px;
+  height: 56px;
+}
+.chem-preview-art {
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  background: #d6dfc8;
+}
+.chem-preview-art .chem-scene {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.chem-preview-art > small {
+  position: absolute;
+  z-index: 1;
+  top: 9px;
+  left: 12px;
+  background: #fff9e3dd;
+  padding: 3px 7px;
+  letter-spacing: 2px;
+  color: #62765f;
+  font:
+    9px Consolas,
+    monospace;
+}
+.chem-campaign-modal .campaign-mini-portrait > svg {
+  width: 48px;
+  height: 54px;
+  image-rendering: pixelated;
+}
+.is-chemistry-island .story-map-art svg {
+  filter: none;
+}
+.chem-history-modal .chem-archive-body {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  min-height: 0;
+  flex: 1;
+}
+.chem-archive-rail {
+  padding: 12px;
+  overflow: auto;
+  border-right: 1px solid #3b4d61;
+  scrollbar-width: thin;
+}
+.chem-archive-rail button {
+  width: 100%;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #d9e5e9;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.chem-archive-rail button[aria-pressed="true"] {
+  background: #81997e22;
+  border-color: #b2c99b66;
+}
+.chem-archive-rail button > span {
+  width: 34px;
+  flex: none;
+  display: block;
+}
+.chem-archive-rail svg {
+  width: 100%;
+  display: block;
+}
+.chem-archive-rail button > span > svg {
+  width: 34px;
+  height: 38px;
+  max-width: none;
+}
+.chem-archive-rail strong {
+  display: block;
+  font-size: 11px;
+}
+.chem-archive-rail small {
+  display: block;
+  font-size: 9px;
+  color: #a3b7c5;
+  margin-top: 5px;
+}
+.chem-archive-reader {
+  overflow: auto;
+  min-width: 0;
+  scrollbar-width: thin;
+}
+.chem-archive-art {
+  height: 200px;
+  overflow: hidden;
+  background: #242f31;
+  display: grid;
+  place-items: center;
+}
+.chem-archive-art > .chem-scene {
+  width: 100%;
+  align-self: center;
+}
+.chem-archive-art > span {
+  width: 110px;
+  display: block;
+}
+.chem-archive-art > span > svg {
+  width: 100%;
+  display: block;
+  image-rendering: pixelated;
+}
+.chem-archive-copy {
+  padding: 26px 32px;
+  font-size: 12px;
+  color: #c5d2db;
+  line-height: 2;
+}
+.chem-archive-copy > small {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #bad1a1;
+}
+.chem-archive-copy > h3 {
+  font:
+    25px/1.6 SimSun,
+    serif;
+  color: #eef2db;
+  margin: 7px 0 20px;
+}
+.chem-archive-copy h4 {
+  font-size: 13px;
+  color: #e6ecd9;
+  margin: 24px 0 8px;
+}
+.chem-archive-copy p {
+  margin: 0 0 14px;
+}
+.chem-archive-copy summary {
+  color: #bdd1a2;
+  cursor: pointer;
+  margin: 20px 0 10px;
+}
+.chem-archive-reader > footer {
+  display: flex;
+  gap: 12px;
+  padding: 0 32px 24px;
+  flex-wrap: wrap;
+}
+.chem-archive-reader > footer button {
+  background: #bed19d;
+  color: #21372b;
+  border: 1px solid #bed19d;
+  padding: 12px 14px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.chem-archive-reader > footer button:first-child {
+  background: transparent;
+  color: #bed19d;
+}
+@media (max-width: 740px) {
+  .chem-history-modal .chem-archive-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .chem-archive-rail {
+    display: flex;
+    overflow-x: auto;
+    padding: 8px;
+    border-bottom: 1px solid #3b4d61;
+    border-right: 0;
+    gap: 6px;
+  }
+  .chem-archive-rail button {
+    min-width: 155px;
+    width: auto;
+    padding: 7px;
+    margin: 0;
+  }
+  .chem-archive-rail button > span {
+    width: 27px;
+  }
+  .chem-archive-rail button > span > svg {
+    width: 27px;
+    height: 30px;
+  }
+  .chem-archive-rail strong {
+    font-size: 10px;
+  }
+  .chem-archive-rail small {
+    font-size: 8px;
+  }
+  .chem-archive-art {
+    height: 155px;
+  }
+  .chem-archive-copy {
+    padding: 20px;
+    font-size: 11px;
+  }
+  .chem-archive-copy > h3 {
+    font-size: 22px;
+  }
+  .chem-archive-reader > footer {
+    padding: 0 20px 20px;
+  }
+}
