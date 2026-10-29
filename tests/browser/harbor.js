@@ -156,13 +156,14 @@ async(page)=>{
     }
     checks.push('small phone, phone, tablet and short landscape layouts; native upward touch gesture and resize during flight');
 
-    const missingContext=await context();await missingContext.route('**/assets/harbor-arrival-v1.png',route=>route.abort());
+    const harborArtwork=/\/assets\/harbor-arrival-v1\.png(?:\?.*)?$/;
+    const missingContext=await context();await missingContext.route(harborArtwork,route=>route.abort());
     const missing=await load(missingContext);assert(await missing.locator('#harbor-home').evaluate(el=>el.classList.contains('hf-image-error')),'missing-image fallback not applied');
     await departure(missing);await missing.locator('[data-flight=start]').click();await phase(missing,'flight');await missing.keyboard.press('Escape');await mapReady(missing);
     checks.push('failed harbor artwork still allows flight and usable map entry');
 
     const slowContext=await context();let release;const gate=new Promise(resolve=>release=resolve);
-    await slowContext.route('**/assets/harbor-arrival-v1.png',async route=>{await gate;await route.continue();});
+    await slowContext.route(harborArtwork,async route=>{await gate;await route.continue();});
     const slow=await load(slowContext,'/','domcontentloaded');await departure(slow);await slow.locator('[data-flight=start]').click();await phase(slow,'preparing');
     await slow.keyboard.press('Escape');await mapReady(slow);await replay(slow);release();
     await slow.waitForFunction(()=>document.querySelector('.hf-panorama').complete);await slow.waitForTimeout(200);
