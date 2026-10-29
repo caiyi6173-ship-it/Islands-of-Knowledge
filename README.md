@@ -2,7 +2,7 @@
 
 > 把问题寄出去，等一封回信。
 
-![知识群岛 · 三岛世界地图](docs/assets/screens/02-world.png)
+![知识群岛 · 港口序章](docs/assets/screens/01-harbor.png)
 
 ## 一个真实的问题
 
@@ -27,6 +27,8 @@
 > 「我照图做了，但这里不同。」
 
 这句话是整个产品的核心。**能被别人使用、能被追问、能再回来**，才算真的弄明白了。
+
+![三岛世界地图](docs/assets/screens/02-world.png)
 
 ---
 
